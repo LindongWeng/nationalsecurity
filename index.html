@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="丽水市委党校《总体国家安全观》专题讲座配套学习网站，涵盖三讲大纲、典型案例库、相关法规延伸阅读与知识图谱，服务基层干部学习培训。">
+  <meta name="theme-color" content="#7B1C1C">
+  <title>总体国家安全观 · 配套学习</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --c-d:      #4A0F0F;   
+      --c:        #7B1C1C;   
+      --c-l:      #9B2828;   
+      --gold:     #C8952A;   
+      --gold-l:   #E0B848;   
+      --parch:    #F7F0E5;   
+      --parch-d:  #EDE3CE;   
+      --white:    #FDFAF5;   
+      --ink:      #201408;   
+      --ink-s:    #6B5840;   
+      --ink-dim:  #A08B6E;   
+      --border:   #DDD0B8;   
+      --nav-h:    54px;
+
+      --serif:    'Noto Serif SC', 'Songti SC', 'STSong', serif;
+      --sans:     system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+
+    /* ── 全局 ── */
+    body {
+      background: var(--parch);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--c-d), var(--gold), var(--gold-l), var(--gold), var(--c-d));
+      z-index: 300;
+    }
+
+    /* ── 导航 ── */
+    #nav {
+      position: fixed;
+      top: 3px; left: 0; right: 0;
+      height: var(--nav-h);
+      background: var(--c);
+      display: flex;
+      align-items: center;
+      z-index: 200;
+      padding: 0 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      box-shadow: 0 3px 16px rgba(74,15,15,.45);
+    }
+    #nav::-webkit-scrollbar { display: none; }
+
+    .site-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gold-l);
+      white-space: nowrap;
+      letter-spacing: .12em;
+      flex-shrink: 0;
+      margin-right: 18px;
+    }
+
+    .nav-sep {
+      width: 1px;
+      height: 16px;
+      background: rgba(200,149,42,.35);
+      flex-shrink: 0;
+      margin-right: 6px;
+    }
+
+    #nav button, #nav a.nav-ext {
+      background: none;
+      border: none;
+      height: var(--nav-h);
+      padding: 0 11px;
+      font-family: var(--sans);
+      font-size: 14px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: color .18s;
+      color: rgba(253,250,245,.65);
+    }
+    #nav button::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 11px; right: 11px;
+      height: 2px;
+      background: var(--gold-l);
+      transform: scaleX(0);
+      transition: transform .2s;
+    }
+    #nav button:hover  { color: #fff; }
+    #nav button.active { color: var(--gold-l); }
+    #nav button.active::after { transform: scaleX(1); }
+    #nav a.nav-ext {
+      color: rgba(126,220,255,.75);
+      font-size: 13px;
+    }
+    #nav a.nav-ext:hover { color: #7EDCFF; }
+
+    /* ── 主体 ── */
+    main {
+      padding-top: calc(var(--nav-h) + 3px);
+      padding-bottom: 24px;
+    }
+
+    
+    .page { display: none; }
+    .page.active {
+      display: block;
+      animation: fadeUp .28s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── 首页 Hero ── */
+    .hero {
+      background: linear-gradient(155deg, var(--c-d) 0%, var(--c) 55%, var(--c-l) 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 52px 20px 60px;
+      text-align: center;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,.035) 28px, rgba(255,255,255,.035) 29px),
+        repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,.035) 28px, rgba(255,255,255,.035) 29px);
+      pointer-events: none;
+    }
+    
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, var(--parch));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 580px; margin: 0 auto;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: .15em;
+      color: rgba(224,184,72,.85);
+      border: 1px solid rgba(200,149,42,.4);
+      padding: 3px 14px;
+      margin-bottom: 22px;
+      font-family: var(--sans);
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(26px, 7.5vw, 44px);
+      font-weight: 700;
+      color: #FDF6E0;
+      letter-spacing: .14em;
+      line-height: 1.25;
+    }
+
+    .hero-rule {
+      width: 48px; height: 1px;
+      background: var(--gold);
+      margin: 20px auto;
+      opacity: .7;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: rgba(253,250,245,.55);
+      letter-spacing: .07em;
+      margin-bottom: 18px;
+    }
+
+    .hero-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(13px, 3.5vw, 16px);
+      color: var(--gold-l);
+      letter-spacing: .06em;
+      line-height: 1.6;
+      opacity: .92;
+    }
+    .hero-quote::before { content: '\201C'; margin-right: 2px; }
+    .hero-quote::after  { content: '\201D'; margin-left: 2px; }
+
+    /* ── 子页标题栏 ── */
+    .page-banner {
+      background: linear-gradient(140deg, var(--c-d), var(--c));
+      padding: 38px 20px 42px;
+      position: relative; overflow: hidden;
+    }
+    .page-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,.03) 28px, rgba(255,255,255,.03) 29px),
+        repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(255,255,255,.03) 28px, rgba(255,255,255,.03) 29px);
+    }
+    .page-banner::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 36px;
+      background: linear-gradient(to bottom, transparent, var(--parch));
+      pointer-events: none;
+    }
+    .page-banner-inner {
+      position: relative; z-index: 1;
+      max-width: 720px; margin: 0 auto;
+      padding: 0 4px;
+    }
+    .page-banner h2 {
+      font-family: var(--serif);
+      font-size: clamp(20px, 5.5vw, 30px);
+      font-weight: 600;
+      color: #FDF6E0;
+      letter-spacing: .1em;
+    }
+    .page-banner .banner-en {
+      font-size: 11px;
+      color: rgba(224,184,72,.5);
+      letter-spacing: .18em;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    /* ── 首页导航卡片网格 ── */
+    .home-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 4px 0 28px;
+    }
+
+    .home-card {
+      background: var(--white);
+      border: 1px solid rgba(200,149,42,.3);
+      border-radius: 4px;
+      padding: 22px 14px 18px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s, transform .18s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .home-card:hover {
+      border-color: var(--gold-l);
+      box-shadow: 0 6px 20px rgba(200,149,42,.16);
+      transform: translateY(-2px);
+    }
+    .home-card:active { transform: translateY(0); }
+
+    .home-card-icon {
+      font-size: 26px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .home-card-title {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+      letter-spacing: .04em;
+    }
+    .home-card-desc {
+      font-size: 12px;
+      color: var(--ink-dim);
+      line-height: 1.55;
+    }
+    .home-card-ext-badge {
+      font-size: 10px;
+      color: rgba(126,220,255,.7);
+      margin-top: 6px;
+      letter-spacing: .06em;
+    }
+
+    
+    .home-note {
+      border-top: 1px solid var(--parch-d);
+      padding-top: 20px;
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--ink-dim);
+      line-height: 1.8;
+      text-align: center;
+    }
+    .home-credit {
+      margin-top: 8px;
+      font-size: 11px;
+      color: rgba(160,139,110,.78);
+      text-align: center;
+      letter-spacing: .04em;
+    }
+
+    @media (min-width: 480px) {
+      .home-grid { gap: 16px; }
+      .home-card { padding: 26px 18px 22px; }
+      .home-card-title { font-size: 16px; }
+      .home-card-desc  { font-size: 13px; }
+    }
+
+    /* ── 内容容器 ── */
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    /* ── 卡片 ── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--c);
+      border-radius: 3px;
+      padding: 24px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    }
+    .card-title {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--c);
+      margin-bottom: 8px;
+    }
+    .card-body {
+      color: var(--ink-dim);
+      font-size: 13px;
+    }
+
+    /* ── 案例库 ── */
+    .case-group {
+      margin-bottom: 32px;
+    }
+    .case-group-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gclr, var(--c));
+      border-left: 3px solid var(--gclr, var(--c));
+      padding: 3px 0 3px 10px;
+      margin-bottom: 14px;
+      letter-spacing: .06em;
+    }
+    .case-group-icon {
+      font-size: 15px;
+    }
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 600px) {
+      .case-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .case-card {
+      display: flex;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .case-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.13);
+    }
+    .case-thumb {
+      flex-shrink: 0;
+      width: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.92);
+      font-family: var(--serif);
+    }
+    .case-thumb-num {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .case-thumb-sub {
+      font-size: 12px;
+      opacity: .85;
+      margin-top: 2px;
+    }
+    .case-thumb-icon {
+      font-size: 28px;
+    }
+    .case-info {
+      flex: 1;
+      padding: 12px 13px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+    .case-src {
+      font-size: 11px;
+      color: var(--ink-dim);
+      letter-spacing: .04em;
+    }
+    .case-title {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .case-desc {
+      font-size: 12px;
+      color: var(--ink-s);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .case-link {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: .05em;
+      margin-top: 2px;
+    }
+
+    /* ── 延伸资料 ── */
+    .resource-intro {
+      background: rgba(200,149,42,.07);
+      border: 1px solid rgba(200,149,42,.22);
+      border-left: 3px solid var(--gold);
+      border-radius: 3px;
+      padding: 13px 15px;
+      margin-bottom: 18px;
+      color: var(--ink-s);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    .resource-group {
+      margin-bottom: 30px;
+    }
+    .resource-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 600px) {
+      .resource-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .resource-card {
+      display: flex;
+      min-height: 152px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .resource-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(200,149,42,.58);
+      box-shadow: 0 6px 20px rgba(0,0,0,.13);
+    }
+    .resource-mark {
+      width: 64px;
+      flex-shrink: 0;
+      background: linear-gradient(155deg, var(--c-d), var(--c));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-l);
+      font-family: var(--serif);
+      border-right: 1px solid rgba(200,149,42,.25);
+    }
+    .resource-mark strong {
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 700;
+    }
+    .resource-mark span {
+      font-size: 10px;
+      color: rgba(253,250,245,.65);
+      margin-top: 5px;
+      letter-spacing: .08em;
+    }
+    .resource-info {
+      flex: 1;
+      min-width: 0;
+      padding: 13px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .resource-title {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.48;
+    }
+    .resource-desc {
+      font-size: 12px;
+      color: var(--ink-s);
+      line-height: 1.6;
+    }
+    .resource-source {
+      margin-top: auto;
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+    .resource-note {
+      cursor: default;
+    }
+    .resource-note:hover {
+      transform: none;
+      border-color: var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+
+    /* ── 三讲大纲专用样式 ── */
+    .outline-opening {
+      border-left: 3px solid var(--gold);
+      background: rgba(200,149,42,.06);
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      border-radius: 0 3px 3px 0;
+    }
+    .outline-opening-title {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-s);
+      margin-bottom: 7px;
+      letter-spacing: .04em;
+    }
+    .outline-opening-items {
+      font-size: 12px;
+      color: var(--ink-dim);
+      line-height: 1.95;
+    }
+
+    .outline-lec {
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .outline-lec-head {
+      background: linear-gradient(135deg, var(--c-d), var(--c));
+      padding: 14px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .outline-lec-num {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold-l);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 26px;
+    }
+    .outline-lec-info { flex: 1; }
+    .outline-lec-title {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 600;
+      color: #FDF6E0;
+      line-height: 1.45;
+      margin-bottom: 4px;
+    }
+    .outline-lec-meta {
+      font-size: 11px;
+      color: rgba(224,184,72,.6);
+      letter-spacing: .05em;
+    }
+
+    .outline-framework {
+      margin: 12px 18px 4px;
+      background: rgba(200,149,42,.07);
+      border: 1px solid rgba(200,149,42,.22);
+      border-radius: 3px;
+      padding: 10px 14px;
+    }
+    .outline-framework-title {
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: .1em;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .outline-framework-row {
+      font-size: 12px;
+      color: var(--ink-s);
+      line-height: 1.9;
+    }
+    .outline-framework-row b { color: var(--c); font-weight: 600; }
+
+    .outline-sec {
+      padding: 11px 18px;
+      border-top: 1px solid var(--parch-d);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .outline-sec-num {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c);
+      flex-shrink: 0;
+      min-width: 18px;
+      padding-top: 1px;
+    }
+    .outline-sec-content { flex: 1; }
+    .outline-sec-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+    .outline-sec-desc {
+      font-size: 12px;
+      color: var(--ink-dim);
+      line-height: 1.7;
+    }
+    .outline-sec-time {
+      font-size: 11px;
+      color: rgba(200,149,42,.75);
+      flex-shrink: 0;
+      padding-top: 2px;
+      white-space: nowrap;
+    }
+
+    
+    .kw {
+      display: inline-block;
+      font-size: 11px;
+      background: rgba(123,28,28,.07);
+      color: var(--c);
+      border: 1px solid rgba(123,28,28,.14);
+      border-radius: 2px;
+      padding: 1px 6px;
+      margin: 2px 3px 0 0;
+      line-height: 1.6;
+    }
+
+    /* ── 手风琴 ── */
+    .outline-sec { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .outline-sec:hover .outline-sec-title { color: var(--c-l); }
+
+    .sec-chevron {
+      font-size: 13px;
+      color: var(--ink-dim);
+      flex-shrink: 0;
+      padding-top: 2px;
+      line-height: 1;
+      transition: transform .2s;
+    }
+    .outline-sec.open .sec-chevron { transform: rotate(90deg); }
+
+    .outline-sec-body {
+      display: none;
+      padding: 10px 18px 14px 46px;
+      border-top: 1px dashed rgba(200,149,42,.2);
+      background: rgba(247,240,229,.55);
+    }
+    .outline-sec-body.open {
+      display: block;
+      animation: detailIn .22s ease;
+    }
+    @keyframes detailIn {
+      from { opacity: 0; transform: translateY(-3px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    
+    .d-t {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--c);
+      margin: 10px 0 3px;
+      letter-spacing: .04em;
+    }
+    .d-t:first-child { margin-top: 0; }
+    .d-ul {
+      margin: 0 0 4px;
+      padding-left: 14px;
+      font-size: 13px;
+      color: var(--ink-s);
+      line-height: 1.85;
+    }
+    .d-ul li { margin-bottom: 1px; }
+    .d-q {
+      border-left: 3px solid var(--gold);
+      padding: 5px 10px;
+      margin: 8px 0;
+      font-family: var(--serif);
+      font-size: 13px;
+      color: var(--ink-s);
+      line-height: 1.7;
+      background: rgba(200,149,42,.06);
+    }
+    .d-data {
+      font-size: 12px;
+      color: var(--ink-dim);
+      line-height: 1.95;
+      margin: 4px 0;
+    }
+    .d-data b { color: var(--ink-s); }
+    .d-note {
+      font-size: 11px;
+      color: var(--ink-dim);
+      border-top: 1px solid var(--parch-d);
+      margin-top: 10px;
+      padding-top: 8px;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+
+    /* ── 课件 iframe 页 ── */
+    #page-slides {
+      height: calc(100dvh - var(--nav-h) - 3px);
+      display: none;
+    }
+    #page-slides.active {
+      display: block;
+      animation: none;
+    }
+    #page-slides iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── 知识图谱 iframe 页 ── */
+    #page-graph {
+      height: calc(100dvh - var(--nav-h) - 3px);
+      display: none;
+    }
+    #page-graph.active {
+      display: block;
+      animation: none;
+    }
+    #page-graph iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ══════════════════════════════
+       响应式 · 手机优先
+       ══════════════════════════════ */
+
+    /* ── 手机 < 480px：极窄屏微调 ── */
+    @media (max-width: 479px) {
+      /* 导航：站名缩短，按钮紧凑 */
+      .site-name { font-size: 13px; margin-right: 10px; letter-spacing: .06em; }
+      #nav button { padding: 0 9px; font-size: 13px; }
+      #nav button::after { left: 9px; right: 9px; }
+
+      /* 首页卡片：手机上适当加高，更好点按 */
+      .home-card { min-height: 100px; padding: 18px 10px 14px; }
+      .home-card-icon { font-size: 24px; margin-bottom: 8px; }
+      .home-card-title { font-size: 14px; }
+      .home-card-desc { font-size: 11px; }
+
+      /* 案例缩略图：手机稍窄 */
+      .case-thumb { width: 76px; }
+      .case-thumb-num { font-size: 22px; }
+      .case-thumb-icon { font-size: 24px; }
+      .case-title { font-size: 13px; }
+
+      
+      .outline-sec-body { padding-left: 28px; }
+      .d-ul { font-size: 12px; }
+
+      
+      .hero { padding: 38px 16px 48px; }
+    }
+
+    /* ── 手机通用 (< 600px)：tap 目标与可读性 ── */
+    @media (max-width: 599px) {
+      
+      .outline-sec { min-height: 48px; padding: 12px 14px; }
+      .outline-sec-num { font-size: 13px; }
+      .outline-sec-title { font-size: 14px; }
+
+      
+      .case-desc { font-size: 13px; -webkit-line-clamp: 3; }
+      .case-info { padding: 10px 11px 10px 10px; }
+
+      
+      .resource-mark { width: 56px; }
+      .resource-mark strong { font-size: 19px; }
+      .resource-title { font-size: 13px; }
+      .resource-desc { font-size: 12px; }
+
+      
+      .content { padding: 20px 14px 40px; }
+
+      
+      .page-banner { padding: 28px 16px 34px; }
+    }
+
+    /* ── 平板 600px+：宽松布局 ── */
+    @media (min-width: 600px) {
+      #nav { padding: 0 24px; }
+      #nav button, #nav a.nav-ext { font-size: 15px; padding: 0 13px; }
+
+      .hero { padding: 64px 32px 70px; }
+      .page-banner { padding: 44px 32px 48px; }
+      .content { padding: 28px 24px 56px; }
+
+      .case-grid { grid-template-columns: 1fr 1fr; }
+      .resource-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ── 大平板 768px+：更宽松、更大字号 ── */
+    @media (min-width: 768px) {
+      body { font-size: 16px; }
+      #nav { padding: 0 32px; }
+      #nav button, #nav a.nav-ext { font-size: 15px; padding: 0 16px; }
+
+      .hero { padding: 72px 40px 80px; }
+      .page-banner { padding: 52px 40px 56px; }
+      .content { padding: 36px 32px 64px; max-width: 800px; }
+
+      .home-card { padding: 28px 20px 24px; }
+      .home-card-title { font-size: 17px; }
+      .home-card-desc { font-size: 13px; }
+
+      .case-thumb { width: 100px; }
+      .case-thumb-num { font-size: 30px; }
+      .case-thumb-icon { font-size: 32px; }
+      .case-title { font-size: 15px; }
+      .case-desc { font-size: 13px; }
+
+      .outline-lec-title { font-size: 16px; }
+      .outline-sec-title { font-size: 15px; }
+      .outline-sec-body { padding: 12px 22px 16px 52px; }
+      .d-ul { font-size: 14px; }
+      .d-q { font-size: 14px; }
+    }
+
+    /* ── 宽屏 900px+：案例三列 ── */
+    @media (min-width: 900px) {
+      .case-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .content { max-width: 960px; }
+    }
+
+    /* ── 超宽 1200px+ ── */
+    @media (min-width: 1200px) {
+      .content { max-width: 1100px; }
+      .case-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ── 触摸设备：去掉 hover 残留，加强 active 反馈 ── */
+    @media (hover: none) {
+      .case-card:hover,
+      .home-card:hover,
+      .resource-card:hover {
+        transform: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,.06);
+        border-color: var(--border);
+      }
+      .case-card:active  { background: var(--parch-d); }
+      .home-card:active  { background: var(--parch-d); }
+      .outline-sec:active { background: rgba(200,149,42,.07); }
+    }
+
+    /* ── 横屏手机：减少上下留白 ── */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero { padding: 28px 20px 36px; }
+      .page-banner { padding: 20px 20px 26px; }
+      .hero h1 { font-size: clamp(20px, 5vw, 32px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── 导航 ── -->
+  <nav id="nav">
+    <span class="site-name">国家安全观</span>
+    <div class="nav-sep"></div>
+    <button class="active" data-page="home">首页</button>
+    <button data-page="outline">三讲大纲</button>
+    <button data-page="cases">案例库</button>
+    <button data-page="slides">课件</button>
+    <button data-page="videos">延伸资料</button>
+    <button data-page="graph">知识图谱</button>
+  </nav>
+
+  <!-- ── 主体 ── -->
+  <main>
+
+    <!-- 首页 -->
+    <section id="page-home" class="page active">
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-tag">丽水市委党校专题培训</div>
+          <h1>总体国家安全观</h1>
+          <div class="hero-rule"></div>
+          <p class="hero-sub">丽水市委党校专题讲座 · 配套学习</p>
+          <p class="hero-quote">国家安全无远近，民族复兴无旁人</p>
+        </div>
+      </div>
+
+      <!-- 导航卡片 -->
+      <div class="content">
+        <div class="home-grid">
+
+          <!-- 三讲大纲 -->
+          <div class="home-card" role="button" tabindex="0" data-goto="outline">
+            <div class="home-card-icon">📚</div>
+            <div class="home-card-title">三讲大纲</div>
+            <div class="home-card-desc">系统梳理三个维度的讲座核心要点</div>
+          </div>
+
+          <!-- 案例库 -->
+          <div class="home-card" role="button" tabindex="0" data-goto="cases">
+            <div class="home-card-icon">💡</div>
+            <div class="home-card-title">案例库</div>
+            <div class="home-card-desc">精选典型案例，以案释理、以事明义</div>
+          </div>
+
+          <!-- 延伸资料 -->
+          <div class="home-card" role="button" tabindex="0" data-goto="videos">
+            <div class="home-card-icon">📎</div>
+            <div class="home-card-title">延伸资料</div>
+            <div class="home-card-desc">课程引用资料与权威来源索引</div>
+          </div>
+
+          <!-- 知识图谱（内部页） -->
+          <div class="home-card" role="button" tabindex="0" data-goto="graph">
+            <div class="home-card-icon">🔗</div>
+            <div class="home-card-title">知识图谱</div>
+            <div class="home-card-desc">可视化概念关联网络，深度延伸阅读</div>
+          </div>
+
+        </div>
+
+        <!-- 底部说明 -->
+        <p class="home-note">
+          本网站是 2026 年《总体国家安全观》讲座的配套学习材料，<br>
+          所有内容均来自官方公开渠道。
+        </p>
+        <p class="home-credit">by Lindong · 搓出来的课程站</p>
+      </div>
+
+    </section>
+
+    <!-- 三讲大纲 -->
+    <section id="page-outline" class="page">
+      <div class="page-banner">
+        <div class="page-banner-inner">
+          <h2>三讲大纲</h2>
+          <div class="banner-en">Lecture Outline</div>
+        </div>
+      </div>
+      <div class="content">
+
+        <!-- 开场 -->
+        <div class="outline-opening">
+          <div class="outline-opening-title">开场</div>
+          <div class="outline-opening-items">
+            · 故事一：网约车司机——守住了一处军事设施<br>
+            · 故事二：演员出境——把中国外交拉到了前台<br>
+            · 故事三：AI 换脸诈骗——10 分钟，430 万<br>
+            · 时代命题："三个比历史上任何时候都要……"<br>
+            · 今天的三讲布局
+          </div>
+        </div>
+
+        <!-- ════ 第一讲 ════ -->
+        <div class="outline-lec">
+          <div class="outline-lec-head">
+            <div class="outline-lec-num">一</div>
+            <div class="outline-lec-info">
+              <div class="outline-lec-title">把握总体国家安全观的内涵和特色</div>
+            </div>
+          </div>
+          <div class="outline-lec-body">
+
+            <!-- 1-1 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">1</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">国家安全是什么？——从概念到定义</div>
+                <div class="outline-sec-desc">
+                  <span class="kw">Safety vs Security</span>
+                  <span class="kw">《国家安全法》第二条</span>
+                  <span class="kw">五大核心利益</span>
+                  <span class="kw">安全＝状态＋能力</span>
+                </div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">概念辨析</p>
+              <ul class="d-ul">
+                <li><b>Safety</b>：主观感受，无害怕感</li>
+                <li><b>Security</b>：客观无威胁＋保障持续安全的能力</li>
+              </ul>
+              <p class="d-t">法律定义</p>
+              <div class="d-q">《国家安全法》第二条（2015.7.1）：国家政权、主权、统一和领土完整、人民福祉、经济社会可持续发展……相对处于没有危险和不受内外威胁的状态，以及保障持续安全状态的<b>能力</b>。</div>
+              <p class="d-t">五大核心利益（一条都不能退）</p>
+              <div class="d-data">国家政权 · 主权 · 统一领土 · 人民福祉 · 经济发展</div>
+              <p class="d-t">历史节点</p>
+              <ul class="d-ul">
+                <li>2014年4月15日，习近平总书记首次系统提出"总体国家安全观"</li>
+                <li>"三个比历史上任何时候都要"：内涵更丰富、领域更宽广、因素更复杂</li>
+                <li>4月15日定为"全民国家安全教育日"</li>
+              </ul>
+              <p class="d-note">核心启示：安全是动态的能力，不是静态的结果——居安思危、底线思维。</p>
+            </div>
+
+            <!-- 1-2 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">2</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">"总体"的含义——五大要素与五个统筹</div>
+                <div class="outline-sec-desc">
+                  <span class="kw">人民·宗旨</span><span class="kw">政治·根本</span><span class="kw">经济·基础</span><span class="kw">军文社·保障</span><span class="kw">国际·依托</span>
+                </div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">五大要素（口诀）</p>
+              <div class="d-q">人民为宗旨，政治为根本，经济打基础，军文社保障，国际做依托</div>
+              <p class="d-t">核心数据</p>
+              <div class="d-data">
+                <b>粮食</b>：2024年总产量1.4万亿斤，人均超1000斤（国际安全线800斤）<br>
+                <b>能源</b>：自给率80%+，可再生能源发电装机占比超60%<br>
+                <b>安全感</b>：2025年民众安全感指数连续4年保持98%以上
+              </div>
+              <p class="d-t">代表案例</p>
+              <ul class="d-ul">
+                <li>人民安全：连家船民上岸工程（1997年，习近平在闽主导）</li>
+                <li>共同安全：2023年中国斡旋沙伊北京和解</li>
+                <li>塑造安全：2013年划设东海防空识别区</li>
+              </ul>
+              <p class="d-t">五个统筹（2022年二十大升级）</p>
+              <div class="d-data">统筹发展和安全 · 开放和安全 · 传统与非传统 · 自身与共同 · 维护与塑造</div>
+              <p class="d-t">最新提法（二十届四中全会）</p>
+              <div class="d-q">"在发展中固安全，在安全中谋发展"</div>
+            </div>
+
+            <!-- 1-3 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">3</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">三大属性：人民性、政治性、统筹性</div>
+                <div class="outline-sec-desc">
+                  <span class="kw">民心是最大的政治</span>
+                  <span class="kw">苏联解体之鉴</span>
+                  <span class="kw">发展与安全动态平衡</span>
+                </div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">人民属性：民心是最大的政治</p>
+              <ul class="d-ul">
+                <li>台风"桑美"（2006年）百万人大转移——"不死人，少伤人"</li>
+                <li>"三个不怕"：不怕劳民伤财、不怕兴师动众、不怕十防九空</li>
+                <li>把防灾坐标从"保堤坝"转向"保人命"</li>
+              </ul>
+              <p class="d-t">政治属性：政治安全是根本</p>
+              <ul class="d-ul">
+                <li>政治安全＝政权安全＋制度安全＋意识形态安全</li>
+                <li>苏联之鉴：硬实力尚存，意志先崩——政治安全一旦失守，国将不国</li>
+                <li>2014年成立中央国家安全委员会，集中统一领导</li>
+              </ul>
+              <p class="d-t">统筹属性：发展与安全动态平衡</p>
+              <ul class="d-ul">
+                <li>正面镜子："千万工程"——荣获联合国地球卫士奖</li>
+                <li>反面镜子：2015年天津港"8·12"事故——165人遇难，68.66亿损失</li>
+              </ul>
+              <p class="d-note">"没有高水平安全的发展，不是真发展，是雷区里的狂奔。"</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ════ 第二讲 ════ -->
+        <div class="outline-lec">
+          <div class="outline-lec-head">
+            <div class="outline-lec-num">二</div>
+            <div class="outline-lec-info">
+              <div class="outline-lec-title">推进国家安全体系和能力现代化</div>
+            </div>
+          </div>
+          <div class="outline-lec-body">
+            <div class="outline-framework">
+              <div class="outline-framework-title">总框架 · 3＋5＋2</div>
+              <div class="outline-framework-row">
+                <b>3 定盘星</b>：轴（党的领导）· 轨（中国特色道路）· 标（人民安全为检验标准）<br>
+                <b>5 个坚持</b>：大安全观 · 系统思维 · 主动塑造 · 总体战 · 法治化保障<br>
+                <b>2 硬要求</b>：一岗双责 · 全民参与
+              </div>
+            </div>
+
+            <!-- 2-1 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">1</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">坚持大安全观</div>
+                <div class="outline-sec-desc">从制陆到制网、制天、制生物——安全边界全面拓展</div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">安全边界扩展</p>
+              <div class="d-data">
+                过去：960万km²陆地＋300万km²海洋<br>
+                <b>新边疆</b>：网络 · 数据 · 生物 · 深海 · 极地<br>
+                <b>高边疆</b>：近地轨道 · 月球（"先登先得"）
+              </div>
+              <p class="d-t">21个重点安全领域</p>
+              <div class="d-data">政治/国土/军事/经济/金融/文化/社会/科技/网络/粮食/生态/资源/核/海外利益/太空/深海/极地/生物/AI/数据/海洋</div>
+              <p class="d-t">基层版——五条线</p>
+              <ul class="d-ul">
+                <li><b>网</b>：政务平台安全、工作群防渗透</li>
+                <li><b>生</b>：河湖长制、生态督察"最后一公里"</li>
+                <li><b>食</b>：农贸市场、养老院/校园食堂</li>
+                <li><b>应</b>：防汛防台、地质灾害、消防</li>
+                <li><b>诈</b>：2024年破获电诈50万起，止付挽损3500亿</li>
+              </ul>
+            </div>
+
+            <!-- 2-2 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">2</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">坚持系统思维</div>
+                <div class="outline-sec-desc">风险综合体 · 四大连锁效应——把握风险联动规律</div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">四大效应</p>
+              <ul class="d-ul">
+                <li><b>合流叠加</b>：同一矛盾通过多渠道同时放大</li>
+                <li><b>联动放大</b>：一根线扯出一大片（土地→信访→舆情）</li>
+                <li><b>诱导效应</b>：小事诱发大风险</li>
+                <li><b>倒灌效应</b>：小风险不管，滚雪球变重大事故</li>
+              </ul>
+              <p class="d-t">海恩法则</p>
+              <div class="d-q">1起重大事故 ← 29次轻微事故 ← 300起未遂先兆 ← 1000个隐患<br>基层的战场，在这1000个隐患上。</div>
+              <p class="d-t">血泪教训：齐齐哈尔体育馆坍塌（2023.7.23）</p>
+              <ul class="d-ul">
+                <li>五环隐患链：建成→加层→屋顶堆珍珠岩→暴雨→坍塌</li>
+                <li>11人遇难（10名女排队员），51名责任人被追责</li>
+              </ul>
+              <p class="d-note">三字诀：早发现 · 小处着手 · 实在处置</p>
+            </div>
+
+            <!-- 2-3 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">3</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">坚持主动塑造</div>
+                <div class="outline-sec-desc">韧性中国 · 全球安全倡议——从被动防御到前瞻布局</div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">核心概念：韧性</p>
+              <div class="d-data"><b>韧性</b>＝复原力（出事能恢复）＋成长力（恢复后更强）</div>
+              <p class="d-t">反面：福岛核事故（2011.3.11）三大韧性短板</p>
+              <ul class="d-ul">
+                <li>设计低估极端情况（防海啸堤5.7m，海啸近40m）</li>
+                <li>备份系统未真正独立（柴油机被海啸淹没）</li>
+                <li>应急信息不透明（迟滞数日）</li>
+              </ul>
+              <p class="d-t">正面：两个样本</p>
+              <ul class="d-ul">
+                <li>瑞士：掩体覆盖100%人口，家庭必备两周应急储备</li>
+                <li>新加坡：六维防卫（军事/民事/经济/社会/心理/数字）</li>
+              </ul>
+              <p class="d-t">中国答卷（2024）</p>
+              <div class="d-data">重特大事故9起，<b>首次降至个位数</b>；自然灾害受灾人次下降20.4%</div>
+              <p class="d-note">基层三件事：建活预案 · 建隐患台账 · 建演练机制</p>
+            </div>
+
+            <!-- 2-4 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">4</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">坚持总体战、高效联动</div>
+                <div class="outline-sec-desc">党政军民学 · 一盘棋一条龙——全面凝聚安全合力</div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">"十五五"规划十六字方针</p>
+              <div class="d-q">以战略为先导、政策为抓手、法治为保障、风险防控为落脚点</div>
+              <p class="d-t">机构改革脉络</p>
+              <div class="d-data">
+                2014 → 成立中央国家安全委员会<br>
+                2023 → 二十届国安委第一次会议：以新安全格局保障新发展格局<br>
+                2025 → 《新时代的中国国家安全》白皮书（新中国首本综合性国安白皮书）
+              </div>
+              <p class="d-t">历史样本：三峡工程四层</p>
+              <ul class="d-ul">
+                <li>决策一贯：17年一张蓝图，跨越多届领导班子不动摇</li>
+                <li>体制贯穿：中央统一领导→分省负责→县为基础</li>
+                <li>全国支援：26部委＋23省区市，110万人移民安置</li>
+                <li>综合效益：防洪/发电/航运/供水，战略资源库</li>
+              </ul>
+              <p class="d-t">当代实战：2025年对美反制工具箱</p>
+              <div class="d-data">关税反制 · 稀土出口管制 · 不可靠实体清单 · 出口管制名单 · 港务费 · 反倾销调查 · IC歧视调查 · 阻断域外管辖</div>
+              <p class="d-note">基层联动：三张嘴（政法/宣传/基层）· 三只手（党委/政府/群众）</p>
+            </div>
+
+            <!-- 2-5 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">5</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">坚持法治化保障</div>
+                <div class="outline-sec-desc">权力边界划清 · 工具箱完备——一切安全工作在法治轨道上运行</div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">法治五板块</p>
+              <div class="d-data">领导体制 → 立法制度 → 执法司法 → 监督体系 → 保障体系</div>
+              <p class="d-t">主要法律工具箱</p>
+              <div class="d-data">
+                2015 《国家安全法》管总法<br>
+                2017 《国家情报法》《网络安全法》<br>
+                2020 《生物安全法》《出口管制法》<br>
+                2021 《反外国制裁法》《数据安全法》<br>
+                2022 《反电信网络诈骗法》（基层最常用）<br>
+                2023 新修订《反间谍法》
+              </div>
+              <p class="d-t">全球对比</p>
+              <ul class="d-ul">
+                <li>美国《国防生产法》（1950年）：总统可强制企业转产</li>
+                <li>日本2022年《经济安全保障推进法》：供应链/基础设施/关键技术</li>
+              </ul>
+              <p class="d-note">基层边界：发现上报、配合调查，不直接执法国安案件。</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ════ 第三讲 ════ -->
+        <div class="outline-lec">
+          <div class="outline-lec-head">
+            <div class="outline-lec-num">三</div>
+            <div class="outline-lec-info">
+              <div class="outline-lec-title">建设高水平安全的重点领域——从战略视野到行动</div>
+            </div>
+          </div>
+          <div class="outline-lec-body">
+
+            <!-- 3-1 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">1</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">方法论引领：统筹协调与抓主要矛盾</div>
+                <div class="outline-sec-desc">
+                  <span class="kw">毛泽东·弹钢琴</span>
+                  <span class="kw">邓小平·扭住不放</span>
+                  <span class="kw">习近平·牵牛鼻子</span>
+                </div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">三位领袖，一条红线</p>
+              <ul class="d-ul">
+                <li><b>毛泽东·弹钢琴</b>：十指齐动，要有节奏、互相配合——统筹协调</li>
+                <li><b>邓小平·扭住不放</b>："扭着不放，顽固一点，毫不动摇"——抓主要矛盾</li>
+                <li><b>习近平·牵牛鼻子</b>："不能眉毛胡子一把抓"——抓关键少数</li>
+              </ul>
+              <p class="d-note">对基层的追问：治理千头万绪，当前那根牛鼻子在哪里？</p>
+            </div>
+
+            <!-- 3-2 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">2</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">历史镜鉴：以史为鉴，知安危兴替</div>
+                <div class="outline-sec-desc">汉之黩武 · 宋之积弱 · 明清之闭关——三段教训，一条红线</div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">三段教训</p>
+              <ul class="d-ul">
+                <li><b>汉·黩武扩张</b>：武帝在位54年打仗50年，"户口减半"，晚年颁《轮台诏》痛悔</li>
+                <li><b>宋·重文轻武</b>：积弱百年，靖康之耻，徽钦二宗被金兵掳走</li>
+                <li><b>明清·闭关锁国</b>：错失工业革命与民族国家崛起，近代百年屈辱的历史根源</li>
+              </ul>
+              <p class="d-note">历史的轮子不等人——安危兴替有规律，今天的每一分努力，都是在为明天储蓄安全。</p>
+            </div>
+
+            <!-- 3-3 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">3</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">外部视野：大国博弈与战略主动</div>
+                <div class="outline-sec-desc">百年变局 · 中美博弈 · 战略主动——不做受害者，做塑造者</div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">两个历史节点对比</p>
+              <ul class="d-ul">
+                <li><b>1999.5.8</b>：驻南联盟大使馆被炸，3名记者遇难——中国只能抗议</li>
+                <li><b>2022.8.2</b>：佩洛西窜台（建军95周年次日），解放军首次跨越"海峡中线"，形同锁岛</li>
+              </ul>
+              <div class="d-q">"弱国无外交，实力才是话语权"——23年间，中美力量对比发生结构性变化</div>
+              <p class="d-t">综合国力公式</p>
+              <div class="d-data">（资源力＋经济力＋军事力）× （战略意图＋战略意志）<br>意志归零，则实力归零。</div>
+              <p class="d-t">中国担当：立德·立功·立言</p>
+              <ul class="d-ul">
+                <li><b>立德</b>：2023年沙伊北京和解斡旋</li>
+                <li><b>立功</b>：利比亚（3.5万）、也门（613人）、缅北解救</li>
+                <li><b>立言</b>：全球安全/发展/文明三大倡议</li>
+              </ul>
+              <p class="d-note">基层四个反射点：涉外信息管控 · 出境宣教（防缅北）· 境外渗透防范 · 涉外舆情引导</p>
+            </div>
+
+            <!-- 3-4 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">4</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">时代视野：统筹数字时代的发展与安全</div>
+                <div class="outline-sec-desc">数字国力 · AI 治理 · 认知战——数字化带来的新型安全挑战</div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">数字国力三要素</p>
+              <ul class="d-ul">
+                <li><b>人才</b>：STEM毕业生超500万/年，是美国5倍以上</li>
+                <li><b>数据</b>：《数据跨境流动规定》（2024）；AI生成内容标识（2025.9.1）</li>
+                <li><b>算力</b>：2024年总规模246 EFLOPS，世界第二；东数西算八大枢纽</li>
+              </ul>
+              <p class="d-t">认知战新威胁</p>
+              <ul class="d-ul">
+                <li>AI换脸：泽连斯基"投降视频"——数小时触达数亿人，动摇军心</li>
+                <li>深度伪造已从娱乐工具演变为威胁政权稳定的战略手段</li>
+              </ul>
+              <p class="d-note">基层数字治理：打造新阵地 · 建舆情闭环 · 培育三支新力量 · 防范四大数字渗透</p>
+            </div>
+
+            <!-- 3-5 -->
+            <div class="outline-sec">
+              <div class="outline-sec-num">5</div>
+              <div class="outline-sec-content">
+                <div class="outline-sec-title">行动视野：三个必做动作</div>
+                <div class="outline-sec-desc">
+                  <span class="kw">排 · 隐患排查</span>
+                  <span class="kw">化 · 矛盾化解</span>
+                  <span class="kw">宣 · 安全宣教</span>
+                </div>
+              </div>
+              <span class="sec-chevron">›</span>
+            </div>
+            <div class="outline-sec-body">
+              <p class="d-t">排：风险排查</p>
+              <ul class="d-ul">
+                <li>五大领域建清单（政治/经济社会/网络/生态食药/应急）</li>
+                <li>三色预警：红（挂牌督办）· 黄（限期整改）· 绿（定期巡查）</li>
+                <li>四环节闭环：台账→整改→复查→销号</li>
+              </ul>
+              <p class="d-t">化：新时代枫桥经验</p>
+              <ul class="d-ul">
+                <li>1963年毛主席批示"矛盾不上交，就地解决"</li>
+                <li>新时代内涵："党建引领、人民主体、三治融合、共建共享"</li>
+                <li>数据：2024年每十万人命案0.44起，全球最低之一</li>
+                <li>落地五条：综治中心/网格化/四下基层/小哥驿站/一村一辅警</li>
+              </ul>
+              <p class="d-t">宣：精准宣传</p>
+              <ul class="d-ul">
+                <li>关键节点：4月15日全民国家安全教育日（2026年第11个）</li>
+                <li>六类群体：残疾人/留守老人/留守儿童/退伍军人/毕业生/司机和小哥</li>
+                <li>最好教材：2025年《新时代的中国国家安全》白皮书</li>
+              </ul>
+              <p class="d-note">排是发现，化是处置，宣是预防——三位一体，循环往复。</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 收尾 -->
+        <div class="outline-opening" style="border-left-color:var(--c); background:rgba(123,28,28,.04);">
+          <div class="outline-opening-title" style="color:var(--c);">收尾</div>
+          <div class="outline-opening-items">· 回应开场三个故事 · 总结三讲核心要义 · 基层干部行动倡议</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 案例库 -->
+    <section id="page-cases" class="page">
+      <div class="page-banner">
+        <div class="page-banner-inner">
+          <h2>案例库</h2>
+          <div class="banner-en">Case Library</div>
+        </div>
+      </div>
+      <div class="content">
+
+        <!-- 安全举报·法治 -->
+        <div class="case-group">
+          <div class="case-group-label" style="--gclr:#7B1C1C">
+            <span class="case-group-icon">🛡</span>国家安全举报与法治
+          </div>
+          <div class="case-grid">
+
+            <a class="case-card" href="https://www.news.cn/politics/20260415/f92e60b37c234db9b3cab9a67ff5f316/c.html" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#7B1C1C 0%,#9B2828 60%,#C8952A 100%)">
+                <div class="case-thumb-num">103</div>
+                <div class="case-thumb-sub">人</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">新华社</div>
+                <div class="case-title">国安部公布第八批举报危害国家安全行为受表彰公民名单</div>
+                <div class="case-desc">全国103名公民因举报危害国家安全行为受到国家安全部通报表彰，彰显全民护国安的社会共识。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://www.news.cn/world/20250109/c34e4e6b94c24de89700512933dd7bd8/c.html" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#1a3a5c 0%,#1e5799 60%,#2989d8 100%)">
+                <div class="case-thumb-icon">🌏</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">新华社</div>
+                <div class="case-title">泰国警方还原王星案始末</div>
+                <div class="case-desc">演员王星被骗至缅甸电诈园区案件完整经过，揭示跨境电信诈骗对公民人身安全的严重威胁。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- 科技安全 -->
+        <div class="case-group">
+          <div class="case-group-label" style="--gclr:#1a5276">
+            <span class="case-group-icon">💡</span>科技安全
+          </div>
+          <div class="case-grid">
+
+            <a class="case-card" href="https://www.chinanews.com.cn/sh/2023/10-30/10103172.shtml" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#1a5276 0%,#2471a3 60%,#5dade2 100%)">
+                <div class="case-thumb-num">430</div>
+                <div class="case-thumb-sub">万</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">中新网</div>
+                <div class="case-title">AI换脸诈骗——10分钟被骗430万元</div>
+                <div class="case-desc">骗子利用AI换脸技术冒充好友视频通话，10分钟内骗走企业财务430万元，新型科技犯罪敲响警钟。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://www.qstheory.cn/zhuanqu/2022-06/19/c_1128755705.htm" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#1e5e0e 0%,#27ae60 60%,#82e0aa 100%)">
+                <div class="case-thumb-icon">🌾</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">求是网</div>
+                <div class="case-title">种子安全：牢牢把中国人的饭碗端在自己手中</div>
+                <div class="case-desc">种子是农业的"芯片"，深刻阐述种业自主创新对保障粮食安全、维护农业科技主权的战略意义。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- 政治安全 -->
+        <div class="case-group">
+          <div class="case-group-label" style="--gclr:#6d2c00">
+            <span class="case-group-icon">🏛</span>政治安全
+          </div>
+          <div class="case-grid">
+
+            <a class="case-card" href="http://marxism.cass.cn/cgkd/202309/t20230913_5685243.shtml" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#3d0000 0%,#6d2c00 60%,#c0392b 100%)">
+                <div class="case-thumb-icon">📜</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">中国社科院马研院</div>
+                <div class="case-title">苏联解体：历史性的转折与深刻警示</div>
+                <div class="case-desc">苏联解体的根本原因在于放弃党的领导和意识形态阵地，为坚守政治安全底线提供历史镜鉴。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://www.dswxyjy.org.cn/n1/2019/0617/c427165-31161362.html" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#4a0f0f 0%,#7b1c1c 60%,#c8952a 100%)">
+                <div class="case-thumb-icon">📖</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">党史和文献研究院</div>
+                <div class="case-title">苏联解体的历史教训与中国道路的坚守</div>
+                <div class="case-desc">从党史视角深度剖析苏共执政失败的制度根源，阐明坚持中国共产党领导的历史必然性。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- 政绩观 -->
+        <div class="case-group">
+          <div class="case-group-label" style="--gclr:#5d4037">
+            <span class="case-group-icon">🔍</span>政绩观纠偏
+          </div>
+          <div class="case-grid">
+
+            <a class="case-card" href="https://tv.cctv.com/2026/04/08/VIDEhbkSQ8bPFqyf8ptYSOAz260408.shtml" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#5d4037 0%,#795548 60%,#a1887f 100%)">
+                <div class="case-thumb-icon">📊</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">央视《焦点访谈》</div>
+                <div class="case-title">「码」出来的数据——虚假政绩的数字游戏</div>
+                <div class="case-desc">某地用二维码制造虚假扫码量、刷高招商引资数据，揭露"数字政绩"背后的形式主义乱象。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://tv.cctv.com/2026/04/21/VIDEIB7cgIfa41N6Yl3jSeWl260421.shtml" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#4e342e 0%,#6d4c41 60%,#bcaaa4 100%)">
+                <div class="case-thumb-icon">🏗</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">央视《焦点访谈》</div>
+                <div class="case-title">招商 还是 招「伤」？——虚假招商的代价</div>
+                <div class="case-desc">部分地区为完成招商指标虚报引资额，企业拿地后烂尾、老百姓受损，政绩观扭曲的典型警示。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://paper.people.com.cn/rmrb/pc/content/202604/14/content_30151025.html" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#1b5e20 0%,#388e3c 60%,#81c784 100%)">
+                <div class="case-thumb-icon">📰</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">人民日报</div>
+                <div class="case-title">广西柳州纠治政绩观偏差案例调研</div>
+                <div class="case-desc">人民日报刊发专项调研，剖析柳州部分干部追求表面政绩、忽视群众利益的问题根源与整改举措。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://www.peopleapp.com/column/30049505881-500006347081" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#4a148c 0%,#7b1fa2 60%,#ce93d8 100%)">
+                <div class="case-thumb-icon">🏯</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">人民日报</div>
+                <div class="case-title">张家界大庸古城：5亿打造的"文旅政绩"如何收场</div>
+                <div class="case-desc">耗资5亿重建的大庸古城开业即冷清，成为盲目追求文旅项目政绩、脱离市场规律的反面教材。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- 人民安全 -->
+        <div class="case-group">
+          <div class="case-group-label" style="--gclr:#006064">
+            <span class="case-group-icon">👥</span>人民安全
+          </div>
+          <div class="case-grid">
+
+            <a class="case-card" href="https://www.xinhuanet.com/politics/2019-11/18/c_1125244337.htm" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#006064 0%,#00838f 60%,#4dd0e1 100%)">
+                <div class="case-thumb-icon">⛵</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">新华网</div>
+                <div class="case-title">漂泊者的新生——闽东「连家船民」摆脱千年悲苦命运</div>
+                <div class="case-desc">福建宁德数万"连家船民"世代以船为家，在党的政策下上岸定居，人民安全感从无到有的真实写照。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="http://politics.people.com.cn/n1/2024/0730/c1001-40288836.html" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#1565c0 0%,#1976d2 60%,#42a5f5 100%)">
+                <div class="case-thumb-icon">🌀</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">人民网</div>
+                <div class="case-title">防台风应急响应：守护人民生命财产安全</div>
+                <div class="case-desc">台风"格美"登陆期间各地超前部署、精准防控，展现以人民安全为最高价值的应急响应体系。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="http://www.dangjian.cn/djyw/2025/09/18/detail_202509187822572.html" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#004d40 0%,#00695c 60%,#4db6ac 100%)">
+                <div class="case-thumb-num">35</div>
+                <div class="case-thumb-sub">周年</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">党建网</div>
+                <div class="case-title">中国参与联合国维和行动35周年：大国担当与人道贡献</div>
+                <div class="case-desc">35年来中国累计派出维和人员5万余人次，以实际行动践行构建人类命运共同体的庄严承诺。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- 应急管理 -->
+        <div class="case-group">
+          <div class="case-group-label" style="--gclr:#b71c1c">
+            <span class="case-group-icon">🚨</span>应急管理
+          </div>
+          <div class="case-grid">
+
+            <a class="case-card" href="https://www.mem.gov.cn/xw/yjglbgzdt/202507/t20250711_549756.shtml" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#b71c1c 0%,#c62828 60%,#ef9a9a 100%)">
+                <div class="case-thumb-icon">⚠️</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">应急管理部</div>
+                <div class="case-title">应急管理部公布12个事故隐患内部报告奖励案例</div>
+                <div class="case-desc">12个典型奖励案例证明内部举报机制的实效，鼓励员工主动揭露安全隐患，筑牢生产安全防线。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://www.news.cn/legal/20240221/edb91ba02d3446b5a2e84933a70b134e/c.html" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#37474f 0%,#546e7a 60%,#b0bec5 100%)">
+                <div class="case-thumb-num">51</div>
+                <div class="case-thumb-sub">人</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">新华社</div>
+                <div class="case-title">齐齐哈尔体育馆坍塌事故调查报告公布 51人被追责</div>
+                <div class="case-desc">屋顶珍珠岩被违规堆放导致楼板超载坍塌，11人遇难，51名责任人被追责，敲响安全管理警钟。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://www.news.cn/local/2023-07/24/c_1129764491.htm" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#4e342e 0%,#795548 60%,#d7ccc8 100%)">
+                <div class="case-thumb-icon">🌊</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">新华社</div>
+                <div class="case-title">郑州特大暴雨事故追责：用教训守护城市安全底线</div>
+                <div class="case-desc">2021年郑州"7·20"特大暴雨灾害调查结果公布，多名官员被追责，城市防洪标准与预警体系亟待升级。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- 外部视野 -->
+        <div class="case-group">
+          <div class="case-group-label" style="--gclr:#263238">
+            <span class="case-group-icon">🌐</span>国际视野
+          </div>
+          <div class="case-grid">
+
+            <a class="case-card" href="https://www.news.cn/world/20260209/8cc31263b95843978249a4019a736ebd/c.html" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#263238 0%,#37474f 60%,#78909c 100%)">
+                <div class="case-thumb-icon">🕊</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">新华社</div>
+                <div class="case-title">第62届慕安会：「破坏性政治」冲击国际秩序</div>
+                <div class="case-desc">慕尼黑安全会议聚焦全球秩序碎片化，各大国围绕规则博弈加剧，国际安全形势深刻演变。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://36kr.com/p/3242995228721152" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#1a237e 0%,#283593 60%,#7986cb 100%)">
+                <div class="case-thumb-icon">📉</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">36氪</div>
+                <div class="case-title">瑞·达利欧：一生仅见的全球崩溃？如何在周期废墟上重建理性</div>
+                <div class="case-desc">全球著名投资人达利欧深度解析大国债务周期、秩序更迭与经济安全风险，为理解外部环境提供宏观框架。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://www.ungeneva.org/zh/news-media/news/2026/01/115318" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#0d47a1 0%,#1565c0 60%,#4fc3f7 100%)">
+                <div class="case-thumb-num">UN</div>
+                <div class="case-thumb-sub">报告</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">联合国日内瓦办事处</div>
+                <div class="case-title">全球武装冲突创二战以来新高，人权是持久和平的基石</div>
+                <div class="case-desc">联合国报告显示当前全球武装冲突数量超过二战后任何时期，和平安全面临前所未有的严峻挑战。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+            <a class="case-card" href="https://zhuanlan.zhihu.com/p/1999040694224965971" target="_blank" rel="noopener">
+              <div class="case-thumb" style="background:linear-gradient(135deg,#0077b5 0%,#0088cc 60%,#56b4d3 100%)">
+                <div class="case-thumb-icon">🔄</div>
+              </div>
+              <div class="case-info">
+                <div class="case-src">知乎</div>
+                <div class="case-title">大国博弈深度解析：从地缘政治看中国安全战略布局</div>
+                <div class="case-desc">结合当前国际格局演变，解读大国战略竞争态势与中国维护国家安全、塑造有利外部环境的路径选择。</div>
+                <div class="case-link">阅读原文 →</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 延伸资料 -->
+    <section id="page-videos" class="page">
+      <div class="page-banner">
+        <div class="page-banner-inner">
+          <h2>延伸资料</h2>
+          <div class="banner-en">Extended Sources</div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="resource-intro">
+          本页汇集课程中提到的法规、政策文件、报告、文献与权威资料来源，并标注更规范的名称或说明，便于课后核对原文。
+        </div>
+
+        <div class="resource-group">
+          <div class="case-group-label" style="--gclr:#7B1C1C"><span class="case-group-icon">⚖️</span>国家安全相关法律法规</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.gov.cn/zhengce/2015-07/01/content_2893902.htm" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>全文</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国国家安全法</div>
+                <div class="resource-desc">课程两种写法指向同一部法律。</div>
+                <div class="resource-source">中国政府网全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.spp.gov.cn/tt/201512/t20151228_109920.shtml" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>反恐</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国反恐怖主义法</div>
+                <div class="resource-desc">国家反恐怖主义工作的重要基础法律。</div>
+                <div class="resource-source">最高人民检察院全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://gdb.gxzf.gov.cn/ztjj_46964/gjaqjy_93325/flfg/t8538429.shtml" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>情报</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国国家情报法</div>
+                <div class="resource-desc">规范国家情报工作、维护国家安全和利益。</div>
+                <div class="resource-source">国家法律法规数据库转载页 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.miit.gov.cn/ztzl/rdzt/tdzzyyhlwsdrhfzjkjstggyhlwpt/zcfb/art/2020/art_41be9e94ecc5433899ca88a0339a38b6.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>网络</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国网络安全法</div>
+                <div class="resource-desc">网络空间治理和网络安全保障的基础性法律。</div>
+                <div class="resource-source">工信部全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.nhc.gov.cn/wjw/mtbd/202010/4a20b792c56249b5aeb7f725eca595a1.shtml" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>生物</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国生物安全法</div>
+                <div class="resource-desc">统筹发展和安全背景下的生物安全制度依据。</div>
+                <div class="resource-source">国家卫健委转载新华社全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.mofcom.gov.cn/zcfb/zhzc/art/2020/art_a292f549deab48c09fdff9a8c3cc5906.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>出口</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国出口管制法</div>
+                <div class="resource-desc">涉及国家安全、国际义务和出口管制制度。</div>
+                <div class="resource-source">商务部全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.ssf.gov.cn/portal/rootimages/uploadimg/1641708111806093/1641708111806093.pdf" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>制裁</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国反外国制裁法</div>
+                <div class="resource-desc">反制、反干涉、反制裁相关法治工具。</div>
+                <div class="resource-source">国家社保基金会 PDF →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.npc.gov.cn/npc/c2/c30834/202106/t20210610_311888.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>数据</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国数据安全法</div>
+                <div class="resource-desc">数据处理、数据安全保护和数据开发利用的法律依据。</div>
+                <div class="resource-source">中国人大网全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.npc.gov.cn/WZWSREL25wYy9jMi9jMzA4MzQvMjAyMTA4L3QyMDIxMDgyMF8zMTMwODguaHRtbD9yZWY9aW1i" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>个人</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国个人信息保护法</div>
+                <div class="resource-desc">个人信息权益保护与数字治理的重要法律。</div>
+                <div class="resource-source">中国人大网全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.npc.gov.cn/c2/c30834/202101/t20210122_309858.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>海警</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国海警法</div>
+                <div class="resource-desc">海上维权执法和海洋安全相关法律。</div>
+                <div class="resource-source">中国人大网全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.npc.gov.cn/c2/c30834/202209/t20220902_319186.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>反诈</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国反电信网络诈骗法</div>
+                <div class="resource-desc">打击治理电信网络诈骗活动的专门法律。</div>
+                <div class="resource-source">中国人大网全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.npc.gov.cn/npc/c2/c30834/202304/t20230426_429039.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>法</strong><span>反谍</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中华人民共和国反间谍法</div>
+                <div class="resource-desc">反间谍工作和国家安全防范教育的重要依据。</div>
+                <div class="resource-source">中国人大网主席令 →</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="resource-group">
+          <div class="case-group-label" style="--gclr:#9B2828"><span class="case-group-icon">📜</span>政策文件与部门规章</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.mofcom.gov.cn/dl/file/20211203230801.pdf" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>令</strong><span>审查</span></div>
+              <div class="resource-info">
+                <div class="resource-title">外商投资安全审查办法</div>
+                <div class="resource-desc">发改委、商务部令第37号。</div>
+                <div class="resource-source">商务部 PDF →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.gov.cn/zhengce/202407/content_6963770.htm" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>决</strong><span>三中</span></div>
+              <div class="resource-info">
+                <div class="resource-title">中共中央关于进一步全面深化改革、推进中国式现代化的决定</div>
+                <div class="resource-desc">课件语境指二十届三中全会《决定》。</div>
+                <div class="resource-source">中国政府网全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.mod.gov.cn/gfbw/fgwx/bps/16385614.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>白</strong><span>皮书</span></div>
+              <div class="resource-info">
+                <div class="resource-title">新时代的中国国家安全</div>
+                <div class="resource-desc">国务院新闻办公室白皮书。</div>
+                <div class="resource-source">国防部转载全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.gov.cn/gongbao/2025/issue_11966/202504/content_7017464.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>规</strong><span>制裁</span></div>
+              <div class="resource-info">
+                <div class="resource-title">实施《中华人民共和国反外国制裁法》的规定</div>
+                <div class="resource-desc">两种课程写法指向同一行政法规。</div>
+                <div class="resource-source">国务院公报全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.mofcom.gov.cn/zcfb/zhzc/art/2021/art_bb49d4cdaae04eac9b309077c9dd63ed.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>办</strong><span>阻断</span></div>
+              <div class="resource-info">
+                <div class="resource-title">阻断外国法律与措施不当域外适用办法</div>
+                <div class="resource-desc">应对外国法律与措施不当域外适用的部门规章。</div>
+                <div class="resource-source">商务部全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.gov.cn/yaowen/liebiao/202510/content_7046125.htm" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>建</strong><span>十五五</span></div>
+              <div class="resource-info">
+                <div class="resource-title">“十五五”规划建议</div>
+                <div class="resource-desc">新华社受权发布的规划建议全文。</div>
+                <div class="resource-source">中国政府网新华社授权发布 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.gov.cn/gongbao/2024/issue_11366/202405/content_6954192.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>令</strong><span>跨境</span></div>
+              <div class="resource-info">
+                <div class="resource-title">促进和规范数据跨境流动规定</div>
+                <div class="resource-desc">国家互联网信息办公室令第16号。</div>
+                <div class="resource-source">国务院公报全文 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.cac.gov.cn/2025-03/14/c_1743654684782215.htm" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>AI</strong><span>标识</span></div>
+              <div class="resource-info">
+                <div class="resource-title">人工智能生成合成内容标识办法</div>
+                <div class="resource-desc">规范名称为《人工智能生成合成内容标识办法》。</div>
+                <div class="resource-source">中国网信网全文 →</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="resource-group">
+          <div class="case-group-label" style="--gclr:#315d8c"><span class="case-group-icon">🌐</span>国际安全与域外制度资料</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://securityconference.org/en/publications/munich-security-report/" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>MS</strong><span>报告</span></div>
+              <div class="resource-info">
+                <div class="resource-title">Munich Security Report 2026</div>
+                <div class="resource-desc">报告标题。未检索到官网直达 2026 PDF，可从官方报告目录核对。</div>
+                <div class="resource-source">慕尼黑安全会议报告官方目录 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.babs.admin.ch/en/shelters-for-the-population" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>CH</strong><span>民防</span></div>
+              <div class="resource-info">
+                <div class="resource-title">瑞士民防/民事保护法律体系</div>
+                <div class="resource-desc">课程所指可参考瑞士民防署关于人口避难设施的官方说明。</div>
+                <div class="resource-source">瑞士联邦民防署 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.govinfo.gov/app/details/COMPS-8323/" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>US</strong><span>DPA</span></div>
+              <div class="resource-info">
+                <div class="resource-title">Defense Production Act of 1950</div>
+                <div class="resource-desc">美国国防生产与供应链动员相关法律。</div>
+                <div class="resource-source">美国 GovInfo 法典汇编 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.japaneselawtranslation.go.jp/en/laws/view/4523/je" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>JP</strong><span>安保</span></div>
+              <div class="resource-info">
+                <div class="resource-title">日本经济安全保障推进法</div>
+                <div class="resource-desc">日本经济安全保障制度的重要法律文本。</div>
+                <div class="resource-source">Japanese Law Translation 官方文本 →</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="resource-group">
+          <div class="case-group-label" style="--gclr:#1e6f55"><span class="case-group-icon">🎞️</span>文化产业与公开信息</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.chinafilm.gov.cn/dybalxgs/202210/t20221013_563776.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>影</strong><span>备案</span></div>
+              <div class="resource-info">
+                <div class="resource-title">哪吒之魔童闹海</div>
+                <div class="resource-desc">片名应为《哪吒之魔童闹海》。</div>
+                <div class="resource-source">国家电影局备案信息 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.nppa.gov.cn/bsfw/jggs/cxjg/202509/t20250924_932944.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>游</strong><span>审批</span></div>
+              <div class="resource-info">
+                <div class="resource-title">黑神话：悟空</div>
+                <div class="resource-desc">国产游戏审批信息。</div>
+                <div class="resource-source">国家新闻出版署审批信息 →</div>
+              </div>
+            </a>
+
+            <a class="resource-card" href="https://www.people.cn/" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>报</strong><span>媒体</span></div>
+              <div class="resource-info">
+                <div class="resource-title">人民日报</div>
+                <div class="resource-desc">中共中央机关报，可从人民网/人民日报官网查阅相关报道。</div>
+                <div class="resource-source">人民网 / 人民日报官网 →</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="resource-group">
+          <div class="case-group-label" style="--gclr:#b4812a"><span class="case-group-icon">📚</span>历史文献与待核对条目</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://dangjian.people.com.cn/n1/2022/0907/c117092-32521041.html" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>文</strong><span>方法</span></div>
+              <div class="resource-info">
+                <div class="resource-title">党委会的工作方法</div>
+                <div class="resource-desc">毛泽东 1949 年文献，课程可参考相关权威介绍。</div>
+                <div class="resource-source">中国共产党新闻网相关介绍 →</div>
+              </div>
+            </a>
+
+            <div class="resource-card resource-note">
+              <div class="resource-mark"><strong>史</strong><span>核对</span></div>
+              <div class="resource-info">
+                <div class="resource-title">汉武帝诏书，见《汉书·西域传》系统</div>
+                <div class="resource-desc">未找到政府或权威数据库原文直链；建议用中华书局点校本《汉书》核对。</div>
+                <div class="resource-source">暂无稳定官方原文链接</div>
+              </div>
+            </div>
+
+            <a class="resource-card" href="https://www.mfa.gov.cn/wjb_673085/zfxxgk_674865/gknrlb/tywj/zgtysjk/" target="_blank" rel="noopener">
+              <div class="resource-mark"><strong>约</strong><span>数据库</span></div>
+              <div class="resource-info">
+                <div class="resource-title">1901 年《辛丑条约》/《北京议定书》</div>
+                <div class="resource-desc">未检索到稳定直达条目，可从外交部中国条约数据库入口检索。</div>
+                <div class="resource-source">外交部中国条约数据库入口 →</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 课件 -->
+    <section id="page-slides" class="page">
+      <iframe src="./slides.html" title="国家安全观讲座课件" loading="lazy"></iframe>
+    </section>
+
+    <!-- 知识图谱 -->
+    <section id="page-graph" class="page">
+      <iframe src="./graph/index.html" title="总体国家安全观知识图谱" loading="lazy"></iframe>
+    </section>
+
+  </main>
+
+
+  <script>
+    const btns  = document.querySelectorAll('#nav button[data-page]');
+    const pages = document.querySelectorAll('.page');
+
+    function goTo(pageId) {
+      btns.forEach(b => b.classList.toggle('active', b.dataset.page === pageId));
+      pages.forEach(p => p.classList.toggle('active', p.id === 'page-' + pageId));
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    btns.forEach(btn => btn.addEventListener('click', () => goTo(btn.dataset.page)));
+
+    // 首页大卡片跳转
+    document.querySelectorAll('.home-card[data-goto]').forEach(card => {
+      card.addEventListener('click', () => goTo(card.dataset.goto));
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') goTo(card.dataset.goto); });
+    });
+
+    // 三讲大纲手风琴
+    document.querySelectorAll('.outline-sec').forEach(sec => {
+      sec.addEventListener('click', () => {
+        const body = sec.nextElementSibling;
+        if (!body || !body.classList.contains('outline-sec-body')) return;
+        sec.classList.toggle('open');
+        body.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

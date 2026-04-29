@@ -1,0 +1,4118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>总体国家安全观·基层干部专题讲座（完整版·58页）</title>
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+
+body {
+  font-family: "PingFang SC","Microsoft YaHei","黑体",sans-serif;
+  background: #0d0005;
+  overflow: hidden;
+  width: 100vw; height: 100vh;
+  user-select: none;
+  display:flex; align-items:center; justify-content:center;
+}
+
+
+.deck {
+  width:1280px; height:720px; position:relative; flex:0 0 auto;
+  transform:scale(var(--deck-scale, 1));
+  transform-origin:center center;
+}
+
+
+.slide {
+  display: none;
+  width: 100%; height: 100%;
+  position: absolute; top:0; left:0;
+  background: linear-gradient(150deg, #C8102E 0%, #9B0E26 50%, #6B0018 100%);
+  overflow: hidden;
+  padding: 48px 76px 96px;
+  flex-direction: column;
+}
+
+.slide.active { display:flex; }
+
+
+/* Mountain decoration */
+.mtn {
+  position:absolute; bottom:0; left:0;
+  width:100%; height:150px; pointer-events:none; opacity:.11;
+}
+
+
+/* Slide number */
+.snum {
+  position:absolute; bottom:24px; right:44px;
+  color:rgba(255,215,0,.4); font-size:16px; letter-spacing:1px;
+}
+
+
+/* Navigation */
+.nav {
+  position:fixed; bottom:0; left:0; right:0;
+  display:flex; align-items:center; justify-content:center;
+  padding:8px 16px; gap:12px; z-index:200;
+  background:rgba(0,0,0,.45); backdrop-filter:blur(4px);
+}
+
+.nav button {
+  background:rgba(255,215,0,.15);
+  border:1px solid rgba(255,215,0,.35);
+  color:#FFD700; font-size:14px; padding:5px 20px;
+  border-radius:18px; cursor:pointer;
+  transition:background .15s;
+  font-family:inherit;
+}
+
+.nav button:hover { background:rgba(255,215,0,.28); }
+
+.nav .progress { color:rgba(255,255,255,.5); font-size:13px; min-width:56px; text-align:center; }
+
+.nav .note-toggle {
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.5); font-size:13px; padding:5px 14px;
+  border-radius:18px; cursor:pointer; font-family:inherit;
+}
+
+
+/* Speaker notes overlay */
+#notes-panel {
+  display:none;
+  position:fixed; bottom:40px; left:0; right:0;
+  max-height:30vh; overflow-y:auto;
+  background:rgba(0,0,0,.88);
+  border-top:1px solid rgba(255,215,0,.25);
+  padding:16px 40px;
+  color:rgba(255,255,255,.75); font-size:15px; line-height:1.8;
+  z-index:150;
+}
+
+#notes-panel.open { display:block; }
+
+#notes-panel strong { color:#FFD700; }
+
+
+/* ── PILL header ── */
+.pill {
+  display:inline-flex; align-items:center;
+  background:rgba(220,185,130,.82);
+  border-radius:26px; padding:7px 20px 7px 12px;
+  margin-bottom:28px; align-self:flex-start;
+}
+
+.pill .arrow { color:#7a0e1c; font-size:17px; font-weight:900; margin-right:7px; }
+
+.pill .label { color:#5a0f14; font-size:18px; font-weight:700; letter-spacing:1px; }
+
+
+/* ── Typography ── */
+.eyebrow { color:rgba(255,215,0,.8); font-size:20px; letter-spacing:6px; margin-bottom:18px; font-weight:600; }
+
+
+.cover-title {
+  color:#fff; font-size:74px; font-weight:900; line-height:1.12;
+  margin-bottom:26px;
+  font-family:"SimSun","宋体","STSong",serif;
+  text-shadow:0 2px 24px rgba(0,0,0,.45);
+}
+
+
+.cover-sub { color:rgba(255,255,255,.8); font-size:26px; margin-bottom:10px; }
+
+
+h2 {
+  color:#fff; font-size:42px; font-weight:900; line-height:1.3; margin-bottom:20px;
+  font-family:"SimSun","宋体","STSong",serif;
+}
+
+
+h3 { color:#FFD700; font-size:28px; font-weight:700; margin-bottom:12px; }
+
+
+.body { color:rgba(255,255,255,.92); font-size:24px; line-height:1.72; margin-bottom:12px; }
+
+.body-sm { color:rgba(255,255,255,.88); font-size:21px; line-height:1.68; margin-bottom:10px; }
+
+.body-xs { color:rgba(255,255,255,.72); font-size:18px; line-height:1.6; }
+
+
+.em  { color:#FFD700; font-weight:700; }
+
+.red { color:#FF9090; font-weight:700; }
+
+
+/* Gold divider */
+.divider { width:50px; height:3px; background:#FFD700; border-radius:2px; margin-bottom:20px; }
+
+
+/* Quote */
+.quote {
+  background:rgba(0,0,0,.28);
+  border-left:5px solid #FFD700;
+  padding:14px 22px; margin:14px 0;
+  color:rgba(255,255,255,.95);
+  font-size:22px; line-height:1.75;
+  border-radius:0 8px 8px 0;
+}
+
+.quote-src { font-size:16px; color:rgba(255,215,0,.65); margin-top:7px; text-align:right; }
+
+
+/* Highlight */
+.hl {
+  background:rgba(255,215,0,.1);
+  border-left:4px solid #FFD700;
+  padding:11px 18px; margin:10px 0;
+  border-radius:0 6px 6px 0;
+  color:#fff; font-size:21px; line-height:1.68;
+}
+
+
+/* Cards */
+.cards { display:grid; gap:16px; }
+
+.cards.col2 { grid-template-columns:1fr 1fr; }
+
+.cards.col3 { grid-template-columns:1fr 1fr 1fr; }
+
+.card {
+  background:rgba(0,0,0,.24);
+  border-radius:12px; padding:18px 20px;
+  border-top:3px solid rgba(255,215,0,.55);
+}
+
+.card-title { color:#FFD700; font-size:19px; font-weight:700; margin-bottom:8px; }
+
+.card-body  { color:rgba(255,255,255,.85); font-size:17px; line-height:1.62; }
+
+
+/* Two / Three columns */
+.two-col   { display:grid; grid-template-columns:1fr 1fr;     gap:32px; }
+
+.three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; }
+
+
+/* Big number */
+.big-num  { color:#FFD700; font-size:50px; font-weight:900; line-height:1; }
+
+.big-unit { color:rgba(255,215,0,.7); font-size:22px; font-weight:600; }
+
+.big-label { color:rgba(255,255,255,.65); font-size:16px; margin-top:5px; }
+
+
+/* Stat box */
+.stat-box {
+  background:rgba(0,0,0,.3); border-radius:10px; padding:16px 20px; text-align:center;
+}
+
+
+/* Tag */
+.tag {
+  display:inline-block;
+  background:rgba(255,215,0,.12);
+  border:1px solid rgba(255,215,0,.35);
+  color:#FFD700; padding:4px 14px;
+  border-radius:18px; font-size:17px;
+  margin:3px 4px 3px 0;
+}
+
+
+/* Timeline */
+.tl-item {
+  display:flex; gap:12px; margin-bottom:10px; align-items:flex-start;
+}
+
+.tl-date {
+  min-width:72px; color:rgba(255,215,0,.85); font-size:14px;
+  font-weight:600; padding-top:3px; flex-shrink:0;
+}
+
+.tl-dot {
+  width:12px; height:12px; border-radius:50%;
+  background:#FFD700; flex-shrink:0; margin-top:4px;
+}
+
+.tl-dot.red  { background:#FF8A8A; }
+
+.tl-dot.green{ background:#6DC86D; }
+
+.tl-text { color:#fff; font-size:15px; line-height:1.55; }
+
+
+/* Dalio stages */
+.stage-row { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin:16px 0; }
+
+.stage {
+  border-radius:8px; padding:13px 8px; text-align:center;
+  border-top:3px solid transparent;
+}
+
+.stage.s1,.stage.s2 { background:rgba(80,180,80,.15); border-color:#5CB85C; }
+
+.stage.s3 { background:rgba(40,160,220,.18); border-color:#28A0DC; }
+
+.stage.s4 { background:rgba(240,190,40,.15); border-color:#F0BE28; }
+
+.stage.s5 { background:rgba(240,130,0,.2);   border-color:#F08200; }
+
+.stage.s6 { background:rgba(210,40,40,.28);  border-color:#D22828; }
+
+.stage-num   { font-size:12px; font-weight:700; color:rgba(255,255,255,.55); letter-spacing:.5px; }
+
+.stage-title { font-size:14px; font-weight:700; color:#fff; margin:5px 0 3px; line-height:1.3; }
+
+.stage-ref   { font-size:12px; color:rgba(255,255,255,.5); line-height:1.3; }
+
+.stage-marker { font-size:11px; font-weight:700; padding:2px 7px; border-radius:8px; margin-top:5px; display:inline-block; }
+
+.m-cn    { background:rgba(40,160,220,.35); color:#7EDCFF; }
+
+.m-us    { background:rgba(240,130,0,.35);  color:#FFBE6A; }
+
+.m-world { background:rgba(210,40,40,.45);  color:#FF9090; }
+
+
+/* Safety vs Security */
+.vs-grid { display:grid; grid-template-columns:1fr 42px 1fr; }
+
+.vs-block { background:rgba(0,0,0,.26); padding:22px 20px; }
+
+.vs-block.left  { border-radius:12px 0 0 12px; }
+
+.vs-block.right { border-radius:0 12px 12px 0; }
+
+.vs-en  { font-size:38px; font-weight:900; margin-bottom:8px; }
+
+.vs-block.left  .vs-en { color:#7EDCFF; }
+
+.vs-block.right .vs-en { color:#FFD700; }
+
+.vs-def { color:#fff; font-size:18px; line-height:1.65; }
+
+.vs-mid { display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.18); color:rgba(255,255,255,.22); font-size:28px; font-weight:700; }
+
+
+/* Five-element interest list */
+.interest-item {
+  display:flex; align-items:center; gap:10px;
+  background:rgba(0,0,0,.2); border-radius:8px; padding:10px 14px;
+}
+
+.interest-num  { color:#FFD700; font-size:20px; font-weight:900; min-width:26px; }
+
+.interest-text { color:#fff; font-size:18px; font-weight:600; }
+
+.interest-sub  { color:rgba(255,255,255,.58); font-size:14px; }
+
+
+/* Five-element top cards */
+.five { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+
+.five-item {
+  background:rgba(0,0,0,.22); border-radius:10px; padding:14px 8px;
+  text-align:center; border-top:3px solid rgba(255,215,0,.5);
+}
+
+.five-role  { color:#FFD700; font-size:12px; font-weight:700; letter-spacing:.5px; margin-bottom:5px; }
+
+.five-label { color:#fff; font-size:17px; font-weight:700; line-height:1.3; }
+
+.five-sub   { color:rgba(255,215,0,.75); font-size:13px; margin-top:5px; }
+
+.five-desc  { color:rgba(255,255,255,.6); font-size:12px; margin-top:4px; line-height:1.4; }
+
+
+/* Story page elements */
+.story-num   { color:rgba(255,215,0,.6); font-size:16px; letter-spacing:3px; font-weight:600; margin-bottom:6px; }
+
+.story-title { color:#fff; font-size:36px; font-weight:800; line-height:1.25; margin-bottom:18px; font-family:"SimSun","宋体","STSong",serif; }
+
+
+/* Phone badge */
+.phone-badge {
+  background:#FFD700; color:#6B0018;
+  font-size:36px; font-weight:900;
+  padding:7px 28px; border-radius:10px;
+  display:inline-block; letter-spacing:4px; margin:8px 0;
+}
+
+
+/* Cover decorative character */
+.cover-deco {
+  position:absolute; right:72px; top:50%; transform:translateY(-50%);
+  opacity:.06; font-size:300px; font-weight:900; color:#fff;
+  pointer-events:none; font-family:"SimSun","宋体",serif;
+  line-height:1;
+}
+
+
+/* Section divider label */
+.section-label {
+  color:rgba(255,215,0,.7); font-size:15px; font-weight:700;
+  letter-spacing:1px; margin-bottom:6px;
+}
+
+body {
+  font-family:"PingFang SC","Microsoft YaHei","黑体",sans-serif;
+  background:#0d0005; overflow:hidden;
+  width:100vw; height:100vh; user-select:none;
+  display:flex; align-items:center; justify-content:center;
+}
+
+.slide {
+  display:none; width:100%; height:100%;
+  position:absolute; top:0; left:0;
+  background:linear-gradient(150deg,#C8102E 0%,#9B0E26 50%,#6B0018 100%);
+  overflow:hidden; padding:44px 72px 96px;
+  flex-direction:column;
+}
+
+.mtn {
+  position:absolute; bottom:0; left:0;
+  width:100%; height:140px; pointer-events:none; opacity:.10;
+}
+
+.snum {
+  position:absolute; bottom:24px; right:44px;
+  color:rgba(255,215,0,.4); font-size:16px; letter-spacing:1px;
+}
+
+.nav {
+  position:fixed; bottom:0; left:0; right:0;
+  display:flex; align-items:center; justify-content:center;
+  padding:8px 16px; gap:12px; z-index:200;
+  background:rgba(0,0,0,.45); backdrop-filter:blur(4px);
+}
+
+.nav button {
+  background:rgba(255,215,0,.15); border:1px solid rgba(255,215,0,.35);
+  color:#FFD700; font-size:14px; padding:5px 20px;
+  border-radius:18px; cursor:pointer; font-family:inherit;
+}
+
+.note-toggle {
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.5); font-size:13px; padding:5px 14px;
+  border-radius:18px; cursor:pointer; font-family:inherit;
+}
+
+#notes-panel {
+  display:none; position:fixed; bottom:40px; left:0; right:0;
+  max-height:28vh; overflow-y:auto;
+  background:rgba(0,0,0,.9); border-top:1px solid rgba(255,215,0,.2);
+  padding:14px 40px; color:rgba(255,255,255,.72);
+  font-size:14px; line-height:1.8; z-index:150;
+}
+
+/* pill */
+.pill {
+  display:inline-flex; align-items:center;
+  background:rgba(220,185,130,.82); border-radius:26px;
+  padding:6px 18px 6px 11px; margin-bottom:24px; align-self:flex-start;
+}
+
+.pill .arrow { color:#7a0e1c; font-size:16px; font-weight:900; margin-right:6px; }
+
+.pill .label { color:#5a0f14; font-size:17px; font-weight:700; letter-spacing:1px; }
+
+/* type */
+h2 {
+  color:#fff; font-size:40px; font-weight:900; line-height:1.28; margin-bottom:18px;
+  font-family:"SimSun","宋体","STSong",serif;
+}
+
+.divider { width:48px; height:3px; background:#FFD700; border-radius:2px; margin-bottom:18px; }
+
+.quote {
+  background:rgba(0,0,0,.28); border-left:5px solid #FFD700;
+  padding:13px 20px; margin:12px 0;
+  color:rgba(255,255,255,.95); font-size:21px; line-height:1.75;
+  border-radius:0 8px 8px 0;
+}
+
+.quote-src { font-size:15px; color:rgba(255,215,0,.65); margin-top:6px; text-align:right; }
+
+.hl {
+  background:rgba(255,215,0,.1); border-left:4px solid #FFD700;
+  padding:10px 16px; margin:9px 0;
+  border-radius:0 6px 6px 0; color:#fff; font-size:19px; line-height:1.68;
+}
+
+/* cards */
+.cards { display:grid; gap:14px; }
+
+.card {
+  background:rgba(0,0,0,.24); border-radius:11px; padding:16px 18px;
+  border-top:3px solid rgba(255,215,0,.55);
+}
+
+.card-title { color:#FFD700; font-size:18px; font-weight:700; margin-bottom:7px; }
+
+.card-body  { color:rgba(255,255,255,.84); font-size:16px; line-height:1.65; }
+
+.two-col   { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+
+.three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; }
+
+/* big numbers */
+.big-num  { color:#FFD700; font-size:48px; font-weight:900; line-height:1; }
+
+.big-unit { color:rgba(255,215,0,.7); font-size:20px; font-weight:600; }
+
+.big-label { color:rgba(255,255,255,.6); font-size:15px; margin-top:4px; }
+
+.stat-box { background:rgba(0,0,0,.3); border-radius:10px; padding:14px 18px; text-align:center; }
+
+.tag {
+  display:inline-block; background:rgba(255,215,0,.12);
+  border:1px solid rgba(255,215,0,.35); color:#FFD700;
+  padding:3px 12px; border-radius:16px; font-size:16px; margin:3px 4px 3px 0;
+}
+
+.section-label { color:rgba(255,215,0,.72); font-size:15px; font-weight:700; letter-spacing:1px; margin-bottom:6px; }
+
+.body-sm { color:rgba(255,255,255,.88); font-size:20px; line-height:1.68; margin-bottom:9px; }
+
+.body-xs { color:rgba(255,255,255,.7); font-size:17px; line-height:1.6; }
+
+
+/* Table */
+.tbl { width:100%; border-collapse:collapse; }
+
+.tbl th {
+  background:rgba(255,215,0,.18); color:#FFD700;
+  font-size:16px; padding:9px 14px; text-align:left;
+  border-bottom:2px solid rgba(255,215,0,.4);
+}
+
+.tbl td {
+  color:rgba(255,255,255,.88); font-size:16px; padding:8px 14px;
+  border-bottom:1px solid rgba(255,255,255,.08); line-height:1.55;
+  vertical-align:middle;
+}
+
+.tbl tr:last-child td { border-bottom:none; }
+
+.tbl .arrow-cell { text-align:center; color:rgba(255,215,0,.6); font-size:18px; }
+
+
+/* Six-grid for groups */
+.six-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:11px; }
+
+.six-card {
+  background:rgba(0,0,0,.22); border-radius:10px; padding:13px 14px;
+  border-left:3px solid rgba(255,215,0,.5);
+}
+
+.six-title { color:#FFD700; font-size:17px; font-weight:700; margin-bottom:5px; }
+
+.six-body  { color:rgba(255,255,255,.78); font-size:14px; line-height:1.55; }
+
+
+/* Lesson card */
+.lesson {
+  display:flex; gap:14px; align-items:flex-start;
+  background:rgba(0,0,0,.22); border-radius:10px; padding:14px 16px;
+  margin-bottom:11px;
+}
+
+.lesson-num {
+  min-width:36px; height:36px; border-radius:50%;
+  background:rgba(255,215,0,.18); border:2px solid rgba(255,215,0,.4);
+  display:flex; align-items:center; justify-content:center;
+  color:#FFD700; font-size:17px; font-weight:900; flex-shrink:0;
+}
+
+.lesson-title { color:#FFD700; font-size:17px; font-weight:700; margin-bottom:4px; }
+
+.lesson-body  { color:rgba(255,255,255,.82); font-size:15px; line-height:1.6; }
+
+
+/* Mirror comparison */
+.mirror { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+
+.mirror-pos { background:rgba(30,130,60,.2); border:1.5px solid rgba(40,180,80,.4); border-radius:12px; padding:16px 18px; }
+
+.mirror-neg { background:rgba(180,30,30,.2); border:1.5px solid rgba(220,50,50,.4); border-radius:12px; padding:16px 18px; }
+
+.mirror-title { font-size:18px; font-weight:700; margin-bottom:10px; }
+
+.mirror-pos .mirror-title { color:#6DC86D; }
+
+.mirror-neg .mirror-title { color:#FF9090; }
+
+.mirror-body { color:rgba(255,255,255,.82); font-size:15px; line-height:1.7; }
+
+
+/* Attr cards */
+.attr-card {
+  background:rgba(0,0,0,.22); border-radius:12px; padding:18px 16px;
+  border-top:3px solid rgba(255,215,0,.55); text-align:center;
+}
+
+.attr-icon { font-size:32px; font-weight:900; color:#FFD700; margin-bottom:8px; font-family:"SimSun","宋体",serif; }
+
+.attr-title { color:#fff; font-size:20px; font-weight:800; margin-bottom:6px; }
+
+.attr-sub { color:rgba(255,215,0,.75); font-size:15px; margin-bottom:8px; font-weight:600; }
+
+.attr-desc { color:rgba(255,255,255,.68); font-size:14px; line-height:1.6; }
+
+
+/* 四个宁可 block */
+.ning { display:flex; gap:10px; align-items:flex-start; margin-bottom:8px; }
+
+.ning-dot { width:8px; height:8px; border-radius:50%; background:#FFD700; flex-shrink:0; margin-top:7px; }
+
+.ning-text { color:#fff; font-size:18px; line-height:1.6; }
+
+.ning-text span { color:#FFD700; font-weight:700; }
+
+.slide { display:none; width:100%; height:100%; position:absolute; top:0; left:0; background:linear-gradient(150deg,#C8102E 0%,#9B0E26 50%,#6B0018 100%); overflow:hidden; padding:42px 72px 94px; flex-direction:column; }
+
+.nav .progress { color:rgba(255,255,255,.5); font-size:13px; min-width:64px; text-align:center; }
+
+.pill { display:inline-flex; align-items:center; background:rgba(220,185,130,.82); border-radius:26px; padding:5px 17px 5px 10px; margin-bottom:18px; align-self:flex-start; }
+
+.pill .arrow { color:#7a0e1c; font-size:15px; font-weight:900; margin-right:6px; }
+
+.pill .label { color:#5a0f14; font-size:15px; font-weight:700; letter-spacing:1px; }
+
+h2 { color:#fff; font-size:37px; font-weight:900; line-height:1.25; margin-bottom:13px; font-family:"SimSun","宋体","STSong",serif; }
+
+.grn { color:#6DC86D; font-weight:700; }
+
+.divider { width:44px; height:3px; background:#FFD700; border-radius:2px; margin-bottom:13px; }
+
+.quote { background:rgba(0,0,0,.28); border-left:5px solid #FFD700; padding:12px 18px; margin:8px 0; color:rgba(255,255,255,.95); font-size:19px; line-height:1.75; border-radius:0 8px 8px 0; }
+
+.quote-src { font-size:13px; color:rgba(255,215,0,.65); margin-top:5px; text-align:right; }
+
+.hl { background:rgba(255,215,0,.1); border-left:4px solid #FFD700; padding:8px 14px; margin:7px 0; border-radius:0 6px 6px 0; color:#fff; font-size:16px; line-height:1.65; }
+
+.cards { display:grid; gap:11px; }
+
+.cards.col4 { grid-template-columns:1fr 1fr 1fr 1fr; }
+
+.card { background:rgba(0,0,0,.24); border-radius:10px; padding:12px 14px; border-top:3px solid rgba(255,215,0,.55); }
+
+.card-title { color:#FFD700; font-size:15px; font-weight:700; margin-bottom:5px; }
+
+.card-body { color:rgba(255,255,255,.84); font-size:14px; line-height:1.65; }
+
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+
+.three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:17px; }
+
+.big-num { color:#FFD700; font-size:42px; font-weight:900; line-height:1; }
+
+.big-unit { color:rgba(255,215,0,.7); font-size:17px; font-weight:600; }
+
+.big-label { color:rgba(255,255,255,.6); font-size:13px; margin-top:3px; }
+
+.stat-box { background:rgba(0,0,0,.3); border-radius:9px; padding:11px 14px; text-align:center; }
+
+.tag { display:inline-block; background:rgba(255,215,0,.12); border:1px solid rgba(255,215,0,.35); color:#FFD700; padding:2px 10px; border-radius:13px; font-size:13px; margin:2px 3px 2px 0; }
+
+.sec-lbl { color:rgba(255,215,0,.72); font-size:13px; font-weight:700; letter-spacing:1px; margin-bottom:5px; }
+
+.body-sm { color:rgba(255,255,255,.88); font-size:17px; line-height:1.65; margin-bottom:7px; }
+
+.body-xs { color:rgba(255,255,255,.7); font-size:14px; line-height:1.6; }
+
+.tl-item { display:flex; gap:9px; margin-bottom:7px; align-items:flex-start; }
+
+.tl-date { min-width:78px; color:rgba(255,215,0,.85); font-size:12px; font-weight:700; padding-top:2px; flex-shrink:0; }
+
+.tl-dot { width:10px; height:10px; border-radius:50%; background:#FFD700; flex-shrink:0; margin-top:3px; }
+
+.tl-dot.rd { background:#FF8A8A; }
+
+.tl-dot.gn { background:#6DC86D; }
+
+.tl-text { color:rgba(255,255,255,.88); font-size:13px; line-height:1.55; }
+
+.lesson { display:flex; gap:11px; align-items:flex-start; background:rgba(0,0,0,.22); border-radius:9px; padding:10px 13px; margin-bottom:8px; }
+
+.lesson-num { min-width:30px; height:30px; border-radius:50%; background:rgba(255,215,0,.18); border:2px solid rgba(255,215,0,.4); display:flex; align-items:center; justify-content:center; color:#FFD700; font-size:14px; font-weight:900; flex-shrink:0; }
+
+.lesson-title { color:#FFD700; font-size:14px; font-weight:700; margin-bottom:2px; }
+
+.lesson-body { color:rgba(255,255,255,.82); font-size:13px; line-height:1.6; }
+
+.mirror { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+.mirror-pos { background:rgba(30,130,60,.2); border:1.5px solid rgba(40,180,80,.4); border-radius:10px; padding:12px 14px; }
+
+.mirror-neg { background:rgba(180,30,30,.2); border:1.5px solid rgba(220,50,50,.4); border-radius:10px; padding:12px 14px; }
+
+.mirror-title { font-size:15px; font-weight:700; margin-bottom:6px; }
+
+.mirror-body { color:rgba(255,255,255,.82); font-size:13px; line-height:1.7; }
+
+.phone-badge { background:#FFD700; color:#6B0018; font-size:30px; font-weight:900; padding:5px 22px; border-radius:8px; display:inline-block; letter-spacing:4px; margin:5px 0; }
+
+.ning { display:flex; gap:8px; align-items:flex-start; margin-bottom:6px; }
+
+.ning-dot { width:7px; height:7px; border-radius:50%; background:#FFD700; flex-shrink:0; margin-top:6px; }
+
+.ning-text { color:#fff; font-size:15px; line-height:1.6; }
+
+.six-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; }
+
+.six-card { background:rgba(0,0,0,.22); border-radius:9px; padding:10px 12px; border-left:3px solid rgba(255,215,0,.5); }
+
+.six-title { color:#FFD700; font-size:14px; font-weight:700; margin-bottom:3px; }
+
+.six-body { color:rgba(255,255,255,.78); font-size:12px; line-height:1.55; }
+
+/* 5个坚持方法论卡片 */
+.five-method { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+
+.method-card { background:rgba(0,0,0,.24); border-radius:11px; padding:13px 10px; border-top:3px solid rgba(255,215,0,.55); text-align:center; display:flex; flex-direction:column; }
+
+.method-num { color:rgba(255,215,0,.6); font-size:11px; font-weight:700; letter-spacing:.5px; margin-bottom:5px; }
+
+.method-title { color:#FFD700; font-size:16px; font-weight:800; margin-bottom:6px; line-height:1.3; }
+
+.method-key { color:rgba(255,255,255,.75); font-size:12px; line-height:1.55; flex:1; }
+
+.method-badge { display:inline-block; background:rgba(255,215,0,.1); border:1px solid rgba(255,215,0,.3); color:rgba(255,215,0,.8); font-size:11px; padding:2px 8px; border-radius:8px; margin-top:6px; }
+
+/* 21领域标签 */
+.domain-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:5px; margin-bottom:12px; }
+
+.dtag { background:rgba(0,0,0,.22); border-radius:6px; padding:6px 3px; text-align:center; color:rgba(255,255,255,.75); font-size:13px; font-weight:600; border:1px solid rgba(255,255,255,.1); }
+
+.dtag.hi { background:rgba(255,215,0,.18); border-color:rgba(255,215,0,.5); color:#FFD700; font-weight:800; }
+
+/* 隐患链 */
+.chain { display:flex; flex-direction:column; gap:4px; }
+
+.cstep { display:flex; gap:10px; align-items:stretch; }
+
+.cstep-left { display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:16px; }
+
+.cdot { width:14px; height:14px; border-radius:50%; background:#FF8A8A; border:2px solid rgba(255,138,138,.5); flex-shrink:0; }
+
+.cdot.gold { background:#FFD700; border-color:rgba(255,215,0,.5); }
+
+.cline { width:2px; flex:1; background:rgba(255,138,138,.25); min-height:8px; }
+
+.cyear { color:rgba(255,215,0,.85); font-size:12px; font-weight:700; min-width:40px; padding-top:1px; flex-shrink:0; text-align:right; }
+
+.cbox { background:rgba(180,30,30,.16); border:1px solid rgba(220,50,50,.28); border-radius:7px; padding:6px 10px; flex:1; margin-bottom:4px; }
+
+.ckey { color:#FF9090; font-size:13px; font-weight:700; margin-bottom:1px; }
+
+.cdet { color:rgba(255,255,255,.78); font-size:12px; line-height:1.45; }
+
+/* 人物简介 */
+.profile-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+
+.profile-card { background:rgba(0,0,0,.28); border-radius:9px; padding:10px 12px; border-top:2px solid rgba(255,215,0,.4); }
+
+.profile-name { color:#FFD700; font-size:13px; font-weight:700; margin-bottom:3px; }
+
+.profile-act { color:rgba(255,255,255,.82); font-size:12px; line-height:1.55; }
+
+/* 法律条目 */
+.law-item { display:flex; gap:8px; align-items:baseline; padding:4px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+
+.law-year { min-width:46px; color:#FFD700; font-size:12px; font-weight:700; flex-shrink:0; }
+
+.law-name { color:#fff; font-size:13px; font-weight:700; flex:1; }
+
+.law-note { color:rgba(255,255,255,.5); font-size:12px; white-space:nowrap; }
+
+.quote { background:rgba(0,0,0,.28); border-left:5px solid #FFD700; padding:12px 18px; margin:8px 0; color:rgba(255,255,255,.95); font-size:18px; line-height:1.75; border-radius:0 8px 8px 0; }
+
+.tl-date { min-width:72px; color:rgba(255,215,0,.85); font-size:12px; font-weight:700; padding-top:2px; flex-shrink:0; }
+
+/* 领袖卡 */
+.leader-card { background:rgba(0,0,0,.22); border-radius:12px; padding:16px 14px; display:flex; flex-direction:column; gap:8px; }
+
+.leader-name { font-size:18px; font-weight:900; color:#FFD700; font-family:"SimSun","宋体",serif; }
+
+.leader-key { color:rgba(255,215,0,.8); font-size:13px; font-weight:700; letter-spacing:1px; }
+
+.leader-quote { background:rgba(255,215,0,.08); border-left:3px solid rgba(255,215,0,.4); padding:8px 12px; font-size:13px; color:rgba(255,255,255,.85); line-height:1.65; border-radius:0 6px 6px 0; }
+
+.leader-sum { color:rgba(255,255,255,.65); font-size:12px; line-height:1.6; }
+
+/* 历史朝代卡 */
+.dynasty-card { background:rgba(0,0,0,.22); border-radius:11px; padding:13px 14px; display:flex; flex-direction:column; gap:7px; }
+
+.dynasty-name { font-size:24px; font-weight:900; color:#FFD700; font-family:"SimSun","宋体",serif; letter-spacing:2px; }
+
+.dynasty-error { color:#FF9090; font-size:13px; font-weight:700; margin-bottom:2px; }
+
+.dynasty-body { color:rgba(255,255,255,.82); font-size:13px; line-height:1.65; }
+
+.dynasty-lesson { background:rgba(255,215,0,.1); border-left:3px solid #FFD700; padding:6px 10px; font-size:13px; color:rgba(255,255,255,.85); border-radius:0 5px 5px 0; margin-top:3px; }
+
+/* 任务卡 */
+.task-card { background:rgba(0,0,0,.24); border-radius:11px; padding:14px 14px; border-top:3px solid rgba(255,215,0,.55); }
+
+.task-num { color:rgba(255,215,0,.6); font-size:11px; font-weight:700; letter-spacing:.5px; margin-bottom:5px; }
+
+.task-title { color:#FFD700; font-size:16px; font-weight:800; margin-bottom:6px; }
+
+.task-body { color:rgba(255,255,255,.8); font-size:13px; line-height:1.65; }
+
+/* 宣传群体表 */
+.group-row { display:flex; gap:10px; align-items:baseline; padding:5px 0; border-bottom:1px solid rgba(255,255,255,.07); }
+
+.group-name { min-width:100px; color:#FFD700; font-size:13px; font-weight:700; flex-shrink:0; }
+
+.group-focus { color:rgba(255,255,255,.82); font-size:13px; line-height:1.5; flex:1; }
+
+.group-channel { color:rgba(255,255,255,.5); font-size:12px; white-space:nowrap; }
+
+/* 金句卡 */
+.golden-card { background:rgba(0,0,0,.28); border-radius:14px; padding:18px 24px; border-left:5px solid #FFD700; margin-bottom:14px; }
+
+.golden-num { color:rgba(255,215,0,.6); font-size:13px; font-weight:700; letter-spacing:2px; margin-bottom:6px; }
+
+.golden-text { color:#fff; font-size:22px; font-weight:900; line-height:1.4; font-family:"SimSun","宋体","STSong",serif; }
+
+/* 行动表 */
+.action-row { display:grid; grid-template-columns:110px 1fr 80px 60px 1fr; gap:0; border-bottom:1px solid rgba(255,255,255,.07); }
+
+.action-cell { padding:7px 10px; color:rgba(255,255,255,.82); font-size:13px; line-height:1.5; }
+
+.action-head { background:rgba(255,215,0,.15); color:#FFD700; font-size:13px; font-weight:700; }
+
+/* Export readability pass: enlarge small text while preserving slide density. */
+.slide {
+  padding:38px 64px 82px;
+}
+.slide > *:not(.mtn):not(.snum) {
+  position:relative;
+  z-index:1;
+}
+.mtn {
+  z-index:0;
+}
+.snum {
+  position:absolute !important;
+  bottom:24px !important;
+  right:44px !important;
+  z-index:2;
+}
+
+.pill { margin-bottom:18px; }
+.pill .label { font-size:17px !important; }
+h2 { font-size:42px !important; margin-bottom:14px; }
+.divider { margin-bottom:14px; }
+
+.body-sm { font-size:21px !important; line-height:1.55; }
+.body-xs { font-size:17px !important; line-height:1.5; }
+.quote { font-size:21px !important; line-height:1.55; }
+.hl { font-size:19px !important; line-height:1.55; }
+.card-title,
+.lesson-title,
+.six-title,
+.method-title,
+.task-title,
+.profile-name,
+.law-name,
+.group-name,
+.leader-key,
+.action-head,
+.section-label,
+.sec-lbl {
+  font-size:18px !important;
+}
+.card-body,
+.lesson-body,
+.mirror-body,
+.six-body,
+.method-key,
+.tl-text,
+.profile-act,
+.leader-quote,
+.leader-sum,
+.dynasty-body,
+.dynasty-lesson,
+.task-body,
+.group-focus,
+.action-cell,
+.cdet,
+.law-note {
+  font-size:17px !important;
+  line-height:1.5;
+}
+.big-label,
+.quote-src,
+.interest-sub,
+.five-role,
+.five-sub,
+.five-desc,
+.stage-num,
+.stage-ref,
+.stage-marker,
+.tl-date,
+.cyear,
+.ckey,
+.profile-name,
+.law-year,
+.method-num,
+.method-badge,
+.task-num,
+.group-channel,
+.golden-num,
+.dtag {
+  font-size:15px !important;
+}
+.tbl th,
+.tbl td {
+  font-size:18px !important;
+  line-height:1.45;
+}
+.tag { font-size:16px !important; }
+.stat-box { padding:12px 16px; }
+.slide [style*="font-size:11px"] { font-size:13px !important; }
+.slide [style*="font-size:12px"] { font-size:14px !important; }
+.slide [style*="font-size:13px"] { font-size:15px !important; }
+.slide [style*="font-size:14px"] { font-size:16px !important; }
+.slide [style*="font-size:15px"] { font-size:17px !important; }
+.slide [style*="font-size:16px"] { font-size:18px !important; }
+
+/* Slide 10 is dense and must survive screenshot-to-PPT export without cropping. */
+#s10 {
+  padding-top:34px;
+  padding-bottom:76px;
+}
+#s10 .pill {
+  margin-bottom:8px;
+}
+#s10 h2 {
+  margin-bottom:8px;
+  font-size:40px !important;
+}
+#s10 .divider {
+  margin-bottom:8px;
+}
+#s10 > .two-col {
+  grid-template-columns:0.94fr 1.06fr;
+  gap:22px !important;
+}
+#s10 .vs-block {
+  padding:10px 14px;
+}
+#s10 .vs-en {
+  font-size:30px;
+  margin-bottom:2px;
+}
+#s10 .vs-def {
+  font-size:16px !important;
+  line-height:1.32;
+}
+#s10 .vs-def span {
+  font-size:14px !important;
+}
+#s10 .interest-item {
+  padding:4px 10px;
+  min-height:0;
+}
+#s10 .interest-text {
+  font-size:17px !important;
+  line-height:1.12;
+}
+#s10 .interest-sub {
+  font-size:13px !important;
+  line-height:1.18;
+}
+#s10 .section-label {
+  margin-bottom:4px;
+  font-size:16px !important;
+}
+#s10 .hl {
+  font-size:17px !important;
+  line-height:1.45;
+  padding:8px 14px;
+}
+
+/* Very dense action slides: keep larger-than-original text but tighten spacing. */
+#s50 h2,
+#s51 h2 {
+  font-size:39px !important;
+}
+#s50 .cards {
+  gap:10px;
+}
+#s50 .task-card {
+  padding:10px 12px;
+}
+#s50 .task-num {
+  font-size:13px !important;
+  margin-bottom:4px;
+}
+#s50 .task-title {
+  font-size:16px !important;
+  margin-bottom:5px;
+}
+#s50 .task-body {
+  font-size:15px !important;
+  line-height:1.36;
+}
+#s50 .task-body br + br {
+  display:none;
+}
+#s51 .body-sm {
+  margin-bottom:10px !important;
+}
+#s51 .three-col {
+  gap:16px;
+}
+#s51 .three-col > div {
+  gap:7px !important;
+}
+#s51 .body-xs {
+  font-size:15px !important;
+  line-height:1.55 !important;
+}
+#s51 .hl {
+  font-size:15px !important;
+  padding:7px 12px;
+}
+#s51 .three-col > div > div:first-child {
+  padding:10px 14px !important;
+}
+
+#s43 h2,
+#s46 h2,
+#s53 h2 {
+  font-size:40px !important;
+}
+#s43 .card,
+#s46 .card,
+#s53 .card,
+#s46 [style*="border-radius"] {
+  padding-top:10px !important;
+  padding-bottom:10px !important;
+}
+#s43 .card-body,
+#s46 .card-body,
+#s53 .card-body,
+#s46 .body-xs {
+  font-size:16px !important;
+  line-height:1.42 !important;
+}
+#s46 .quote,
+#s53 .quote {
+  font-size:18px !important;
+  line-height:1.42 !important;
+  padding-top:8px !important;
+  padding-bottom:8px !important;
+}
+#s43 .card-body {
+  font-size:15px !important;
+  line-height:1.38 !important;
+}
+#s43 .quote {
+  font-size:17px !important;
+  line-height:1.35 !important;
+  padding-top:6px !important;
+  padding-bottom:6px !important;
+  margin-top:4px !important;
+}
+#s43 .hl {
+  font-size:16px !important;
+  line-height:1.28 !important;
+  padding-top:6px !important;
+  padding-bottom:6px !important;
+  margin-top:4px !important;
+}
+#s46 .quote {
+  position:relative;
+  top:-16px;
+  max-width:calc(100% - 86px);
+}
+#s46 .hl {
+  font-size:16px !important;
+  line-height:1.32 !important;
+  padding-top:6px !important;
+  padding-bottom:6px !important;
+  margin-top:4px !important;
+}
+#s46 .lesson {
+  padding-top:8px !important;
+  padding-bottom:8px !important;
+  margin-bottom:6px !important;
+}
+#s46 .lesson-body {
+  font-size:15px !important;
+  line-height:1.35 !important;
+}
+
+#s2 .body-sm {
+  margin-bottom:18px !important;
+}
+#s2 .cards {
+  gap:12px;
+}
+#s2 .card {
+  display:flex;
+  flex-direction:column;
+}
+#s2 .s2-img {
+  width:calc(100% + 28px);
+  height:132px;
+  margin:-12px -14px 14px -14px;
+  object-fit:contain;
+  object-position:center center;
+  display:block;
+  background:rgba(0,0,0,.18);
+}
+
+/* Pages with visible spare space: scale content up locally. */
+#s17 .mirror-title,
+#s18 .attr-title,
+#s19 .card-title,
+#s23 .card-title,
+#s25 .method-title,
+#s27 .card-title,
+#s41 .card-title,
+#s45 .mirror-title {
+  font-size:20px !important;
+}
+#s17 .mirror-body,
+#s18 .attr-desc,
+#s19 .card-body,
+#s23 .card-body,
+#s25 .method-key,
+#s27 .card-body,
+#s41 .card-body,
+#s45 .mirror-body {
+  font-size:18px !important;
+  line-height:1.55 !important;
+}
+#s17 .hl,
+#s18 .hl,
+#s19 .hl,
+#s23 .hl,
+#s25 .hl,
+#s27 .hl,
+#s41 .hl,
+#s45 .hl {
+  font-size:20px !important;
+  line-height:1.48 !important;
+}
+#s18 .attr-sub,
+#s25 .method-badge,
+#s41 .big-label {
+  font-size:17px !important;
+}
+#s25 .method-card {
+  padding:16px 12px;
+}
+#s27 .card {
+  padding:15px 16px;
+}
+#s19 .six-grid {
+  gap:8px !important;
+}
+#s19 .six-card {
+  padding:9px 12px;
+}
+#s19 .six-title {
+  font-size:18px !important;
+  margin-bottom:5px !important;
+}
+#s19 .six-body {
+  font-size:16px !important;
+  line-height:1.34 !important;
+}
+#s19 .quote {
+  margin-top:7px !important;
+  padding-top:8px !important;
+  padding-bottom:8px !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   全局可读性增强：字号 +2~3px，低对比度文字提亮
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── 正文/卡片 body 文字：提至 19px + 提亮 ── */
+.card-body,
+.lesson-body,
+.mirror-body,
+.six-body,
+.method-key,
+.tl-text,
+.profile-act,
+.leader-quote,
+.leader-sum,
+.dynasty-body,
+.dynasty-lesson,
+.task-body,
+.group-focus,
+.action-cell,
+.cdet,
+.law-note {
+  font-size:19px !important;
+  line-height:1.58 !important;
+  color:rgba(255,255,255,.94) !important;
+}
+
+/* ── 各类标题：提至 20px ── */
+.card-title,
+.lesson-title,
+.six-title,
+.task-title,
+.profile-name,
+.law-name,
+.group-name,
+.leader-key,
+.action-head,
+.section-label,
+.sec-lbl {
+  font-size:20px !important;
+  color:#FFD700 !important;
+}
+
+/* ── 辅助小字（角标/来源）：提至 16px + 提亮 ── */
+.big-label,
+.quote-src,
+.interest-sub,
+.five-sub,
+.five-role,
+.stage-num,
+.stage-ref,
+.stage-marker,
+.tl-date,
+.cyear,
+.ckey,
+.law-year,
+.method-num,
+.method-badge,
+.task-num,
+.group-channel,
+.golden-num,
+.attr-sub {
+  font-size:16px !important;
+  color:rgba(255,255,255,.88) !important;
+}
+
+/* ── 标签 tag / dtag：统一提亮 ── */
+.dtag { font-size:16px !important; color:rgba(255,255,255,.92) !important; }
+.dtag.hi { color:#FFD700 !important; }
+.tag  { font-size:17px !important; }
+
+/* ── body-xs / body-sm ── */
+.body-xs { font-size:19px !important; line-height:1.58 !important; color:rgba(255,255,255,.93) !important; }
+.body-sm { font-size:22px !important; line-height:1.55 !important; color:rgba(255,255,255,.95) !important; }
+
+/* ── quote / hl ── */
+.quote { font-size:21px !important; line-height:1.65 !important; color:rgba(255,255,255,.97) !important; }
+.hl    { font-size:20px !important; line-height:1.58 !important; color:#fff !important; }
+
+/* ── 表格 ── */
+.tbl th { font-size:19px !important; }
+.tbl td { font-size:18px !important; color:rgba(255,255,255,.95) !important; }
+
+/* ── section-label / sec-lbl 金色提亮 ── */
+.section-label,
+.sec-lbl { color:rgba(255,215,0,.95) !important; }
+
+/* ── attr / five / dynasty / leader 小描述 ── */
+.attr-desc    { font-size:17px !important; color:rgba(255,255,255,.92) !important; }
+.five-desc    { font-size:15px !important; color:rgba(255,255,255,.90) !important; }
+.leader-sum   { color:rgba(255,255,255,.90) !important; }
+.dynasty-error{ font-size:17px !important; color:#FF9090 !important; }
+
+/* ── 内联 font-size 属性选择器：统一上调 2px（覆盖 Codex 已有的 +2px 规则） ── */
+.slide [style*="font-size:11px"] { font-size:15px !important; }
+.slide [style*="font-size:12px"] { font-size:16px !important; }
+.slide [style*="font-size:13px"] { font-size:17px !important; }
+.slide [style*="font-size:14px"] { font-size:18px !important; }
+.slide [style*="font-size:15px"] { font-size:19px !important; }
+.slide [style*="font-size:16px"] { font-size:20px !important; }
+.slide [style*="font-size:17px"] { font-size:21px !important; }
+.slide [style*="font-size:18px"] { font-size:22px !important; }
+
+/* ── 保护：超大展示数字不受影响 ── */
+.big-num      { font-size:48px !important; color:#FFD700 !important; }
+.cover-title  { font-size:74px !important; }
+h2            { font-size:42px !important; color:#fff !important; }
+
+
+/* ===== slide-specific fixes (batch 7) ===== */
+/* s28: prevent overflow */
+#s28 .lesson { margin-bottom:2px !important; }
+#s28 .lesson-body { font-size:16px !important; line-height:1.48 !important; }
+/* s31: fix chain alignment & font sizes */
+#s31 .chain { gap:0 !important; }
+#s31 .cdet { font-size:13px !important; line-height:1.4 !important; color:rgba(255,255,255,.85) !important; }
+#s31 .ckey { font-size:13px !important; }
+#s31 .cbox { padding:5px 9px !important; margin-bottom:3px !important; }
+/* s38: prevent overflow */
+#s38 .body-xs { font-size:15px !important; line-height:1.55 !important; }
+#s38 .lesson-body { font-size:16px !important; line-height:1.48 !important; }
+/* s41: subtitle text brightness */
+#s41 .slide > div > div > div > div:last-child { color:rgba(255,255,255,.88) !important; }
+/* s49: prevent overflow */
+#s49 .card-body { font-size:16px !important; line-height:1.5 !important; }
+/* s50: task body font */
+#s50 .task-body { font-size:18px !important; line-height:1.58 !important; }
+#s50 .task-title { font-size:21px !important; }
+#s50 .task-num { font-size:17px !important; }
+/* s51: overall font increase */
+#s51 .body-xs { font-size:18px !important; line-height:1.68 !important; }
+#s51 .hl { font-size:16px !important; }
+/* s54: table font sizes */
+#s54 .group-row > div[style] { font-size:15px !important; }
+#s54 div[style*="padding:7px 12px"] { font-size:15px !important; }
+
+/* p21: 四个宁可/三个不怕 text size */
+#s21 .ning-text { font-size:20px !important; line-height:1.65 !important; }
+/* p31: date alignment + cline visibility */
+#s31 .cstep > div:first-child { align-self:flex-start !important; }
+#s31 .cline { background:rgba(255,100,100,.55) !important; }
+/* p53: lesson overflow fix */
+#s53 .lesson { margin-bottom:2px !important; }
+#s53 .lesson-title { font-size:16px !important; }
+#s53 .lesson-body { font-size:15px !important; line-height:1.45 !important; }
+#s53 .sec-lbl { margin-bottom:3px !important; }
+/* p54: table color & font */
+#s54 .group-row > div:nth-child(2) { color:rgba(255,255,255,.96) !important; font-size:15px !important; }
+#s54 .group-row > div:last-child  { color:rgba(255,255,255,.88) !important; font-size:14px !important; }
+#s54 .group-row > div:first-child { font-size:15px !important; }
+#s54 div[style*="padding:7px 12px"] { font-size:15px !important; }
+
+/* p31: dots only, no connecting line */
+#s31 .chain { gap: 6px !important; }
+#s31 .cstep { align-items: flex-start !important; }
+#s31 .cstep > div:first-child { white-space: nowrap !important; width: 48px !important; min-width: 48px !important; flex-shrink: 0 !important; }
+#s31 .cstep-left { align-self: flex-start !important; padding-top: 2px !important; }
+#s31 .cstep-left::after { display: none !important; }
+#s31 .cline { display: none !important; }
+/* p31: font sizes */
+#s31 .cdet { font-size: 16px !important; line-height: 1.52 !important; color: rgba(255,255,255,.92) !important; }
+#s31 .ckey { font-size: 16px !important; }
+#s31 .cstep > div:first-child { font-size: 14px !important; color: rgba(255,215,0,.95) !important; align-self: flex-start !important; }
+#s31 .cbox { padding: 8px 12px !important; margin-bottom: 0 !important; }
+
+/* Viewer controls sit outside the slide canvas so they never cover PPT content. */
+:root { --controls-h: 54px; }
+body {
+  padding-bottom: calc(var(--controls-h) + env(safe-area-inset-bottom, 0px));
+}
+.nav {
+  min-height: var(--controls-h);
+  padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px));
+  background: rgba(13,0,5,.92);
+  border-top: 1px solid rgba(255,215,0,.22);
+}
+#notes-panel {
+  bottom: calc(var(--controls-h) + env(safe-area-inset-bottom, 0px));
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<div class="slide active" id="s1">
+<div class="cover-deco">安</div>
+<div style="flex:1; display:flex; flex-direction:column; justify-content:center; max-width:800px;">
+<div class="cover-title">总体国家<br/>安全观</div>
+<div class="divider" style="width:90px; height:4px;"></div>
+<div class="cover-sub">坚持统筹发展和安全 筑牢民族复兴根基</div>
+<div style="margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;">
+<span class="tag">2小时系统讲授</span>
+<span class="tag">三讲结构</span>
+<span class="tag">2026年 · 丽水</span>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,118 L150,58 L270,98 L430,28 L560,88 L700,18 L840,72 L980,38 L1120,76 L1280,48 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">01 / 58</div>
+</div>
+
+<div class="slide" id="s2">
+<div class="pill"><span class="arrow">▶</span><span class="label">导入</span></div>
+<h2>三个真实故事</h2>
+<div class="divider"></div>
+<div class="body-sm" style="margin-bottom:24px;">
+    今天先从三件这两年<span class="em">有名有姓、有时间有地点</span>的事情讲起——
+  </div>
+<div class="cards col3" style="flex:1; align-items:stretch;">
+<div class="card" style="overflow:hidden;">
+<img src="https://www.news.cn/legal/20260416/7e7f55da0c914c2c86baeb1cef41434e/20260416a0e3a0830900481aa268b366643f259e_20260416ed1e6ecbe0424541b460cafe192a60ad.webp" class="s2-img" alt="网约车司机举报间谍"/>
+<div style="width:44px; height:44px; border-radius:50%; background:rgba(255,215,0,.18); border:2px solid rgba(255,215,0,.45); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; color:#FFD700; margin-bottom:12px;">一</div>
+<div class="card-title" style="font-size:21px;">一位网约车司机</div>
+<div class="card-body" style="font-size:18px; line-height:1.7;">
+        守住了一处军事设施<br/>
+<span style="color:#FFD700; font-size:16px; font-weight:700; margin-top:8px; display:block;">传统安全 · 举报电话12339</span>
+</div>
+</div>
+<div class="card" style="overflow:hidden;">
+<img src="https://www.hinews.cn/news/pic/003/235/902/00323590236_e50dd852.jpg" class="s2-img" alt="演员王星获救"/>
+<div style="width:44px; height:44px; border-radius:50%; background:rgba(255,215,0,.18); border:2px solid rgba(255,215,0,.45); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; color:#FFD700; margin-bottom:12px;">二</div>
+<div class="card-title" style="font-size:21px;">一个从上海飞到泰国的演员</div>
+<div class="card-body" style="font-size:18px; line-height:1.7;">
+        把中国外交拉到了前台<br/>
+<span style="color:#FFD700; font-size:16px; font-weight:700; margin-top:8px; display:block;">非传统安全 · 海外公民保护</span>
+</div>
+</div>
+<div class="card" style="overflow:hidden;">
+<img src="https://image.fznews.com.cn/app/pic/2023-05/22/426697_4446a5ce-90da-405c-bda6-7060323294cd.png" class="s2-img" alt="AI换脸诈骗"/>
+<div style="width:44px; height:44px; border-radius:50%; background:rgba(255,215,0,.18); border:2px solid rgba(255,215,0,.45); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; color:#FFD700; margin-bottom:12px;">三</div>
+<div class="card-title" style="font-size:21px;">10分钟 · 430万 · 一张假脸</div>
+<div class="card-body" style="font-size:18px; line-height:1.7;">
+        AI换脸诈骗<br/>
+<span style="color:#FFD700; font-size:16px; font-weight:700; margin-top:8px; display:block;">数字安全 · 人工智能威胁</span>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,138 L190,78 L340,108 L490,48 L640,88 L790,38 L940,68 L1090,28 L1280,62 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">02 / 58</div>
+</div>
+
+<div class="slide" id="s3">
+<div class="pill"><span class="arrow">▶</span><span class="label">导入</span></div>
+<div class="story-title">一位网约车司机，守住了一处军事设施</div>
+<div class="two-col" style="flex:1; gap:34px;">
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="body-sm">
+<span class="em">2026年4月15日</span>，国家安全部公布第八批表彰名单——
+        <span class="em">103人受表彰</span>，创历年新高。
+      </div>
+<div class="hl" style="font-size:20px; line-height:1.72;">
+        陈师傅发现外籍乘客在军事管理区对准营区<strong>一张一张拍照</strong>，第一时间拨打 <strong style="color:#FFD700;">12339</strong>；判断对方还会叫车，守在原地再次接单，协助国安部门在哨兵布控点将嫌疑人<strong>依法控制，手机当场截获</strong>。
+      </div>
+<div class="body-sm">
+        没有制服，没有警衔，没有任何专业训练——凭的就是一个中国公民<span class="em">朴素的警觉</span>。
+      </div>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="stat-box">
+<div class="big-num">103</div>
+<div class="big-unit">人</div>
+<div class="big-label">第八批受表彰公民（2026 · 全民国家安全教育日）</div>
+<div style="margin-top:10px; color:#FFD700; font-size:16px; line-height:1.9;">
+          特别重大贡献 <strong>3人</strong>  
+          重大贡献 <strong>23人</strong>  
+          重要贡献 <strong>77人</strong>
+</div>
+</div>
+<div style="background:rgba(255,215,0,.1); border-radius:12px; padding:18px; text-align:center; border:1px solid rgba(255,215,0,.25);">
+<div style="color:rgba(255,255,255,.65); font-size:16px; margin-bottom:6px;">国家安全机关举报电话</div>
+<div class="phone-badge">1 2 3 3 9</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,148 L170,88 L310,128 L470,58 L610,98 L770,44 L910,82 L1070,34 L1280,68 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">03 / 58</div>
+</div>
+
+<div class="slide" id="s4">
+<div class="pill"><span class="arrow">▶</span><span class="label">导入</span></div>
+<div class="story-title">一个从上海飞到泰国的演员，把中国外交拉到了前台</div>
+<div class="two-col" style="flex:1; gap:32px;">
+<div style="display:flex; flex-direction:column; gap:12px;">
+<div style="background:rgba(0,0,0,.22); border-radius:10px; padding:16px 18px;">
+<div style="color:#FFD700; font-size:15px; font-weight:700; margin-bottom:10px; letter-spacing:1px;">▌ 事件时间线</div>
+<div class="tl-item">
+<div class="tl-date">1月2日晚</div>
+<div class="tl-dot"></div>
+<div class="tl-text">上海浦东登机，飞赴泰国曼谷</div>
+</div>
+<div class="tl-item">
+<div class="tl-date">1月3日凌晨</div>
+<div class="tl-dot red"></div>
+<div class="tl-text">抵达曼谷，上午在<span class="red">泰缅边境失联</span></div>
+</div>
+<div class="tl-item">
+<div class="tl-date">3日起</div>
+<div class="tl-dot red"></div>
+<div class="tl-text">中泰缅三国介入 · 跨境打击启动 · 先后被倒卖多个园区：<span style="color:#FFBE6A;">阿波罗·环亚·凯旋</span></div>
+</div>
+<div class="tl-item">
+<div class="tl-date">1月7日</div>
+<div class="tl-dot"></div>
+<div class="tl-text">泰方确认找到王星</div>
+</div>
+<div class="tl-item" style="margin-bottom:0;">
+<div class="tl-date">1月11日</div>
+<div class="tl-dot green"></div>
+<div class="tl-text">凌晨王星回到上海浦东</div>
+</div>
+</div>
+<div class="hl" style="font-size:19px;">
+        获救地：<strong>缅甸妙瓦底</strong>——臭名昭著的<br/>跨境电信诈骗园区群
+      </div>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="stat-box">
+<div class="big-num">4.9<span class="big-unit">万</span></div>
+<div class="big-label">中国籍电诈嫌疑人被移交回国（公安部·2024至今）</div>
+</div>
+<div class="card">
+<div class="card-title">联动影响</div>
+<div class="card-body" style="line-height:1.85;">
+          · 泰国切断妙瓦底<span class="em">电力·通信·汽油</span><br/>
+          · KK园区 630余栋涉诈建筑全部拆除<br/>
+          · 中缅泰三国联合打击全面升级<br/>
+          · 2025年2月：三国联合行动新高度
+        </div>
+</div>
+<div class="quote" style="font-size:20px; padding:12px 18px;">
+        一个人的失联，最终升级成了三个国家的联合行动——这就是今天的<span class="em">非传统安全</span>。
+      </div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,138 L190,78 L340,108 L490,48 L640,88 L790,38 L940,68 L1090,28 L1280,62 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">04 / 58</div>
+</div>
+
+<div class="slide" id="s5">
+<div class="pill"><span class="arrow">▶</span><span class="label">导入</span></div>
+<div class="story-title">10分钟 · 430万 · 一张假脸</div>
+<div class="two-col" style="flex:1; gap:32px;">
+<div style="display:flex; flex-direction:column; gap:13px;">
+<div class="hl" style="font-size:19px; line-height:1.72;">
+        2023年4月，福建福州郭先生接到<span class="em">微信视频电话</span>——画面真实、声音真实、口型真实，连微表情都对得上。"好友"称急需保证金，<strong>10分钟内分两笔转出430万元</strong>。
+      </div>
+<div class="body-sm">转完账发微信："办妥了。"</div>
+<div class="quote" style="font-size:22px; text-align:center; padding:14px 20px;">
+        对面回了一个字——
+        <div style="font-size:52px; font-weight:900; color:#FF8A8A; line-height:1.2; margin-top:6px;">" ？ "</div>
+</div>
+<div class="body-sm">
+        视频里的脸、声音、表情——全都是<span class="em">AI深度伪造</span>。<br/>
+        包头警方紧急止付 <span class="em">336.84万</span>，剩余93.16万仍追缴中。
+      </div>
+</div>
+<div style="display:flex; flex-direction:column; gap:14px;">
+<div class="stat-box">
+<div class="big-num">18<span class="big-unit"> 亿+</span></div>
+<div class="big-label">2025年 AI深度伪造造成经济损失（元）</div>
+</div>
+<div class="card">
+<div class="card-title">规模演变</div>
+<div class="card-body" style="line-height:1.85;">
+          2022—2024初 · 公安部通报近<strong>百起</strong><br/>
+          累计损失超过 <strong>2亿元</strong><br/>
+          2025年突破 <strong style="color:#FF9090;">18亿元</strong>
+</div>
+</div>
+<div style="background:rgba(180,30,30,.18); border:1.5px solid rgba(220,50,50,.45); border-radius:10px; padding:15px 18px; text-align:center;">
+<div style="color:rgba(255,255,255,.6); font-size:16px; margin-bottom:4px;">过去的老话</div>
+<div style="font-size:26px; font-weight:700; color:rgba(255,215,0,.55); text-decoration:line-through; text-decoration-color:#FF8A8A;">眼见为实</div>
+<div style="color:#FF9090; font-size:17px; margin-top:7px; font-weight:600;">在AI时代——已经不成立了</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,148 L170,88 L310,128 L470,58 L610,98 L770,44 L910,82 L1070,34 L1280,68 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">05 / 58</div>
+</div>
+
+<div class="slide" id="s6">
+<div class="pill"><span class="arrow">▶</span><span class="label">时代背景</span></div>
+<h2>这三件事，发生在一个什么样的时代？</h2>
+<div class="divider"></div>
+<div class="hl" style="font-size:18px; margin-bottom:12px;">
+    2026年2月慕尼黑安全会议：60位国家元首·140+位部长·120+国代表
+    年度报告：<span class="em">《Under Destruction》——秩序正在瓦解</span>
+</div>
+<div class="section-label">▌ 桥水基金创始人雷·达里奥：世界秩序大周期六阶段模型</div>
+<div class="stage-row">
+<div class="stage s1">
+<div class="stage-num">第一阶段</div>
+<div class="stage-title">新秩序<br/>建立</div>
+<div class="stage-ref">战后新秩序</div>
+</div>
+<div class="stage s2">
+<div class="stage-num">第二阶段</div>
+<div class="stage-title">资源分配<br/>制度完善</div>
+<div class="stage-ref">战后重建期</div>
+</div>
+<div class="stage s3">
+<div class="stage-num">第三阶段</div>
+<div class="stage-title">和平与<br/>繁荣期</div>
+<div class="stage-ref">黄金上升期</div>
+<div class="stage-marker m-cn">中国当前</div>
+</div>
+<div class="stage s4">
+<div class="stage-num">第四阶段</div>
+<div class="stage-title">过度扩张<br/>泡沫期</div>
+<div class="stage-ref">全球化扩张</div>
+</div>
+<div class="stage s5">
+<div class="stage-num">第五阶段</div>
+<div class="stage-title">财政恶化<br/>内部冲突</div>
+<div class="stage-ref">债务危机</div>
+<div class="stage-marker m-us">美国当前</div>
+</div>
+<div class="stage s6">
+<div class="stage-num">第六阶段</div>
+<div class="stage-title">秩序崩溃<br/>冲突期</div>
+<div class="stage-ref">丛林法则<br/>大国对抗</div>
+<div class="stage-marker m-world">全球当前</div>
+</div>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:14px;">
+<div style="background:rgba(40,160,220,.15); border:1px solid rgba(40,160,220,.4); border-radius:8px; padding:11px 14px; text-align:center;">
+<div style="color:#7EDCFF; font-size:17px; font-weight:700;">中国 · 第三阶段</div>
+<div style="color:rgba(255,255,255,.65); font-size:14px; margin-top:3px;">和平与繁荣期</div>
+</div>
+<div style="background:rgba(240,130,0,.15); border:1px solid rgba(240,130,0,.4); border-radius:8px; padding:11px 14px; text-align:center;">
+<div style="color:#FFBE6A; font-size:17px; font-weight:700;">美国 · 第五阶段</div>
+<div style="color:rgba(255,255,255,.65); font-size:14px; margin-top:3px;">财政恶化与内部冲突期</div>
+</div>
+<div style="background:rgba(210,40,40,.2); border:1px solid rgba(210,40,40,.5); border-radius:8px; padding:11px 14px; text-align:center;">
+<div style="color:#FF9090; font-size:17px; font-weight:700;">全球系统 · 第六阶段</div>
+<div style="color:rgba(255,255,255,.65); font-size:14px; margin-top:3px;">秩序崩溃与冲突期</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,158 L150,98 L270,128 L430,68 L560,108 L700,54 L840,92 L980,44 L1120,78 L1280,48 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">06 / 58</div>
+</div>
+
+<div class="slide" id="s7">
+<div class="pill"><span class="arrow">▶</span><span class="label">时代背景</span></div>
+<h2>三个定位 · 一个现实</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1; gap:30px;">
+<div style="display:flex; flex-direction:column; gap:14px; justify-content:center;">
+<div style="background:rgba(40,160,220,.15); border:1.5px solid rgba(40,160,220,.45); border-radius:12px; padding:17px 20px; display:flex; align-items:center; gap:16px;">
+<div style="color:#7EDCFF; font-size:34px; font-weight:900; min-width:44px;">三</div>
+<div>
+<div style="color:#7EDCFF; font-size:18px; font-weight:700;">中国 · 第三阶段</div>
+<div style="color:#fff; font-size:16px; margin-top:2px;">和平与繁荣期——黄金上升阶段</div>
+</div>
+</div>
+<div style="background:rgba(240,130,0,.15); border:1.5px solid rgba(240,130,0,.45); border-radius:12px; padding:17px 20px; display:flex; align-items:center; gap:16px;">
+<div style="color:#FFBE6A; font-size:34px; font-weight:900; min-width:44px;">五</div>
+<div>
+<div style="color:#FFBE6A; font-size:18px; font-weight:700;">美国 · 第五阶段</div>
+<div style="color:#fff; font-size:16px; margin-top:2px;">财政恶化与内部冲突期</div>
+</div>
+</div>
+<div style="background:rgba(210,40,40,.22); border:1.5px solid rgba(210,40,40,.55); border-radius:12px; padding:17px 20px; display:flex; align-items:center; gap:16px;">
+<div style="color:#FF9090; font-size:34px; font-weight:900; min-width:44px;">六</div>
+<div>
+<div style="color:#FF9090; font-size:18px; font-weight:700;">全球系统 · 第六阶段</div>
+<div style="color:#fff; font-size:16px; margin-top:2px;">秩序崩溃与冲突期</div>
+</div>
+</div>
+<div class="quote" style="font-size:20px; margin-top:2px; padding:13px 18px;">
+<strong style="color:#FFD700; font-size:22px;">"不在餐桌旁，就在菜单上。"</strong><br/>
+<span style="font-size:16px; color:rgba(255,255,255,.6);">大国博弈，没有旁观者。这就是第六阶段的丛林法则。</span>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:13px;">
+<div class="section-label">▌ 2024年全球军事开支数据</div>
+<div class="stat-box">
+<div class="big-num">2.7<span class="big-unit"> 万亿</span></div>
+<div class="big-label" style="font-size:15px;">美元 · 2024年全球军费总量</div>
+<div style="color:#FF9090; font-size:20px; font-weight:700; margin-top:9px;">增速 9.4% 冷战以来最高</div>
+</div>
+<div class="cards col2" style="gap:10px;">
+<div class="card" style="text-align:center; padding:13px 10px;">
+<div style="color:#FFBE6A; font-size:28px; font-weight:900;">+17%</div>
+<div class="card-body" style="font-size:15px; margin-top:3px;">欧洲军费增幅</div>
+</div>
+<div class="card" style="text-align:center; padding:13px 10px;">
+<div style="color:#FFBE6A; font-size:28px; font-weight:900;">+15%</div>
+<div class="card-body" style="font-size:15px; margin-top:3px;">中东军费增幅</div>
+</div>
+<div class="card" style="text-align:center; padding:13px 10px;">
+<div style="color:#FF9090; font-size:22px; font-weight:900;">$1万亿</div>
+<div class="card-body" style="font-size:15px; margin-top:3px;">美国首次突破</div>
+</div>
+<div class="card" style="text-align:center; padding:13px 10px;">
+<div style="color:#FFD700; font-size:17px; font-weight:700;">所有主要大国</div>
+<div class="card-body" style="font-size:15px; margin-top:3px;">军费增速超GDP增速</div>
+</div>
+</div>
+<div class="body-xs" style="color:rgba(255,255,255,.5); font-size:14px;">
+        不是抽象的、遥远的，是正在发生的、具体的、真实的。
+      </div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,148 L190,88 L340,118 L490,55 L640,92 L790,40 L940,76 L1090,32 L1280,66 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">07 / 58</div>
+</div>
+
+<div class="slide" id="s8">
+<div class="pill"><span class="arrow">▶</span><span class="label">导入</span></div>
+<h2>三个故事，一个命题</h2>
+<div class="divider"></div>
+<div class="cards col3" style="margin-bottom:18px;">
+<div class="card">
+<div class="card-title">陈师傅 · 网约车司机</div>
+<div style="color:#FF9090; font-size:15px; font-weight:700; letter-spacing:1px; margin:6px 0;">传统安全</div>
+<div class="card-body">国家政权 · 国防军事层面<br/>基层公民主动举报</div>
+</div>
+<div class="card">
+<div class="card-title">王星 · 青年演员</div>
+<div style="color:#FFBE6A; font-size:15px; font-weight:700; letter-spacing:1px; margin:6px 0;">非传统安全</div>
+<div class="card-body">跨国电诈 · 海外公民保护<br/>大国外交联动</div>
+</div>
+<div class="card">
+<div class="card-title">郭先生 · 科技公司</div>
+<div style="color:#7EDCFF; font-size:15px; font-weight:700; letter-spacing:1px; margin:6px 0;">数字安全</div>
+<div class="card-body">AI深度伪造 · 数据安全<br/>人工智能时代新威胁</div>
+</div>
+</div>
+<div class="hl" style="font-size:19px; margin-bottom:14px;">
+<strong>三个共同点：</strong>都在<span class="em">老百姓身边</span>发生；都由<span class="em">最普通的人</span>在第一现场处置；都是<span class="em">真实可能发生的事</span>。
+    <br/><br/>
+    一个司机的警觉、一条12339的举报、一次反诈的劝阻——看起来都是"基层的小事"，合起来，就是一个14亿人口大国的<strong>国家安全</strong>。
+  </div>
+<div class="quote">
+<strong style="color:#FFD700; font-size:24px;">国家安全是民族复兴的根基，社会稳定是国家强盛的前提。</strong>
+<div class="quote-src">——习近平总书记 · 党的二十大报告</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,158 L150,98 L270,128 L430,68 L560,108 L700,54 L840,92 L980,44 L1120,78 L1280,48 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">08 / 58</div>
+</div>
+
+<div class="slide" id="s9">
+<div class="pill"><span class="arrow">▶</span><span class="label">课程结构</span></div>
+<h2>课程结构</h2>
+<div class="divider"></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:18px; justify-content:center;">
+<div style="background:rgba(0,0,0,.26); border-radius:13px; padding:22px 28px; display:flex; gap:22px; align-items:center; border-left:5px solid #FFD700;">
+<div style="font-size:46px; font-weight:900; color:#FFD700; min-width:56px; text-align:center;">1</div>
+<div>
+<div style="color:#fff; font-size:25px; font-weight:800; font-family:'SimSun','宋体',serif;">把握总体国家安全观的内涵和特色</div>
+<div style="color:rgba(255,255,255,.58); font-size:17px; margin-top:3px;">搞清楚"<strong style="color:#fff;">是什么</strong>"——法律定义·五大要素·五个统筹·三大属性</div>
+</div>
+</div>
+<div style="background:rgba(0,0,0,.2); border-radius:13px; padding:20px 28px; display:flex; gap:22px; align-items:center; border-left:5px solid rgba(255,215,0,.4);">
+<div style="font-size:46px; font-weight:900; color:rgba(255,215,0,.55); min-width:56px; text-align:center;">2</div>
+<div>
+<div style="color:rgba(255,255,255,.88); font-size:25px; font-weight:800; font-family:'SimSun','宋体',serif;">推进国家安全体系和能力现代化</div>
+<div style="color:rgba(255,255,255,.5); font-size:17px; margin-top:3px;">搞清楚"<strong style="color:rgba(255,255,255,.78);">怎么建</strong>"——"3+5+2"框架全解析</div>
+</div>
+</div>
+<div style="background:rgba(0,0,0,.2); border-radius:13px; padding:20px 28px; display:flex; gap:22px; align-items:center; border-left:5px solid rgba(255,215,0,.4);">
+<div style="font-size:46px; font-weight:900; color:rgba(255,215,0,.55); min-width:56px; text-align:center;">3</div>
+<div>
+<div style="color:rgba(255,255,255,.88); font-size:25px; font-weight:800; font-family:'SimSun','宋体',serif;">建设高水平安全的重点领域</div>
+<div style="color:rgba(255,255,255,.5); font-size:17px; margin-top:3px;">搞清楚"<strong style="color:rgba(255,255,255,.78);">在哪里干·怎么干</strong>"</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,152 L175,92 L315,122 L475,60 L615,100 L775,46 L915,80 L1075,36 L1280,70 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">09 / 58</div>
+</div>
+
+<div class="slide" id="s10">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (1) 国家安全是什么？</span></div>
+<h2>从概念到法律定义</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1; gap:26px;">
+<div style="display:flex; flex-direction:column; gap:13px;">
+<div class="section-label">▌ 两个"安全"的本质区别</div>
+<div class="vs-grid">
+<div class="vs-block left">
+<div class="vs-en">Safety</div>
+<div class="vs-def">主观感受<br/>"感觉没事"<br/><span style="color:rgba(255,255,255,.52); font-size:16px;">可以蒙眼自我安慰</span></div>
+</div>
+<div class="vs-mid">≠</div>
+<div class="vs-block right">
+<div class="vs-en">Security</div>
+<div class="vs-def">客观保障<br/>"确实没事，<br/>且能一直没事"</div>
+</div>
+</div>
+<div class="section-label" style="margin-top:6px;">▌ 五项重要内容（一条都不能退）</div>
+<div style="display:flex; flex-direction:column; gap:8px;">
+<div class="interest-item">
+<div class="interest-num">①</div>
+<div><div class="interest-text">国家政权</div><div class="interest-sub">党的领导·社会主义制度</div></div>
+</div>
+<div class="interest-item">
+<div class="interest-num">②</div>
+<div><div class="interest-text">主权</div><div class="interest-sub">独立自主的主权国家</div></div>
+</div>
+<div class="interest-item">
+<div class="interest-num">③</div>
+<div><div class="interest-text">统一和领土完整</div><div class="interest-sub">台湾·南海·钓鱼岛·藏南——一寸都不能少</div></div>
+</div>
+<div class="interest-item">
+<div class="interest-num">④</div>
+<div><div class="interest-text">人民福祉</div><div class="interest-sub">老百姓过好日子的权利</div></div>
+</div>
+<div class="interest-item">
+<div class="interest-num">⑤</div>
+<div><div class="interest-text">经济社会可持续发展</div><div class="interest-sub">发展的势头不能中断</div></div>
+</div>
+</div>
+</div>
+<div style="display:flex; flex-direction:column; gap:13px;">
+<div class="section-label">▌ 法律权威定义</div>
+<div style="background:rgba(0,0,0,.28); border-radius:10px; padding:15px 18px; border:1px solid rgba(255,215,0,.28);">
+<div style="color:rgba(255,215,0,.65); font-size:13px; font-weight:600; margin-bottom:9px;">《中华人民共和国国家安全法》第二条 2015年7月1日</div>
+<div style="color:#fff; font-size:17px; line-height:1.8;">
+          国家安全，是指<span class="em">国家政权</span>、<span class="em">主权</span>、<span class="em">统一和领土完整</span>、<span class="em">人民福祉</span>、<span class="em">经济社会可持续发展</span>和国家其他重大利益<span class="em">相对处于没有危险和不受内外威胁的状态</span>，以及<span class="em">保障持续安全状态的能力</span>。
+        </div>
+</div>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+<div style="background:rgba(0,0,0,.22); border-radius:8px; padding:14px; text-align:center; border-top:2px solid rgba(255,215,0,.45);">
+<div style="color:#FFD700; font-size:24px; font-weight:900; margin-bottom:4px;">状态</div>
+<div style="color:#fff; font-size:15px; line-height:1.5;">今天没有危险<br/>无威胁</div>
+</div>
+<div style="background:rgba(0,0,0,.22); border-radius:8px; padding:14px; text-align:center; border-top:2px solid rgba(255,215,0,.45);">
+<div style="color:#FFD700; font-size:24px; font-weight:900; margin-bottom:4px;">能力</div>
+<div style="color:#fff; font-size:15px; line-height:1.5;">持续保障安全<br/>的实际能力</div>
+</div>
+</div>
+<div class="hl" style="font-size:17px; line-height:1.7;">
+<strong>4月15日</strong> = 全民国家安全教育日（今年第11届）<br/>
+        2014年4月15日——总书记在中央国安委第一次会议首提<span class="em">总体国家安全观</span><br/>
+<span style="color:rgba(255,255,255,.7);">"三个比历史上任何时候都要丰富、宽广、复杂"</span>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,152 L175,92 L315,122 L475,60 L615,100 L775,46 L915,80 L1075,36 L1280,70 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">10 / 58</div>
+</div>
+
+<div class="slide" id="s11">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (2) "总体"的含义——五大要素</span></div>
+<h2>总体国家安全观的五大要素</h2>
+<div class="divider"></div>
+<div class="five" style="margin-bottom:18px;">
+<div class="five-item" style="border-top-color:#FF7070;">
+<div class="five-role" style="color:#FF9090;">宗旨</div>
+<div class="five-label">人民<br/>安全</div>
+<div class="five-sub" style="color:#FF9090; font-size:12px; margin-top:6px;">以人民为中心</div>
+<div class="five-desc">国家安全的根本目的<br/>"江山就是人民"</div>
+</div>
+<div class="five-item" style="border-top-color:#FFD700;">
+<div class="five-role">根本</div>
+<div class="five-label">政治<br/>安全</div>
+<div class="five-sub" style="font-size:12px;">树的根·楼的基</div>
+<div class="five-desc">政权安全·制度安全<br/>意识形态安全</div>
+</div>
+<div class="five-item" style="border-top-color:#6DC86D;">
+<div class="five-role" style="color:#90EE90;">基础</div>
+<div class="five-label">经济<br/>安全</div>
+<div class="five-sub" style="color:#90EE90; font-size:12px;">粮食·能源·产业</div>
+<div class="five-desc">基础一塌大厦倒<br/>发展势头不能断</div>
+</div>
+<div class="five-item" style="border-top-color:#7EDCFF;">
+<div class="five-role" style="color:#7EDCFF;">保障</div>
+<div class="five-label">军事科技<br/>文化社会</div>
+<div class="five-sub" style="color:#7EDCFF; font-size:12px;">硬实力＋软实力</div>
+<div class="five-desc">四个维度构成<br/>完整安全保障</div>
+</div>
+<div class="five-item" style="border-top-color:#DDA0DD;">
+<div class="five-role" style="color:#DDA0DD;">依托</div>
+<div class="five-label">促进国际<br/>安全</div>
+<div class="five-sub" style="color:#DDA0DD; font-size:12px;">借力·合力</div>
+<div class="five-desc">共同·综合·合作<br/>可持续全球安全</div>
+</div>
+</div>
+<div class="quote" style="font-size:23px; text-align:center; padding:16px 32px;">
+    <span class="em">人民为宗旨，政治为根本，经济打基础，军文社保障，国际做依托</span>
+</div>
+<div style="margin-top:14px; background:rgba(0,0,0,.2); border-radius:10px; padding:13px 20px; display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:center;">
+<div style="background:rgba(255,215,0,.18); border-radius:8px; padding:8px 14px; text-align:center;">
+<div style="color:#FFD700; font-size:13px; font-weight:700;">二十大</div>
+<div style="color:#FFD700; font-size:13px; font-weight:700;">新增</div>
+</div>
+<div style="color:#fff; font-size:18px; line-height:1.65;">
+      党的二十大正式将<span class="em">科技安全</span>纳入第四要素——完整表述：
+      "军事<strong style="color:#FFD700;">科技</strong>文化社会安全"。
+      <span style="color:rgba(255,255,255,.65); font-size:16px;"> 背后：芯片·AI·数据——已成为国家安全新阵地。</span>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 190">
+<path d="M0,190 L0,158 L150,98 L270,128 L430,68 L560,108 L700,54 L840,92 L980,44 L1120,78 L1280,48 L1280,190 Z" fill="#fff"></path>
+</svg>
+<div class="snum">11 / 58</div>
+</div>
+
+<div class="slide" id="s12">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (2) 五大要素 · 经济安全</span></div>
+<h2>以经济安全为基础——粮食与能源</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1; gap:26px;">
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="section-label">▌ 粮食安全：2024年答卷</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+<div class="stat-box">
+<div class="big-num">1.4<span class="big-unit">万亿斤</span></div>
+<div class="big-label">粮食总产量·首次迈上新台阶</div>
+</div>
+<div class="stat-box">
+<div class="big-num">11.93<span style="font-size:18px;color:rgba(255,215,0,.7);">亿亩</span></div>
+<div class="big-label">粮食播种面积</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+<div class="stat-box">
+<div style="color:#FFD700;font-size:28px;font-weight:900;">1000斤+</div>
+<div class="big-label">人均粮食占有量</div>
+<div style="color:#6DC86D;font-size:13px;margin-top:4px;">远超国际800斤安全线</div>
+</div>
+<div class="stat-box">
+<div style="color:#FFD700;font-size:28px;font-weight:900;">1.3万亿斤</div>
+<div class="big-label">谷物产量·口粮绝对安全</div>
+</div>
+</div>
+<div class="hl" style="font-size:17px;">
+        <span class="em">"中国人的饭碗任何时候都要牢牢端在自己手上，饭碗主要装中国粮"</span>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="section-label">▌ 能源安全：中国答卷</div>
+<div class="stat-box" style="margin-bottom:4px;">
+<div class="big-num">50<span class="big-unit"> 亿吨</span></div>
+<div class="big-label">一次能源生产总量（标准煤）</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+<div class="stat-box">
+<div style="color:#FFD700;font-size:28px;font-weight:900;">80%+</div>
+<div class="big-label">能源自给率</div>
+</div>
+<div class="stat-box">
+<div style="color:#6DC86D;font-size:28px;font-weight:900;">60%+</div>
+<div class="big-label">可再生能源发电装机占比</div>
+</div>
+</div>
+<div class="card" style="flex:1;">
+<div class="card-title">马歇尔计划的启示</div>
+<div class="card-body" style="line-height:1.75;">
+          1947年起，美国向西欧转移超<strong>130亿美元</strong>重建援助——<br/>
+          用经济的稳，换政治的稳，换安全的稳。<br/>
+<span style="color:#FFD700;">经济崩溃，必然导致政治秩序瓦解。</span>
+</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,90 L150,45 L270,80 L430,22 L560,68 L700,18 L840,58 L980,28 L1120,55 L1280,35 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">12 / 58</div>
+</div>
+
+<div class="slide" id="s12b">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · 经济安全 · 能源争霸</span></div>
+<h2>能源争霸——大国博弈最隐秘的战线</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;gap:22px;">
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div class="sec-lbl">▌ 三层逻辑</div>
+<div style="background:rgba(255,215,0,.1);border:1.5px solid rgba(255,215,0,.38);border-radius:10px;padding:10px 14px;">
+<div style="color:#FFD700;font-size:13px;font-weight:700;margin-bottom:3px;">① 能源即权力——为何是委内瑞拉和伊朗</div>
+<div style="color:rgba(255,255,255,.85);font-size:12px;line-height:1.65;">委内瑞拉已探明储量<span class="em"> 3030亿桶</span>（全球第一·占17.2%）；伊朗<span class="em"> 2086亿桶</span>（全球第三·占11.8%）。拿下原油，就是拿下大国博弈最核心的筹码。</div>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 14px;">
+<div style="color:#fff;font-size:13px;font-weight:700;margin-bottom:3px;">② 石油美元体系——50年旧秩序</div>
+<div style="color:rgba(255,255,255,.82);font-size:12px;line-height:1.65;">1974年美沙协议：沙特以美元结算石油 → 美元成为全球石油唯一计价货币。"OPEC＋美元"主导油价整整40年。</div>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.14);border-radius:10px;padding:10px 14px;">
+<div style="color:#fff;font-size:13px;font-weight:700;margin-bottom:3px;">③ 2014年页岩油革命——关系大反转</div>
+<div style="color:rgba(255,255,255,.82);font-size:12px;line-height:1.65;">美国从净进口国变为全球最大产油国（日产<span class="em"> 1370万桶</span>）。美元与原油从<span style="color:#FF9090;">负相关</span>转为<span style="color:#6DC86D;">正相关</span>——"原油涨·美元也涨"颠覆了40年定律。</div>
+</div>
+<div class="hl" style="font-size:13px;">2026年美国战略文件两条主线：国土安全 ＋ <span class="em">资源（能源）安全</span></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 今日棋局</div>
+<div style="flex:1;border-radius:10px;background:rgba(255,255,255,.06);border:1.5px dashed rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;min-height:160px;">
+<span style="color:rgba(255,255,255,.25);font-size:13px;">[ 图片 ]</span>
+</div>
+<div class="quote" style="font-size:13px;padding:9px 13px;line-height:1.75;">
+现在不是"原油涨·美元跌"——<br/>
+而是<span style="color:#FFD700;font-weight:700;">"原油涨·美元也涨·黄金横盘"</span><br/>
+这跟过去40年的逻辑完全相反。<br/>
+<span style="color:rgba(255,255,255,.5);font-size:11px;display:block;margin-top:2px;">——这就是2026年能源争霸战的全新棋局。</span>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,90 L150,45 L270,80 L430,22 L560,68 L700,18 L840,58 L980,28 L1120,55 L1280,35 L1280,140 Z" fill="#fff"></path>
+</svg>
+</div>
+
+<div class="slide" id="s12c">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · 经济安全 · 中国处境</span></div>
+<h2>中国处境——10桶油里7桶靠进口·四张底牌</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;gap:22px;">
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 我们的处境</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+<div class="stat-box">
+<div style="color:#FF9090;font-size:28px;font-weight:900;">72.7%</div>
+<div class="big-label">原油对外依存度（2025）</div>
+<div style="color:rgba(255,255,255,.5);font-size:12px;margin-top:3px;">10桶油里7桶靠进口</div>
+</div>
+<div class="stat-box">
+<div style="color:#FF9090;font-size:26px;font-weight:900;">5.78亿吨</div>
+<div class="big-label">2025年进口原油总量</div>
+<div style="color:rgba(255,255,255,.5);font-size:12px;margin-top:3px;">再创历史新高</div>
+</div>
+</div>
+<div style="background:rgba(220,30,30,.15);border:1px solid rgba(255,80,80,.3);border-radius:10px;padding:10px 14px;">
+<div style="color:#FF9090;font-size:13px;font-weight:700;margin-bottom:4px;">四道"咽喉"——都不在我们手里</div>
+<div style="color:rgba(255,255,255,.82);font-size:12px;line-height:1.7;">马六甲海峡 · 霍尔木兹海峡 · 苏伊士运河 · 巴拿马运河<br/>进口来源前三：俄罗斯·沙特·伊拉克，前十国占<span class="em">88%</span></div>
+</div>
+<div style="flex:1;border-radius:10px;background:rgba(255,255,255,.06);border:1.5px dashed rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;min-height:90px;">
+<span style="color:rgba(255,255,255,.25);font-size:13px;">[ 图片：海上咽喉示意 ]</span>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<div class="sec-lbl">▌ 我们的四张底牌</div>
+<div class="card">
+<div class="card-title" style="color:#FFD700;">① 能源自给率 80%＋</div>
+<div class="card-body">煤炭年产48亿吨兜底电力；国内原油产量2.16亿吨（2025创历史新高，连续6年增产）</div>
+</div>
+<div class="card">
+<div class="card-title" style="color:#FFD700;">② 战略储备超安全线</div>
+<div class="card-body">战略储备＋商业储备合计可覆盖<span class="em"> 140～180天</span>净进口——远超国际90天安全线</div>
+</div>
+<div class="card">
+<div class="card-title" style="color:#FFD700;">③ 多元进口·分散风险</div>
+<div class="card-body">进口来源扩至45国；俄陆上管道·中亚管道·中俄东线天然气管道，持续降低海上"卡脖子"风险</div>
+</div>
+<div class="card">
+<div class="card-title" style="color:#6DC86D;">④ 新能源替代加速</div>
+<div class="card-body">可再生能源装机超60%；新能源汽车渗透率2024年达40%——对汽油替代效应持续放大</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,91 L153,48 L279,83 L439,26 L569,70 L709,19 L849,59 L989,29 L1129,56 L1280,40 L1280,140 Z" fill="#fff"></path>
+</svg>
+</div>
+
+<div class="slide" id="s13">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (2) 五大要素 · 军事科技文化社会安全</span></div>
+<h2>以军事科技文化社会安全为保障</h2>
+<div class="divider"></div>
+<div class="cards col2" style="flex:1; gap:14px;">
+<div class="card" style="border-top-color:#7EDCFF;">
+<div class="card-title" style="color:#7EDCFF; font-size:19px;">军事安全</div>
+<div class="card-body" style="line-height:1.8;">
+        2025年：中国参与联合国维和行动<strong style="color:#FFD700;">35周年</strong><br/>
+        累计派出维和人员 <strong style="color:#FFD700;">5万余人次</strong>，参与26项维和行动<br/>
+        安理会常任理事国中<strong style="color:#FFD700;">派遣最多</strong><br/>
+        亚丁湾护航 <strong style="color:#FFD700;">16年·48批次</strong>编队——守护能源与贸易命脉
+      </div>
+</div>
+<div class="card" style="border-top-color:#DDA0DD;">
+<div class="card-title" style="color:#DDA0DD; font-size:19px;">科技安全</div>
+<div class="card-body" style="line-height:1.8;">
+        天宫空间站2025年在轨稳定运行<br/>
+        发表高水平SCI论文 <strong style="color:#FFD700;">230余篇</strong><br/>
+        专利成果转化 <strong style="color:#FFD700;">70余项</strong><br/>
+        大型机械臂——<strong style="color:#FFD700;">中国独创设计</strong>，零外国授权依赖<br/>
+<span style="color:#FFD700;">科技安全 = 没有任何关键环节被一键"掐停"</span>
+</div>
+</div>
+<div class="card" style="border-top-color:#FFD700;">
+<div class="card-title" style="font-size:19px;">文化安全</div>
+<div class="card-body" style="line-height:1.8;">
+        《哪吒2》全球票房突破 <strong style="color:#FFD700;">150亿元</strong>，海外历史新高<br/>
+        《黑神话：悟空》全球销量超 <strong style="color:#FFD700;">2000万份</strong><br/>
+        春节——<strong style="color:#FFD700;">2024年正式入选联合国非物质文化遗产</strong><br/>
+<span style="color:#FFD700;">文化安全 = 大门敞开，走向全球叙事体系</span>
+</div>
+</div>
+<div class="card" style="border-top-color:#6DC86D;">
+<div class="card-title" style="color:#6DC86D; font-size:19px;">社会安全</div>
+<div class="card-body" style="line-height:1.8;">
+        民众安全感指数连续 <strong style="color:#FFD700;">4年保持98%以上</strong><br/>
+        世界银行调查：中国是全球<strong style="color:#FFD700;">"夜晚独行最安全"</strong>国家之一<br/>
+        深夜12点，一位年轻女孩可独自在任何大城市走回家
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,92 L180,48 L310,82 L470,28 L610,65 L770,20 L910,52 L1070,18 L1280,45 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">13 / 58</div>
+</div>
+
+<div class="slide" id="s14">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (2) 五个统筹</span></div>
+<h2>从五对关系到五个统筹</h2>
+<div class="divider"></div>
+<div class="body-sm" style="margin-bottom:14px;">
+    从<span class="em">2014年认识论</span>（辩证看）到<span class="em">2022年方法论</span>（系统干）——认识的飞跃
+  </div>
+<table class="tbl" style="flex:1;">
+<thead>
+<tr>
+<th style="width:44%;">五对关系（2014年·中央国安委第一次会议）</th>
+<th class="arrow-cell" style="width:12%;">→</th>
+<th style="width:44%;">五个统筹（2022年·党的二十大）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>既重视<span class="em">外部安全</span>，又重视<span class="em">内部安全</span></td>
+<td class="arrow-cell">⟹</td>
+<td><strong style="color:#FFD700;">统筹外部安全和内部安全</strong></td>
+</tr>
+<tr>
+<td>既重视<span class="em">国土安全</span>，又重视<span class="em">国民安全</span></td>
+<td class="arrow-cell">⟹</td>
+<td><strong style="color:#FFD700;">统筹国土安全和国民安全</strong></td>
+</tr>
+<tr>
+<td>既重视<span class="em">传统安全</span>，又重视<span class="em">非传统安全</span></td>
+<td class="arrow-cell">⟹</td>
+<td><strong style="color:#FFD700;">统筹传统安全和非传统安全</strong></td>
+</tr>
+<tr>
+<td>既重视<span class="em">发展问题</span>，又重视<span class="em">安全问题</span></td>
+<td class="arrow-cell">⟹</td>
+<td><strong style="color:#FFD700;">统筹发展和安全</strong><span style="color:rgba(255,215,0,.6);font-size:14px;"> ← 管总</span></td>
+</tr>
+<tr>
+<td>既重视<span class="em">自身安全</span>，又重视<span class="em">共同安全</span></td>
+<td class="arrow-cell">⟹</td>
+<td><strong style="color:#FFD700;">统筹自身安全和共同安全</strong></td>
+</tr>
+<tr>
+<td style="color:rgba(255,255,255,.45); font-style:italic;">（二十大新增）</td>
+<td class="arrow-cell">＋</td>
+<td><strong style="color:#FFD700;">统筹维护安全和塑造安全</strong><span style="color:rgba(255,215,0,.6);font-size:14px;"> ← 新提法</span></td>
+</tr>
+</tbody>
+</table>
+<div class="quote" style="font-size:19px; margin-top:12px; padding:10px 18px;">
+    2025年10月：<span class="em">"在发展中固安全，在安全中谋发展"</span>
+<span style="color:rgba(255,255,255,.6); font-size:16px;">——从"良性互动"到"两个硬道理"再到此表述，是认识论飞跃。</span>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,95 L160,52 L280,85 L440,32 L570,72 L710,22 L850,60 L990,28 L1130,55 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">14 / 58</div>
+</div>
+
+<div class="slide" id="s15">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (2) 五个统筹 · 案例一</span></div>
+<h2>统筹发展和安全 · 统筹开放和安全</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1; gap:24px;">
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="section-label">▌ 统筹发展和安全：种子振兴行动</div>
+<div class="hl" style="font-size:18px;">
+        2021年起国家实施<span class="em">种业振兴行动</span>——把安全嵌进发展的每一个环节
+      </div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+<div class="stat-box">
+<div style="color:#FFD700;font-size:28px;font-weight:900;">95%+</div>
+<div class="big-label">农作物自主选育品种占比（2025年）</div>
+</div>
+<div class="stat-box">
+<div style="color:#FFD700;font-size:28px;font-weight:900;">58万份</div>
+<div class="big-label">长期保存农作物种质资源·世界第一</div>
+</div>
+</div>
+<div class="card">
+<div class="card-title">战略矿产挑战</div>
+<div class="card-body" style="line-height:1.75;">
+          铁矿石·铜·锂·钴等<strong style="color:#FFD700;">11种矿产</strong>对外依存度超50%<br/>
+          应对：多元供应布局·战略储备·<br/>废旧电池回收·当地利益共享机制
+        </div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="section-label">▌ 统筹开放和安全：外资安全护栏</div>
+<div class="hl" style="font-size:18px;">
+        2021年1月18日，<span class="em">《外商投资安全审查办法》</span>正式实施
+      </div>
+<div class="card" style="flex:1;">
+<div class="card-title">审查逻辑</div>
+<div class="card-body" style="line-height:1.75;">
+          涉及<span class="em">关键技术·关键基础设施·重要金融服务</span>领域的外资并购——须经安全审查。<br/><br/>
+          参照：美国CFIUS · 日本 · 德国 · 澳大利亚均有类似机制——<span class="em">全球通行标配。</span><br/><br/>
+          安全审查不是开放的阻碍，是高水平开放的<strong style="color:#FFD700;">"护栏"</strong>：高速公路装护栏是为了跑得更快更稳。
+        </div>
+</div>
+<div class="quote" style="font-size:18px; padding:10px 16px;">
+        没有护栏的开放，不是真开放
+      </div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,92 L170,48 L305,82 L465,28 L605,65 L765,20 L905,52 L1065,18 L1280,45 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">15 / 58</div>
+</div>
+
+<div class="slide" id="s16">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (2) 五个统筹 · 案例二</span></div>
+<h2>四个统筹的现实案例</h2>
+<div class="divider"></div>
+<div class="cards col2" style="flex:1; gap:14px;">
+<div class="card" style="border-top-color:#FF9090;">
+<div class="card-title" style="color:#FF9090;">统筹传统安全·台海实践</div>
+<div class="card-body" style="line-height:1.75;">
+        2025年1—7月，解放军执行 <span class="em">28次"联合战备警巡"</span><br/>
+        战机·轰炸机·无人机体系化打击机群<br/>
+        军舰·海警船常态化越过所谓"海峡中线"<br/>
+<span style="color:#FF9090;">→ 建立对台海海空域"主权管辖事实"</span>
+</div>
+</div>
+<div class="card" style="border-top-color:#FFBE6A;">
+<div class="card-title" style="color:#FFBE6A;">统筹非传统安全·认知战</div>
+<div class="card-body" style="line-height:1.75;">
+        2022年俄乌冲突期间：<span class="em">泽连斯基"宣布投降"假视频</span><br/>
+        乌克兰媒体网站和电视滚动字幕遭黑客植入<br/>
+        乌方迅速辟谣，Meta、YouTube等平台下架<br/>
+<span style="color:#FFBE6A;">→ 不需要一颗子弹，也可能制造混乱和恐慌</span>
+</div>
+</div>
+<div class="card" style="border-top-color:#6DC86D;">
+<div class="card-title" style="color:#6DC86D;">统筹共同安全·沙伊北京和解</div>
+<div class="card-body" style="line-height:1.75;">
+<span class="em">2023年3月10日</span>：沙特与伊朗在北京握手言和，恢复外交关系<br/>
+        长期对立·代理人冲突·2016年断交<br/>
+        三原则：<strong style="color:#6DC86D;">不附条件·平等对话·共同安全导向</strong><br/>
+        → 此后中东出现一轮"和解潮"
+      </div>
+</div>
+<div class="card" style="border-top-color:#7EDCFF;">
+<div class="card-title" style="color:#7EDCFF;">统筹维护与塑造安全·东海防空识别区</div>
+<div class="card-body" style="line-height:1.75;">
+<span class="em">2013年11月23日</span>：划设东海防空识别区<br/>
+        从"被动响应"→"<strong style="color:#7EDCFF;">主动设防</strong>"的分水岭<br/>
+        依据：联合国宪章第51条·国际通行做法<br/>
+        2014年起南海岛礁建设——把主权从"地图虚线"变为<strong style="color:#7EDCFF;">"主权事实"</strong>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,95 L155,52 L278,86 L438,32 L568,72 L708,22 L848,60 L988,28 L1128,55 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">16 / 58</div>
+</div>
+
+<div class="slide" id="s17">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (2) 五个统筹 · 发展与安全</span></div>
+<h2>两面镜子：在发展中固安全</h2>
+<div class="divider"></div>
+<div class="mirror" style="flex:1; gap:20px; align-items:stretch;">
+<div class="mirror-pos">
+<div class="mirror-title">正面镜子 · 浙江千万工程</div>
+<div class="mirror-body">
+        2003年习近平同志主政浙江时亲自谋划：<strong style="color:#6DC86D;">千村示范、万村整治</strong><br/><br/>
+        三件事合一：<br/>
+        · 搞发展：改水改厕改路改环境<br/>
+        · 固生态："绿水青山就是金山银山"<br/>
+        · 消隐患：高风险区域搬迁·危房改造<br/><br/>
+        荣获<strong style="color:#6DC86D;">联合国"地球卫士奖"</strong><br/>
+        成为全球农村可持续发展的中国样板
+      </div>
+</div>
+<div class="mirror-neg">
+<div class="mirror-title">反面镜子 · 天津港8·12事故</div>
+<div class="mirror-body">
+        2015年8月12日22时51分——两次主爆炸TNT当量<br/>
+        分别相当于 <strong style="color:#FF9090;">15吨和430吨</strong><br/><br/>
+        代价：<strong style="color:#FF9090;">165人遇难（消防99人·民警11人）</strong><br/>
+        798人受伤·直接经济损失<strong style="color:#FF9090;">68.66亿元</strong><br/><br/>
+        四大问题：安评报告造假·监管流于形式·<br/>
+        违规储存危化品·选址严重失当
+      </div>
+</div>
+</div>
+<div class="quote" style="font-size:20px; margin-top:14px; padding:12px 20px;">
+<strong style="color:#FFD700;">没有高水平安全的发展，不是真发展，是雷区里的狂奔。</strong>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,92 L172,48 L308,82 L468,28 L608,65 L768,20 L908,52 L1068,18 L1280,45 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">17 / 58</div>
+</div>
+
+<div class="slide" id="s18">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (3) 三大属性</span></div>
+<h2>总体国家安全观的三大属性</h2>
+<div class="divider"></div>
+<div class="body-sm" style="margin-bottom:20px;">
+    五大要素、五个统筹是<span class="em">内容框架</span>，三大属性是这一思想的<span class="em">精神特质</span>。
+  </div>
+<div class="three-col" style="flex:1; align-items:stretch;">
+<div class="attr-card" style="border-top-color:#FF9090;">
+<div class="attr-icon" style="color:#FF9090;">民</div>
+<div class="attr-title">人民属性</div>
+<div class="attr-sub" style="color:#FF9090;">民心是最大的政治</div>
+<div class="attr-desc">
+        国家安全为了谁？为了人民。<br/><br/>
+        从"保堤坝"到"保人命"——习近平同志在浙江防台实践中的根本转变。<br/><br/>
+<strong style="color:#FFD700;">六类重点群体</strong>：残疾人·留守老人儿童·退伍军人·毕业大学生·网约车司机·快递骑手
+      </div>
+</div>
+<div class="attr-card" style="border-top-color:#FFD700;">
+<div class="attr-icon">政</div>
+<div class="attr-title">政治属性</div>
+<div class="attr-sub">苏联之鉴，前车不远</div>
+<div class="attr-desc">
+        政治安全 = 政权安全 + 制度安全 + 意识形态安全<br/><br/>
+        1991年12月25日，克里姆林宫降旗——2000万党员的苏共"作鸟兽散"。<br/><br/>
+<strong style="color:#FFD700;">一个重要原因是理想信念动摇了</strong>
+</div>
+</div>
+<div class="attr-card" style="border-top-color:#7EDCFF;">
+<div class="attr-icon" style="color:#7EDCFF;">统</div>
+<div class="attr-title">统筹属性</div>
+<div class="attr-sub" style="color:#7EDCFF;">发展与安全的动态平衡</div>
+<div class="attr-desc">
+        邓小平：<em>"最重要的还是做好我们自己的事情"</em><br/><br/>
+        四个宁可·三个不怕——不做短期加减法，做长期总账本。<br/><br/>
+<strong style="color:#FFD700;">高质量发展和高水平安全良性互动</strong>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,95 L155,52 L278,86 L438,32 L568,72 L708,22 L848,60 L988,28 L1128,55 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">18 / 58</div>
+</div>
+
+<div class="slide" id="s19">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (3) 人民属性</span></div>
+<h2>基层视角：六类重点群体</h2>
+<div class="divider"></div>
+<div class="six-grid" style="flex:1; align-content:start; gap:12px;">
+<div class="six-card" style="border-left-color:#FF9090;">
+<div class="six-title">残疾人</div>
+<div class="six-body">行动不便·信息闭塞——极端天气下的"弱点"；残联也是基层组织动员的触角</div>
+</div>
+<div class="six-card" style="border-left-color:#FFBE6A;">
+<div class="six-title">留守老人和留守儿童</div>
+<div class="six-body">最易成为电信诈骗·养老诈骗的受害对象；突发事件中容易"失联"</div>
+</div>
+<div class="six-card" style="border-left-color:#6DC86D;">
+<div class="six-title">退伍军人</div>
+<div class="six-body">有组织性·有纪律性·有荣誉感——基层最可靠的稳定器；退役军人服务站要用好用活</div>
+</div>
+<div class="six-card" style="border-left-color:#7EDCFF;">
+<div class="six-title">毕业大学生</div>
+<div class="six-body">就业压力大，易被"海外高薪"诱骗出境（王星前车之鉴）；也易被境外组织网上渗透策反</div>
+</div>
+<div class="six-card" style="border-left-color:#FFD700;">
+<div class="six-title">出租车·网约车司机</div>
+<div class="six-body">走街串巷·信息触角最广——陈师傅就是最好教材；建立"司机之家"，发展为"流动的眼睛和耳朵"</div>
+</div>
+<div class="six-card" style="border-left-color:#DDA0DD;">
+<div class="six-title">快递员·外卖骑手</div>
+<div class="six-body">南方城市百万级规模，每天穿楼入户——城市基层治理最新"哨兵"；"暖新行动""骑手党支部"</div>
+</div>
+</div>
+<div class="quote" style="font-size:19px; margin-top:13px; padding:11px 18px;">
+    口诀：<span class="em">两老·两新·两流动</span>
+<span style="color:rgba(255,255,255,.6); font-size:15px;"> ——老兵老人；大学生毕业生；快递员网约车司机</span>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,92 L170,48 L305,82 L465,28 L605,65 L765,20 L905,52 L1065,18 L1280,45 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">19 / 58</div>
+</div>
+
+<div class="slide" id="s20">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (3) 政治属性</span></div>
+<h2>苏联之鉴：政治安全的根本</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1; gap:24px;">
+<div style="display:flex;flex-direction:column;gap:11px;">
+<div style="background:rgba(0,0,0,.25);border-radius:10px;padding:13px 16px;">
+<div style="color:rgba(255,215,0,1);font-size:15px;margin-bottom:6px;">1991年12月25日 · 莫斯科</div>
+<div style="color:#fff;font-size:16px;line-height:1.7;">当地时间19时32分，克里姆林宫上空——那面插了69年的红旗，<span class="em">缓缓降下</span>。<br/>拥有近2000万党员、900余万平方公里国土的苏联——无声无息地，解体了。</div>
+</div>
+<div class="quote" style="font-size:17px; padding:11px 16px;">
+        苏联为什么解体？……全面否定苏联历史、苏共历史，搞历史虚无主义，思想搞乱了，各级党组织几乎没任何作用了，军队都不在党的领导之下了。最后，苏联共产党偌大一个党就<strong style="color:#FF9090;">作鸟兽散</strong>了……<span class="em">这是前车之鉴啊！</span>
+<div class="quote-src">——习近平总书记，2013年1月5日</div>
+</div>
+<div style="background:rgba(180,30,30,.18);border:1px solid rgba(220,50,50,.35);border-radius:8px;padding:10px 14px;text-align:center;">
+<div style="color:#FF9090;font-size:16px;font-weight:700;">"竟无一人是男儿"</div>
+<div style="color:rgba(255,255,255,.88);font-size:14px;margin-top:3px;">——总书记谈苏共解体时刻</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="lesson">
+<div class="lesson-num">一</div>
+<div>
+<div class="lesson-title">意识形态防线的全面撤守</div>
+<div class="lesson-body">戈尔巴乔夫推行"公开化"，带头全面否定列宁·斯大林·苏联70年历史——全社会理想信念崩塌，政党失去凝聚共识的精神纽带。</div>
+</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">二</div>
+<div>
+<div class="lesson-title">组织体系官僚化与瓦解</div>
+<div class="lesson-body">任人唯亲·委任制盛行·干部脱离群众——2000万党员关键时刻"作鸟兽散"；军队不再是党的军队，叫不动了。</div>
+</div>
+</div>
+<div class="lesson">
+<div class="lesson-num">三</div>
+<div>
+<div class="lesson-title">解体后的深重代价</div>
+<div class="lesson-body">GDP下降幅度超过二战期间损失；工业大国沦为原材料附庸；犯罪率飙升·人均寿命下降·院士教授上街卖旧书。这就是"政治安全失守"的红利。</div>
+</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,95 L158,52 L280,86 L440,32 L570,72 L710,22 L850,60 L990,28 L1130,55 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">20 / 58</div>
+</div>
+
+<div class="slide" id="s21">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · (3) 统筹属性</span></div>
+<h2>统筹属性：发展与安全的动态平衡</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1; gap:24px;">
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="section-label">▌ 浙江防台实践——习近平同志提出</div>
+<div style="background:rgba(0,0,0,.22);border-radius:10px;padding:14px 16px;">
+<div style="color:#FFD700;font-size:16px;font-weight:700;margin-bottom:10px;">四个宁可</div>
+<div class="ning"><div class="ning-dot"></div><div class="ning-text">宁可<span>十防九空</span>，不可失防万一</div></div>
+<div class="ning"><div class="ning-dot"></div><div class="ning-text">宁可<span>事前听骂声</span>，不可事后听哭声</div></div>
+<div class="ning"><div class="ning-dot"></div><div class="ning-text">宁可<span>信其有</span>，不可信其无</div></div>
+<div class="ning" style="margin-bottom:0;"><div class="ning-dot"></div><div class="ning-text">宁可<span>兴师动众</span>，不可延误时机</div></div>
+</div>
+<div style="background:rgba(0,0,0,.22);border-radius:10px;padding:14px 16px;">
+<div style="color:#FFD700;font-size:16px;font-weight:700;margin-bottom:10px;">三个不怕</div>
+<div class="ning"><div class="ning-dot"></div><div class="ning-text">不怕<span>兴师动众</span></div></div>
+<div class="ning"><div class="ning-dot"></div><div class="ning-text">不怕<span>劳民伤财</span></div></div>
+<div class="ning" style="margin-bottom:0;"><div class="ning-dot"></div><div class="ning-text">不怕<span>十防九空</span></div></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div class="section-label">▌ "3820"战略工程的统筹启示</div>
+<div class="hl" style="font-size:17px;">
+        1992年习近平主政福州，编制<span class="em">3年打基础·8年上台阶·20年建成现代化</span>的战略规划——30年后今天的福州骨架，就是1992年的底稿。
+      </div>
+<div class="card">
+<div class="card-title">"统筹"的本质</div>
+<div class="card-body" style="line-height:1.75;">
+          短期看，"十防九空"是浪费·折腾；<br/>
+          长期看，这种"浪费"守住了命，守住了发展基本盘。<br/><br/>
+<span class="em">不做短期的加减法，做长期的总账本——这就是统筹。</span>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+<div class="stat-box">
+<div style="color:#6DC86D;font-size:22px;font-weight:900;">↓12.8%</div>
+<div class="big-label">全国刑事案件立案数（2025年）</div>
+</div>
+<div class="stat-box">
+<div style="color:#6DC86D;font-size:22px;font-weight:900;">↓9.4%</div>
+<div class="big-label">生产安全事故起数（2025年）</div>
+</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,92 L172,48 L308,82 L468,28 L608,65 L768,20 L908,52 L1068,18 L1280,45 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">21 / 58</div>
+</div>
+
+<div class="slide" id="s22">
+<div class="pill"><span class="arrow">▶</span><span class="label">1 · 小结</span></div>
+<h2>小结</h2>
+<div class="divider"></div>
+<div style="flex:1; display:flex; flex-direction:column; gap:16px; justify-content:center;">
+<div style="background:rgba(0,0,0,.26);border-radius:13px;padding:20px 26px;border-left:5px solid #FFD700;">
+<div style="color:#FFD700;font-size:16px;font-weight:700;margin-bottom:5px;">第一句 · 五大要素口诀</div>
+<div style="color:#fff;font-size:22px;font-weight:700;margin-bottom:5px;">人民为宗旨，政治为根本，经济打基础，军文社保障，国际做依托</div>
+<div style="color:rgba(255,255,255,.88);font-size:15px;">开党委会·开党课，这个口诀就是"脚手架"</div>
+</div>
+<div style="background:rgba(0,0,0,.22);border-radius:13px;padding:20px 26px;border-left:5px solid rgba(255,215,0,.5);">
+<div style="color:#FFD700;font-size:16px;font-weight:700;margin-bottom:5px;">第二句 · 五个统筹方法论</div>
+<div style="color:#fff;font-size:22px;font-weight:700;margin-bottom:5px;">用系统思维抓工作——辩证看，系统干</div>
+<div style="color:rgba(255,255,255,.88);font-size:15px;">一个矛盾纠纷既是民生问题也是政治问题；一次信访处置既关乎个案也关乎稳定大局</div>
+</div>
+<div style="background:rgba(0,0,0,.22);border-radius:13px;padding:20px 26px;border-left:5px solid rgba(255,215,0,.5);">
+<div style="color:#FFD700;font-size:16px;font-weight:700;margin-bottom:5px;">第三句 · 三大属性三句话</div>
+<div style="color:#fff;font-size:22px;font-weight:700;margin-bottom:5px;">民心是最大政治 · 苏共前车之鉴不可忘 · 发展安全两手都要硬</div>
+<div style="color:rgba(255,255,255,.88);font-size:15px;">"在发展中固安全，在安全中谋发展"——新时代基层治理的总开关</div>
+</div>
+</div>
+<div class="quote" style="font-size:18px; margin-top:12px; padding:10px 18px; text-align:center;">
+<strong style="color:#FFD700;">搞清楚了"是什么"</strong>
+<span style="color:rgba(255,255,255,.5); font-size:15px;"> 下一讲：推进国家安全体系和能力现代化——搞清楚"怎么建"</span>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,95 L155,52 L278,86 L438,32 L568,72 L708,22 L848,60 L988,28 L1128,55 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">22 / 58</div>
+</div>
+
+<div class="slide" id="s23">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 推进国家安全体系和能力现代化</span></div>
+<h2>一个框架：3＋5＋2</h2>
+<div class="divider"></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+<span class="tag">二十大报告·第十一部分</span>
+<span class="tag">三中全会《决定》</span>
+<span class="tag">《新时代的中国国家安全》白皮书·2025.5</span>
+<span class="tag">"十五五"规划建议·第49条</span>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+<!-- 核心层 -->
+<div style="width:46%;background:rgba(255,215,0,.13);border:2px solid rgba(255,215,0,.55);border-radius:13px;padding:14px 22px;text-align:center;">
+<div style="color:rgba(255,215,0,.95);font-size:14px;font-weight:700;letter-spacing:2px;margin-bottom:8px;">3个定盘星（核心层）</div>
+<div style="color:#fff;font-size:28px;font-weight:900;letter-spacing:5px;font-family:'SimSun','宋体',serif;margin-bottom:7px;">轴 · 轨 · 标</div>
+<div style="display:flex;justify-content:center;gap:18px;font-size:15px;color:rgba(255,255,255,.9);">
+<span>党的绝对领导</span><span>中国特色道路</span><span>人民检验标准</span>
+</div>
+</div>
+<!-- 方法层 -->
+<div style="width:70%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.2);border-radius:13px;padding:13px 22px;text-align:center;">
+<div style="color:rgba(255,215,0,.95);font-size:14px;font-weight:700;letter-spacing:2px;margin-bottom:9px;">5个坚持（方法论层）</div>
+<div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+<span class="tag">大安全观</span>
+<span class="tag">系统思维</span>
+<span class="tag">主动塑造</span>
+<span class="tag">总体战·高效联动</span>
+<span class="tag">法治化保障</span>
+</div>
+</div>
+<!-- 执行层 -->
+<div style="width:90%;background:rgba(255,100,100,.07);border:1.5px solid rgba(255,120,120,.22);border-radius:13px;padding:13px 22px;text-align:center;">
+<div style="color:rgba(255,215,0,.95);font-size:14px;font-weight:700;letter-spacing:2px;margin-bottom:9px;">2条硬要求（执行层）</div>
+<div style="display:flex;justify-content:center;gap:50px;">
+<div>
+<div style="color:#fff;font-size:16px;font-weight:700;">① 明确主体责任</div>
+<div style="color:rgba(255,255,255,.88);font-size:14px;margin-top:3px;">党委负总责 · 一岗双责</div>
+</div>
+<div>
+<div style="color:#fff;font-size:16px;font-weight:700;">② 聚焦重点 精准发力</div>
+<div style="color:rgba(255,255,255,.88);font-size:14px;margin-top:3px;">四张清单</div>
+</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,90 L150,45 L270,80 L430,22 L560,68 L700,18 L840,58 L980,28 L1120,55 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">23 / 58</div>
+</div>
+
+<div class="slide" id="s24">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 3个定盘星</span></div>
+<h2>轴 · 轨 · 标——三颗定盘星</h2>
+<div class="divider"></div>
+<div class="three-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div style="background:rgba(255,215,0,.13);border:2px solid rgba(255,215,0,.45);border-radius:11px;padding:12px 14px;text-align:center;">
+<div style="color:#FFD700;font-size:32px;font-weight:900;font-family:'SimSun','宋体',serif;margin-bottom:4px;">轴</div>
+<div style="color:rgba(255,255,255,.85);font-size:14px;font-weight:700;">坚持党对国家安全工作的绝对领导</div>
+</div>
+<div class="body-xs" style="line-height:1.7;">
+<span class="em">2014.4.15</span>——中央国家安全委员会第一次会议。<br/>
+        历史性节点：把过去分散在数十个部门的工作，<strong>拢到党中央这根轴上</strong>。<br/><br/>
+<span class="em">2023.5.30</span>——二十届中央国安委第一次会议：<br/>
+        "以新安全格局保障新发展格局"
+      </div>
+<div class="hl" style="font-size:13px;">轴偏就跑偏，轴断就垮塌。</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div style="background:rgba(40,160,220,.12);border:2px solid rgba(40,160,220,.35);border-radius:11px;padding:12px 14px;text-align:center;">
+<div style="color:#7EDCFF;font-size:32px;font-weight:900;font-family:'SimSun','宋体',serif;margin-bottom:4px;">轨</div>
+<div style="color:rgba(255,255,255,.85);font-size:14px;font-weight:700;">走中国特色国家安全道路</div>
+</div>
+<div class="body-xs" style="line-height:1.7;">
+        三个"不"——<br/>
+        不照搬西方"国家安全会议模式"<br/>
+        不重复苏联"军警国家"老路<br/>
+        不走"霸权+干涉"大国旧路<br/><br/>
+<span class="em">白皮书定调：</span>"在法治轨道上规范运行"
+      </div>
+<div class="hl" style="font-size:13px;">三条钢轨：党的领导 + 人民至上 + 法治保障</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div style="background:rgba(109,200,109,.12);border:2px solid rgba(109,200,109,.35);border-radius:11px;padding:12px 14px;text-align:center;">
+<div style="color:#6DC86D;font-size:32px;font-weight:900;font-family:'SimSun','宋体',serif;margin-bottom:4px;">标</div>
+<div style="color:rgba(255,255,255,.85);font-size:14px;font-weight:700;">以人民安全为最终检验标准</div>
+</div>
+<div class="body-xs" style="line-height:1.7;">
+        出发点："以人民安全为宗旨"（为谁出发）<br/>
+        落脚点："以人民安全为检验标准"（<strong>成没成</strong>）<br/><br/>
+        三个问题：老百姓安全感提升了没有？钱袋子守住了没有？夜里能睡着吗？
+      </div>
+<div class="stat-box">
+<div style="color:#FFD700;font-size:28px;font-weight:900;">98%+</div>
+<div class="big-label">民众安全感指数·连续4年</div>
+<div style="color:rgba(255,255,255,.5);font-size:12px;margin-top:3px;">14亿人的真实体感</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,95 L160,50 L285,84 L445,28 L575,72 L718,20 L858,60 L998,30 L1138,57 L1280,40 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">24 / 58</div>
+</div>
+
+<div class="slide" id="s25">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 5个坚持（方法论总览）</span></div>
+<h2>五个坚持——根本方法论</h2>
+<div class="divider"></div>
+<div class="body-sm" style="margin-bottom:18px;">以下五个方法论，每一条对应一个核心问题——"<span class="em">怎么办</span>"</div>
+<div class="five-method" style="flex:1;align-items:stretch;">
+<div class="method-card">
+<div class="method-num">1</div>
+<div class="method-title">坚持大安全观</div>
+<div class="method-key">拓展安全时空维度<br/><br/>新边疆：网络·数据·生物·深海·极地<br/>高边疆：太空·月球·深空</div>
+<div class="method-badge">21个领域</div>
+</div>
+<div class="method-card">
+<div class="method-num">2</div>
+<div class="method-title">坚持系统思维</div>
+<div class="method-key">把握风险联动规律<br/><br/>四大效应：合流叠加·联动放大·诱导·倒灌<br/>海恩法则：1:29:300:1000</div>
+<div class="method-badge">早·小·实</div>
+</div>
+<div class="method-card">
+<div class="method-num">3</div>
+<div class="method-title">坚持主动塑造</div>
+<div class="method-key">从被动防御到前瞻布局<br/><br/>"塑造是更高层次更具前瞻性的维护"<br/>韧性：复原力+成长力</div>
+<div class="method-badge">预案·台账·演练</div>
+</div>
+<div class="method-card">
+<div class="method-num">4</div>
+<div class="method-title">坚持总体战高效联动</div>
+<div class="method-key">凝聚全党全国合力<br/><br/>一盘棋·一条龙·一张网<br/>十六字方针·三峡样本·2025反制</div>
+<div class="method-badge">六级贯通</div>
+</div>
+<div class="method-card">
+<div class="method-num">5</div>
+<div class="method-title">坚持法治化保障</div>
+<div class="method-key">在法治轨道上运行<br/><br/>十几部关键法律·四条执法边界·12339举报</div>
+<div class="method-badge">工具箱</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,88 L145,44 L265,80 L425,26 L558,66 L698,16 L838,56 L978,26 L1118,53 L1280,37 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">25 / 58</div>
+</div>
+
+<div class="slide" id="s26">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 2条硬要求</span></div>
+<h2>两条硬要求：责任到人 · 精准发力</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div class="sec-lbl">▌ 第一条：明确主体责任</div>
+<div class="card" style="border-top-color:rgba(255,138,138,.6);">
+<div class="card-title" style="color:#FF9090;">一岗双责</div>
+<div class="card-body">一个岗位，双重责任——既抓业务，又抓安全。<br/>发展是政绩，安全也是政绩——而且是<span class="em">更硬的政绩</span>。</div>
+</div>
+<div class="hl" style="font-size:14px;"><span class="em">书记</span>是辖区国家安全工作的<strong>第一责任人</strong>，出了事要追责到底。</div>
+<div class="body-xs" style="line-height:1.7;">"基础不牢，地动山摇"——基层是国家安全的神经末梢。</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div class="sec-lbl">▌ 第二条：聚焦重点 精准发力（四张清单）</div>
+<div class="cards col2" style="gap:8px;">
+<div class="card">
+<div class="card-title">重点产业</div>
+<div class="card-body">半导体·新能源·生物医药·人工智能·高端装备<br/><span style="color:rgba(255,215,0,.6);font-size:11px;">技术命脉</span></div>
+</div>
+<div class="card">
+<div class="card-title">关键领域</div>
+<div class="card-body">能源·粮食·金融·网络·数据<br/><span style="color:rgba(255,215,0,.6);font-size:11px;">运行命脉</span></div>
+</div>
+<div class="card">
+<div class="card-title">重点行业</div>
+<div class="card-body">电信·互联网·第三方支付·快递物流<br/><span style="color:rgba(255,215,0,.6);font-size:11px;">社会命脉</span></div>
+</div>
+<div class="card">
+<div class="card-title">战略性产业</div>
+<div class="card-body">航天·深海·极地·生物<br/><span style="color:rgba(255,215,0,.6);font-size:11px;">未来命脉</span></div>
+</div>
+</div>
+
+</div>
+</div>
+<div style="display:flex;gap:8px;margin-top:5px;">
+<div class="quote" style="flex:3;font-size:12px;padding:7px 12px;line-height:1.6;">
+<span style="color:rgba(255,215,0,.8);font-size:11px;font-weight:700;display:block;margin-bottom:4px;">习近平 2026年1月20日 · 省部级主要领导干部学习贯彻党的二十届四中全会精神专题研讨班</span>
+正确政绩观要求我们坚持从实际出发、按规律办事，通过科学决策和实干苦干，创造经得起实践和历史检验、真正造福人民、得到群众公认的业绩。错误政绩观则是从个人或小团体利益出发，心浮气躁、急功近利、弄虚作假、盲目蛮干，搞"形象工程""政绩工程"，留下包袱和隐患，引起人民群众强烈不满。
+</div>
+<div class="quote" style="flex:2;font-size:12px;padding:7px 12px;line-height:1.6;">
+<span style="color:rgba(255,215,0,.8);font-size:11px;font-weight:700;display:block;margin-bottom:4px;">习近平 2025年7月 · 城市工作会议</span>
+要解决"不懂装懂、自以为是"的问题——防止出现"拍脑瓜上项目、拍胸脯作保证、拍屁股走人"的"三拍干部"。
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,92 L155,48 L278,82 L438,24 L568,68 L708,18 L848,58 L988,26 L1128,54 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">26 / 58</div>
+</div>
+
+<div class="slide" id="s27">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论一：坚持大安全观</span></div>
+<h2>大安全观——21个重点领域</h2>
+<div class="divider"></div>
+<div class="domain-grid">
+<div class="dtag">政治</div><div class="dtag">国土</div><div class="dtag">军事</div><div class="dtag">经济</div><div class="dtag">金融</div><div class="dtag">文化</div><div class="dtag">社会</div>
+<div class="dtag">科技</div><div class="dtag hi">网络 ★</div><div class="dtag">粮食</div><div class="dtag hi">生态 ★</div><div class="dtag">资源</div><div class="dtag">核</div><div class="dtag">海外利益</div>
+<div class="dtag">太空</div><div class="dtag">深海</div><div class="dtag">极地</div><div class="dtag hi">生物 ★</div><div class="dtag">人工智能</div><div class="dtag">数据</div><div class="dtag">海洋</div>
+</div>
+<div class="hl" style="font-size:14px;margin-bottom:12px;"><span class="em">★ 优先关注五条线（网·生·食·应·诈）</span>——不用21个全抓，先抓好这五条。</div>
+<div class="five-method" style="flex:1;align-items:stretch;">
+<div class="method-card" style="border-top-color:rgba(126,220,255,.6);">
+<div class="method-title" style="font-size:20px;">网</div>
+<div style="width:100%;height:64px;border-radius:7px;margin:7px 0;background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.25);"></div>
+<div class="method-key" style="margin-top:4px;">网络安全<br/>党政机关网站·政务平台漏洞·群众信息泄露</div>
+</div>
+<div class="method-card" style="border-top-color:rgba(109,200,109,.6);">
+<div class="method-title" style="font-size:20px;">生</div>
+<div style="width:100%;height:64px;border-radius:7px;margin:7px 0;background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.25);"></div>
+<div class="method-key" style="margin-top:4px;">生态安全<br/>偷排偷倒·河湖长制末端落实·中央督察"最后一公里"</div>
+</div>
+<div class="method-card" style="border-top-color:rgba(255,190,80,.6);">
+<div class="method-title" style="font-size:20px;">食</div>
+<div style="width:100%;height:64px;border-radius:7px;margin:7px 0;background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.25);"></div>
+<div class="method-key" style="margin-top:4px;">食药安全<br/>农贸市场·校园食堂·养老院食堂·假冒伪劣</div>
+</div>
+<div class="method-card" style="border-top-color:rgba(255,138,138,.6);">
+<div class="method-title" style="font-size:20px;">应</div>
+<div style="width:100%;height:64px;border-radius:7px;margin:7px 0;background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.25);"></div>
+<div class="method-key" style="margin-top:4px;">应急管理<br/>防汛防台·消防·地质灾害·冬季取暖·森林防火</div>
+</div>
+<div class="method-card" style="border-top-color:rgba(180,120,255,.6);">
+<div class="method-title" style="font-size:20px;">诈</div>
+<div style="width:100%;height:64px;border-radius:7px;margin:7px 0;background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.25);"></div>
+<div class="method-key" style="margin-top:4px;">反诈反邪<br/>AI换脸·虚拟货币·跨境加密通讯<br/>止付挽损超3500亿元</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,86 L142,42 L262,78 L422,24 L556,64 L696,14 L836,54 L976,24 L1116,52 L1280,36 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">27 / 58</div>
+</div>
+
+<div class="slide" id="s28">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论一：基层五条线详解</span></div>
+<h2>基层五条线：每条都有专人负责、清单管理、考核奖惩</h2>
+<div class="divider"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:9px;">
+<div class="lesson">
+<div class="lesson-num" style="background:rgba(126,220,255,.15);border-color:rgba(126,220,255,.4);color:#7EDCFF;">网</div>
+<div><div class="lesson-title" style="color:#7EDCFF;">网络安全</div>
+<div class="lesson-body">"护网-2025"：6起关键信息基础设施执法典型案例——医疗机构未落实等级保护、政府网站遭境外扫描、企业数据库被撞库。<br/>三问：党政机关网站有无漏洞？村干部工作群会不会被渗透？辖区企业数据库会不会泄露群众信息？</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num" style="background:rgba(109,200,109,.15);border-color:rgba(109,200,109,.4);color:#6DC86D;">生</div>
+<div><div class="lesson-title" style="color:#6DC86D;">生态安全</div>
+<div class="lesson-body">山·水·林·田·湖·草·沙——有没有偷排偷倒？2025年中央生态环保督察"回头看"，浙江、江苏、福建均在名单。基层是"最后一公里"——督察组走了，巡查不能停。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num" style="background:rgba(255,190,80,.15);border-color:rgba(255,190,80,.4);color:#FFBE50;">食</div>
+<div><div class="lesson-title" style="color:#FFBE50;">食药安全</div>
+<div class="lesson-body">农贸市场·街边小店·养老院食堂·校园食堂——2025年全国查处农村假冒伪劣食品案件<span class="em">超18万起</span>，分到每个乡镇都是几十上百条线索。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num" style="background:rgba(255,138,138,.15);border-color:rgba(255,138,138,.4);color:#FF9090;">应</div>
+<div><div class="lesson-title" style="color:#FF9090;">应急管理</div>
+<div class="lesson-body">防汛防台·消防·地质灾害·冬季取暖·森林防火——任何一条疏忽都可能酿成大祸。牢记"四个宁可"：<span class="em">宁可十防九空，不可失防万一。</span></div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num" style="background:rgba(180,120,255,.15);border-color:rgba(180,120,255,.4);color:#C890FF;">诈</div>
+<div><div class="lesson-title" style="color:#C890FF;">反诈反邪</div>
+<div class="lesson-body">缅北"四大家族"被摧毁后诈骗集团向纵深转移，AI换脸·虚拟货币·深度伪造持续升级。2024年至今破获电信诈骗<span class="em">近50万起</span>，止付挽损超3500亿元。</div></div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,93 L158,49 L282,84 L442,26 L572,70 L712,19 L852,59 L992,28 L1132,56 L1280,39 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">28 / 58</div>
+</div>
+
+<div class="slide" id="s29">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论二：坚持系统思维</span></div>
+<h2>风险综合体——四大效应</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="card">
+<div class="card-title">① 合流叠加效应</div>
+<div class="card-body">同一矛盾，通过微博·抖音·微信·短视频·小红书五个渠道同时扩散，还可能有境外势力接入。每一个渠道都是<span class="em">放大器</span>。</div>
+</div>
+<div class="card">
+<div class="card-title">② 联动放大效应</div>
+<div class="card-body">一个村里的土地纠纷，可能牵出环保问题→信访问题→干部作风→舆情事件。<span class="em">一根线扯出一大片。</span></div>
+</div>
+<div class="card">
+<div class="card-title">③ 诱导效应</div>
+<div class="card-body">一件看似不相关的小事可能诱导出大事——老人在银行摔倒、物业纠纷、短视频误读——都可能诱导舆情。</div>
+</div>
+<div class="card">
+<div class="card-title">④ 倒灌效应（多米诺效应）</div>
+<div class="card-body">一张骨牌倒下推倒一排——<span class="red">小风险不管，就会滚雪球。</span></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;">
+<div style="background:rgba(0,0,0,.3);border-radius:11px;padding:16px 18px;border-left:4px solid #FFD700;">
+<div style="color:#FFD700;font-size:15px;font-weight:700;margin-bottom:10px;">▌ 海恩法则（1:29:300:1000）</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+<div class="stat-box"><div style="color:#FF9090;font-size:26px;font-weight:900;">1</div><div class="big-label">严重事故</div></div>
+<div class="stat-box"><div style="color:#FFBE50;font-size:26px;font-weight:900;">29</div><div class="big-label">轻微事故</div></div>
+<div class="stat-box"><div style="color:#FFD700;font-size:26px;font-weight:900;">300</div><div class="big-label">未遂先兆</div></div>
+<div class="stat-box"><div style="color:#6DC86D;font-size:26px;font-weight:900;">1000</div><div class="big-label">事故隐患</div></div>
+</div>
+<div class="body-xs">大事故不是突然发生的，是<span class="em">"酝酿"出来的</span>。</div>
+</div>
+<div class="hl" style="font-size:14px;text-align:center;">
+        基层最重要的职责：在<strong>1000个隐患</strong>上下功夫<br/>
+        在<strong>300个先兆</strong>上盯紧——<span class="em">早·小·实</span>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,89 L148,46 L268,81 L428,23 L560,67 L700,17 L840,57 L980,27 L1120,54 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">29 / 58</div>
+</div>
+
+<div class="slide" id="s30">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论二：正面案例</span></div>
+<h2>正面：隐患消于萌芽的教科书</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 案例一：燃气公司（2025年3月·黑龙江）</div>
+<div style="background:rgba(109,200,109,.12);border:1.5px solid rgba(109,200,109,.35);border-radius:10px;padding:14px 16px;">
+<div class="tl-item">
+<div class="tl-dot gn" style="margin-top:5px;"></div>
+<div class="tl-text">管理员入户检查，发现盘管焊口处<span class="em">漏气</span></div>
+</div>
+<div class="tl-item">
+<div class="tl-dot gn" style="margin-top:5px;"></div>
+<div class="tl-text">当场上报 → 联合抢险 → <span class="grn">当日恢复供气</span></div>
+</div>
+<div class="tl-item">
+<div class="tl-dot rd" style="margin-top:5px;"></div>
+<div class="tl-text" style="color:rgba(255,138,138,.85);">如果没发现：一个电火花→爆燃→十几条人命</div>
+</div>
+</div>
+<div class="hl" style="font-size:13px;">隐形的漏气，是看不见的炸弹。一个普通管理员的警觉，守住了一栋楼。</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 案例二：石化公司（2025年2月·新疆）</div>
+<div style="background:rgba(109,200,109,.12);border:1.5px solid rgba(109,200,109,.35);border-radius:10px;padding:14px 16px;">
+<div class="tl-item">
+<div class="tl-dot gn" style="margin-top:5px;"></div>
+<div class="tl-text">巡检员听到PSA吸附塔<span class="em">间断性异常声音</span></div>
+</div>
+<div class="tl-item">
+<div class="tl-dot gn" style="margin-top:5px;"></div>
+<div class="tl-text">立即上报值班长 → 排查发现塔体漏点 → <span class="grn">及时处置</span></div>
+</div>
+<div class="tl-item">
+<div class="tl-dot rd" style="margin-top:5px;"></div>
+<div class="tl-text" style="color:rgba(255,138,138,.85);">如果没发现：可能引发爆炸的重大事故</div>
+</div>
+</div>
+<div class="hl" style="font-size:13px;">一个疑惑的声音，消灭了一起潜在爆炸。一次真实的"早·小·实"。</div>
+</div>
+</div>
+<div style="background:rgba(255,215,0,.1);border-radius:10px;padding:10px 18px;text-align:center;margin-top:12px;">
+<span style="color:#FFD700;font-size:17px;font-weight:700;letter-spacing:2px;">早发现</span>
+<span style="color:rgba(255,255,255,.5);margin:0 12px;">·</span>
+<span style="color:#FFD700;font-size:17px;font-weight:700;letter-spacing:2px;">小处着手</span>
+<span style="color:rgba(255,255,255,.5);margin:0 12px;">·</span>
+<span style="color:#FFD700;font-size:17px;font-weight:700;letter-spacing:2px;">实在处置</span>
+
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,94 L162,51 L288,86 L448,28 L578,72 L718,20 L858,60 L998,30 L1138,58 L1280,41 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">30 / 58</div>
+</div>
+
+<div class="slide" id="s31">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论二：反面警示</span></div>
+<h2>反面：11条年轻生命的"隐患链"</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div>
+<div class="sec-lbl" style="margin-bottom:8px;">▌ 2023年7月23日·齐齐哈尔三十四中体育馆坍塌</div>
+<div class="chain">
+<div class="cstep">
+<div style="text-align:right;min-width:42px;color:rgba(255,215,0,.75);font-size:12px;font-weight:700;padding-top:2px;">1997</div>
+<div class="cstep-left"><div class="cdot gold"></div></div>
+<div class="cbox" style="background:rgba(0,0,0,.18);border-color:rgba(255,255,255,.15);">
+<div class="ckey" style="color:rgba(255,255,255,.7);">建成</div>
+<div class="cdet">屋面永久荷载2.31千牛/㎡，设计安全</div>
+</div>
+</div>
+<div class="cstep">
+<div style="text-align:right;min-width:42px;color:rgba(255,215,0,.75);font-size:12px;font-weight:700;padding-top:2px;">2017</div>
+<div class="cstep-left"><div class="cdot"></div></div>
+<div class="cbox">
+<div class="ckey">第三次维修——违规加层</div>
+<div class="cdet">未按图纸拆除旧层，直接叠加。荷载+2.02千牛/㎡，已达原设计88%</div>
+</div>
+</div>
+<div class="cstep">
+<div style="text-align:right;min-width:42px;color:rgba(255,215,0,.75);font-size:12px;font-weight:700;padding-top:2px;">2023.4</div>
+<div class="cstep-left"><div class="cdot"></div></div>
+<div class="cbox">
+<div class="ckey">6000袋珍珠岩——违规堆屋顶</div>
+<div class="cdet">毗邻教学楼施工，省事省钱，堆在体育馆屋顶</div>
+</div>
+</div>
+<div class="cstep">
+<div style="text-align:right;min-width:42px;color:rgba(255,215,0,.75);font-size:12px;font-weight:700;padding-top:2px;">2023.5-7</div>
+<div class="cstep-left"><div class="cdot"></div></div>
+<div class="cbox">
+<div class="ckey">累计降水300.4mm——珍珠岩吸水</div>
+<div class="cdet">浸水珍珠岩如棉花，越来越重，持续超载</div>
+</div>
+</div>
+<div class="cstep">
+<div style="text-align:right;min-width:42px;color:#FF9090;font-size:12px;font-weight:700;padding-top:2px;">7.23</div>
+<div class="cstep-left cstep-last"><div class="cdot" style="background:#FF4040;border-color:#FF4040;"></div></div>
+<div class="cbox" style="background:rgba(220,30,30,.25);border-color:rgba(255,50,50,.5);">
+<div class="ckey" style="color:#FF4040;">屋顶整体瞬间坍塌</div>
+<div class="cdet">下午2点52分，17名女排队员+2名教练正在训练</div>
+</div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:11px;">
+<div class="stat-box" style="background:rgba(180,30,30,.22);border:1.5px solid rgba(220,50,50,.4);">
+<div style="color:#FF9090;font-size:36px;font-weight:900;">11人遇难</div>
+<div style="color:rgba(255,255,255,.7);font-size:14px;margin-top:4px;">10名女排队员 + 1名女教练</div>
+<div style="color:rgba(255,255,255,.5);font-size:13px;margin-top:3px;">直接经济损失 1254.1万元</div>
+</div>
+<div class="hl" style="font-size:13px;">事故前4个月——齐齐哈尔教育局刚刚开展"校舍安全大检查"。<br/>检查组<span class="red">到底有没有发现</span>屋顶堆着6000袋珍珠岩？</div>
+<div class="card">
+<div class="card-title">追责结果</div>
+<div class="card-body">51名相关责任人被追责；6人被司法机关采取强制措施；33名公职人员被建议给予党纪政务处分。</div>
+</div>
+<div class="quote" style="font-size:15px;padding:10px 14px;">
+        事故不是突然来的，是"酝酿"出来的。<br/>小风险不管，就会滚雪球。
+      </div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,91 L152,47 L275,83 L435,26 L565,69 L705,19 L845,59 L985,29 L1125,56 L1280,39 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">31 / 58</div>
+</div>
+
+<div class="slide" id="s32">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论三：坚持主动塑造</span></div>
+<h2>韧性中国——从被动防御到前瞻布局</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="quote" style="font-size:15px;padding:10px 14px;">"塑造是更高层次更具前瞻性的维护。"</div>
+<div class="sec-lbl">▌ 什么叫"韧性"</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
+<div class="stat-box" style="border:1.5px solid rgba(109,200,109,.3);">
+<div style="color:#6DC86D;font-size:18px;font-weight:800;margin-bottom:4px;">复原力</div>
+<div class="big-label">出了事能恢复</div>
+</div>
+<div class="stat-box" style="border:1.5px solid rgba(255,215,0,.3);">
+<div style="color:#FFD700;font-size:18px;font-weight:800;margin-bottom:4px;">成长力</div>
+<div class="big-label">恢复后变得更强</div>
+</div>
+</div>
+<div class="body-xs">像橡皮树——台风来了，大树折了，它弯下去又弹起来。不是硬抗，是能弯能伸、能折能复。</div>
+<div class="hl" style="font-size:13px;">二十大："宜居·韧性·智慧城市"<br/>"十五五"第51条："推动公共安全治理模式向事前预防转型"</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div class="sec-lbl">▌ 反面：2011年福岛核事故的三大韧性短板</div>
+<div class="card" style="border-top-color:rgba(255,138,138,.6);">
+<div class="card-title" style="color:#FF9090;">短板一：低估极端情况</div>
+<div class="card-body">防海啸堤坝设计高度仅<span class="red">5.7米</span>，实际海啸<span class="red">近40米</span>。选址与设计阶段未考虑最坏情景。</div>
+</div>
+<div class="card" style="border-top-color:rgba(255,138,138,.6);">
+<div class="card-title" style="color:#FF9090;">短板二：备份不真备份</div>
+<div class="card-body">备用柴油发电机放在<span class="red">低洼位置</span>，海啸一来全部被淹，冷却系统瘫痪，堆芯熔毁。</div>
+</div>
+<div class="card" style="border-top-color:rgba(255,138,138,.6);">
+<div class="card-title" style="color:#FF9090;">短板三：应急不真应急</div>
+<div class="card-body">东电信息迟滞、隐瞒，日本政府数天后才意识到事态严重。信息透明度与指挥韧性缺失。</div>
+</div>
+<div class="hl" style="font-size:13px;color:#FF9090;">代价：16万人撤离，3.4万人至今无法回家，核污水排海至今争议不断。<br/><span style="color:rgba(255,255,255,.8);">不是地震/海啸打败了日本——是"韧性缺失"。</span></div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,87 L144,43 L264,79 L424,25 L557,65 L697,15 L837,55 L977,25 L1117,52 L1280,36 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">32 / 58</div>
+</div>
+
+<div class="slide" id="s33">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论三：全球韧性镜鉴</span></div>
+<h2>正面：两种韧性哲学 + 中国答卷</h2>
+<div class="divider"></div>
+<div class="three-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div style="background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.18);border-radius:10px;padding:11px 14px;text-align:center;">
+<div style="color:rgba(255,255,255,.7);font-size:18px;font-weight:800;margin-bottom:4px;">🇨🇭 瑞士</div>
+<div style="color:rgba(255,215,0,.75);font-size:12px;">全民民防的百年传统</div>
+</div>
+<div class="body-xs" style="line-height:1.8;">
+<span class="em">《民防法》</span>1959年起实施<br/>
+        ▸ 每座新建住宅楼必须配建核生化防护掩体<br/>
+        ▸ 掩体容量足够全国人口<span class="em">100%</span>覆盖（全球唯一）<br/>
+        ▸ 每家储备两周物资（食物/水/药品/工具）<br/>
+        ▸ 18岁成年即接受全民防卫教育<br/>
+        ▸ 每州每市每社区有应急预案与演练
+      </div>
+<div class="hl" style="font-size:12px;">两百多年没打仗——不是幸运，是"让任何人觉得不好下嘴"。</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div style="background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.18);border-radius:10px;padding:11px 14px;text-align:center;">
+<div style="color:rgba(255,255,255,.7);font-size:18px;font-weight:800;margin-bottom:4px;">🇸🇬 新加坡</div>
+<div style="color:rgba(255,215,0,.75);font-size:12px;">六维防卫体系</div>
+</div>
+<div class="body-xs" style="line-height:1.8;">
+        1984年提出"全面防卫"战略——<br/>
+        ① 军事防卫：国民兵役制<br/>
+        ② 民事防卫：完整应急管理<br/>
+        ③ 经济防卫：金融安全网+多元化<br/>
+        ④ 社会防卫：多族群凝聚力<br/>
+        ⑤ 心理防卫：国家认同培育<br/>
+<span class="em">⑥ 数字防卫（2022年新增）</span>
+</div>
+<div class="hl" style="font-size:12px;">728平方公里 · 600万人——靠多维韧性，经营成"一碰就反弹"的小而强国家。</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div style="background:rgba(255,215,0,.13);border:2px solid rgba(255,215,0,.45);border-radius:10px;padding:11px 14px;text-align:center;">
+<div style="color:#FFD700;font-size:18px;font-weight:800;margin-bottom:4px;">🇨🇳 中国答卷</div>
+<div style="color:rgba(255,215,0,.75);font-size:12px;">主动塑造的硬实据</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+<div class="stat-box"><div style="color:#6DC86D;font-size:22px;font-weight:900;">↓20.4%</div><div class="big-label">自然灾害受灾人次下降</div></div>
+<div class="stat-box"><div style="color:#6DC86D;font-size:22px;font-weight:900;">↓50%</div><div class="big-label">倒塌房屋数量下降</div></div>
+<div class="stat-box"><div style="color:#FFD700;font-size:22px;font-weight:900;">9起</div><div class="big-label">重特大事故·首次降至个位数</div></div>
+<div class="stat-box"><div style="color:#FFD700;font-size:22px;font-weight:900;">↓10.8%</div><div class="big-label">较大事故同比下降</div></div>
+</div>
+<div class="hl" style="font-size:12px;">三件事：建立基层预案·建立隐患台账·建立演练机制。<br/><span class="em">从"救火队"变成"防火员"。</span></div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,96 L164,53 L290,87 L450,30 L580,73 L720,21 L860,61 L1000,32 L1140,59 L1280,42 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">33 / 58</div>
+</div>
+
+<div class="slide" id="s34">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论四：坚持总体战·高效联动</span></div>
+<h2>总体战·高效联动——一盘棋·一条龙</h2>
+<div class="divider"></div>
+<div class="quote" style="font-size:20px;margin-bottom:14px;text-align:center;">
+<strong style="color:#FFD700;">"以战略为先导、政策为抓手、法治为保障、风险防控为落脚点"</strong>
+<div class="quote-src">"十五五"规划建议·第49条 · 2025年10月</div>
+</div>
+<div class="two-col" style="flex:1;">
+<div>
+<div class="sec-lbl" style="margin-bottom:8px;">▌ 机构改革脉络：2014→2025</div>
+<div class="tl-item"><div class="tl-date">2014</div><div class="tl-dot"></div><div class="tl-text">成立<span class="em">中央国家安全委员会</span>——新中国首次建立集中统一国安领导体制</div></div>
+<div class="tl-item"><div class="tl-date">2018</div><div class="tl-dot"></div><div class="tl-text">党和国家机构改革——设立中央审计委员会、中央网信委等，打通党的领导末梢</div></div>
+<div class="tl-item"><div class="tl-date">2023.5.30</div><div class="tl-dot"></div><div class="tl-text">二十届中央国安委第一次会议：<span class="em">"以新安全格局保障新发展格局"</span></div></div>
+<div class="tl-item"><div class="tl-date">2024.7</div><div class="tl-dot"></div><div class="tl-text">二十届三中全会《决定》进一步完善国安体系制度安排</div></div>
+<div class="tl-item"><div class="tl-date">2025.5.12</div><div class="tl-dot gn"></div><div class="tl-text"><span class="grn">《新时代的中国国家安全》白皮书发布</span>——新中国第一本综合性国安白皮书</div></div>
+<div class="tl-item"><div class="tl-date">2025.10</div><div class="tl-dot gn"></div><div class="tl-text"><span class="grn">二十届四中全会"十五五"规划建议</span>——十六字总方针，国安体系四梁八柱基本成型</div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 纵横联动的组织体系</div>
+<div style="background:rgba(0,0,0,.22);border-radius:9px;padding:12px 14px;">
+<div style="color:rgba(255,215,0,.75);font-size:13px;font-weight:700;margin-bottom:8px;">横向——部门全连接</div>
+<div class="body-xs">政法·公安·国安·网信·外事·应急·宣传·统战·发改·工信·生态·农业·教育·卫健</div>
+</div>
+<div style="background:rgba(0,0,0,.22);border-radius:9px;padding:12px 14px;">
+<div style="color:rgba(255,215,0,.75);font-size:13px;font-weight:700;margin-bottom:8px;">纵向——六级一贯到底</div>
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+<span class="tag" style="font-size:12px;">中央决策</span><span style="color:rgba(255,215,0,.4);">→</span>
+<span class="tag" style="font-size:12px;">省委部署</span><span style="color:rgba(255,215,0,.4);">→</span>
+<span class="tag" style="font-size:12px;">市委落实</span><span style="color:rgba(255,215,0,.4);">→</span>
+<span class="tag" style="font-size:12px;">县委推进</span><span style="color:rgba(255,215,0,.4);">→</span>
+<span class="tag" style="font-size:12px;">乡镇执行</span><span style="color:rgba(255,215,0,.4);">→</span>
+<span class="tag" style="font-size:12px;">村社落地</span>
+</div>
+</div>
+<div class="hl" style="font-size:13px;">基层落实：<span class="em">三张嘴</span>（政法·宣传·基层）要对齐，<span class="em">三只手</span>（党委·政府·群众）要握在一起</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,88 L146,44 L266,80 L426,26 L558,66 L698,16 L838,56 L978,26 L1118,53 L1280,37 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">34 / 58</div>
+</div>
+
+<div class="slide" id="s35">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论四：历史镜鉴</span></div>
+<h2>三峡工程——中国式"总体战"的世纪样本</h2>
+<div class="divider"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:9px;">
+<div class="body-xs" style="margin-bottom:2px;">1992年4月3日全国人大表决通过（1767票赞成）· 1994年开工 · 2009年建成 · 整整17年</div>
+<div class="lesson">
+<div class="lesson-num">一</div>
+<div><div class="lesson-title">中央决策的一贯性——17年"一张蓝图绘到底"</div>
+<div class="lesson-body">跨越几届中央领导班子、几届国务院、几届三峡建委——没有中断、没有变更、没有推倒重来。一棒接一棒，直至成功。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">二</div>
+<div><div class="lesson-title">组织体制的贯穿性——"中央统一领导·分省负责·县为基础"</div>
+<div class="lesson-body">110万人移民工程——全球水利移民史上史无前例。三级管理：中央定目标 → 分省派任务 → 县区抓落地。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">三</div>
+<div><div class="lesson-title">全国对口支援——"一方有难，八方支援"</div>
+<div class="lesson-body">全国<span class="em">26个部委</span> + <span class="em">23个省区市</span> + 重庆主城7个区对口支援。2021年累计引入资金超<span class="em">1500亿元</span>，合作项目1858个。重庆库区至今有"辽宁大道""山东路""河北步行街"——是石刻的团结牌坊。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">四</div>
+<div><div class="lesson-title">长期综合效益——17年成就一座"战略资源库"</div>
+<div class="lesson-body">
+<span class="em">防洪：</span>2024年成功防御第1·2号洪水，拦蓄126.8亿立方米 
+        <span class="em">发电：</span>累计发电突破1.7万亿千瓦时 
+        <span class="em">航运·供水：</span>长江黄金水道咽喉工程，中下游数千万人饮水保障
+      </div></div>
+</div>
+</div>
+<div class="hl" style="font-size:13px;margin-top:4px;">真正的总体战：几十年战略定力 + 26部委23省区市联动 + 发展与安全不是零和博弈</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,92 L154,49 L280,84 L440,27 L570,71 L710,20 L850,60 L990,30 L1130,57 L1280,40 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">35 / 58</div>
+</div>
+
+<div class="slide" id="s36">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论四：当代实战案例</span></div>
+<h2>2025对美反制——总体战当代样本</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div>
+<div class="sec-lbl" style="margin-bottom:7px;">▌ 反制时间线</div>
+<div class="tl-item"><div class="tl-date">2025.1.2</div><div class="tl-dot"></div><div class="tl-text">雷神等28家美国实体列入出口管制管控名单</div></div>
+<div class="tl-item"><div class="tl-date">2025.2.4</div><div class="tl-dot"></div><div class="tl-text">钨·碲·铋·钼·铟相关物项实施出口管制</div></div>
+<div class="tl-item"><div class="tl-date">2025.3</div><div class="tl-dot"></div><div class="tl-text">《实施〈反外国制裁法〉的规定》颁布施行</div></div>
+<div class="tl-item"><div class="tl-date">2025.4.4</div><div class="tl-dot"></div><div class="tl-text">7类中重稀土（钐·钆·铽·镝等）出口管制</div></div>
+<div class="tl-item"><div class="tl-date">2025.4.10</div><div class="tl-dot"></div><div class="tl-text">对美全部进口商品加征<span class="em">34%关税</span>（反制"对等关税"）</div></div>
+<div class="tl-item"><div class="tl-date">2025.5.14</div><div class="tl-dot gn"></div><div class="tl-text grn">中美斯德哥尔摩会谈共识，暂停部分反制90天</div></div>
+<div class="tl-item"><div class="tl-date">2025.9.25</div><div class="tl-dot"></div><div class="tl-text">3家美国军工企业列入不可靠实体清单</div></div>
+<div class="tl-item"><div class="tl-date">2025.10.9</div><div class="tl-dot"></div><div class="tl-text">超硬材料·稀土设备·锂电池·人造石墨等<span class="em">全链条管制</span>；含中国稀土成分≥0.1%即受控</div></div>
+<div class="tl-item"><div class="tl-date">2025.10.14</div><div class="tl-dot"></div><div class="tl-text">对涉美船舶收取<span class="em">船舶特别港务费</span></div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 反制工具箱·八大件</div>
+<div class="cards col2" style="gap:8px;flex:1;">
+<div class="card"><div class="card-title">关税反制</div><div class="card-body">34%对等关税</div></div>
+<div class="card"><div class="card-title">稀土出口管制</div><div class="card-body">中重稀土全链条管控</div></div>
+<div class="card"><div class="card-title">不可靠实体清单</div><div class="card-body">军工企业列名</div></div>
+<div class="card"><div class="card-title">出口管制名单</div><div class="card-body">关键技术受控企业</div></div>
+<div class="card"><div class="card-title">船舶特别港务费</div><div class="card-body">涉美船舶加收</div></div>
+<div class="card"><div class="card-title">反倾销·反补贴</div><div class="card-body">调查工具</div></div>
+<div class="card"><div class="card-title">集成电路调查</div><div class="card-body">对美歧视性措施</div></div>
+<div class="card"><div class="card-title">阻断域外管辖</div><div class="card-body">《阻断办法》</div></div>
+</div>
+<div class="hl" style="font-size:13px;"><span class="em">基层启示：</span>辖区出口企业清楚哪些受管制；外资企业稳定就业；宣传阵地防境外舆论渗透</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,90 L150,46 L271,81 L431,23 L561,67 L701,17 L841,57 L981,27 L1121,54 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">36 / 58</div>
+</div>
+
+<div class="slide" id="s37">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论五：坚持法治化保障</span></div>
+<h2>法律工具箱——十几部关键法律（2015→2025）</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div>
+<div class="sec-lbl" style="margin-bottom:7px;">▌ 2015—2021年</div>
+<div class="law-item"><div class="law-year">2015.7.1</div><div class="law-name">《国家安全法》</div><div class="law-note">管总法</div></div>
+<div class="law-item"><div class="law-year">2015</div><div class="law-name">《反恐怖主义法》</div><div class="law-note"></div></div>
+<div class="law-item"><div class="law-year">2017</div><div class="law-name">《国家情报法》</div><div class="law-note">情报工作授权</div></div>
+<div class="law-item"><div class="law-year">2017</div><div class="law-name">《网络安全法》</div><div class="law-note">关键信息基础设施保护</div></div>
+<div class="law-item"><div class="law-year">2020</div><div class="law-name">《生物安全法》</div><div class="law-note">生物领域安全边界</div></div>
+<div class="law-item"><div class="law-year">2020</div><div class="law-name">《出口管制法》</div><div class="law-note">战略物资管制</div></div>
+<div class="law-item"><div class="law-year">2021</div><div class="law-name">《反外国制裁法》</div><div class="law-note">反制工具核心</div></div>
+<div class="law-item"><div class="law-year">2021</div><div class="law-name">《数据安全法》</div><div class="law-note">数据主权保护</div></div>
+<div class="law-item"><div class="law-year">2021</div><div class="law-name">《个人信息保护法》</div><div class="law-note">个人数据安全</div></div>
+<div class="law-item"><div class="law-year">2021</div><div class="law-name">《海警法》</div><div class="law-note">海上执法授权</div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:0;">
+<div class="sec-lbl" style="margin-bottom:7px;">▌ 2022—2025年</div>
+<div class="law-item"><div class="law-year">2022</div><div class="law-name">《反电信网络诈骗法》</div><div class="law-note" style="color:#FFD700;font-size:11px;">基层最常用 ★</div></div>
+<div class="law-item"><div class="law-year">2023.7.1</div><div class="law-name">《反间谍法》（修订）</div><div class="law-note">扩大间谍行为范畴</div></div>
+<div class="law-item"><div class="law-year">2025.3</div><div class="law-name">《实施〈反外国制裁法〉规定》</div><div class="law-note">制裁工具落地</div></div>
+<div style="margin-top:14px;">
+<div class="sec-lbl">▌ 总书记法治体系五大板块</div>
+<div class="body-xs" style="line-height:1.9;margin-top:6px;">
+          ① 法治领导体制——党的统一领导<br/>
+          ② 法律制度体系——立法<br/>
+          ③ 法治实施体系——执法·司法<br/>
+          ④ 法治监督体系——监督<br/>
+          ⑤ 法治保障体系——队伍·经费·技术
+        </div>
+</div>
+<div class="hl" style="font-size:13px;margin-top:10px;">"法治化"不是束缚手脚，是让手脚<span class="em">有底气、有依据、有回报</span>。</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,93 L156,50 L281,85 L441,28 L571,72 L711,21 L851,61 L991,31 L1131,58 L1280,41 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">37 / 58</div>
+</div>
+
+<div class="slide" id="s38">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论五：大国法治先例+执法边界</span></div>
+<h2>大国通例 + 基层四条边界</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 美国：《国防生产法》（1950年至今）</div>
+<div class="body-xs" style="line-height:1.75;">总统可命令任何企业，在国家需要时，<span class="em">优先生产·以规定价格·向政府供货</span>，拒绝执行<span class="red">要坐牢</span>。</div>
+<div style="display:grid;grid-template-columns:1fr;gap:7px;">
+<div class="card"><div class="card-title">2020年 新冠疫情</div><div class="card-body">强制通用汽车·福特停产汽车，改产呼吸机</div></div>
+<div class="card"><div class="card-title">2022年 婴儿奶粉短缺</div><div class="card-body">强制原材料供应商优先向奶粉企业供货</div></div>
+<div class="card"><div class="card-title">2023年 支援乌克兰</div><div class="card-body">要求武器制造商扩大炮弹产能</div></div>
+</div>
+<div class="sec-lbl" style="margin-top:4px;">▌ 日本：《经济安全保障推进法》（2022年）</div>
+<div class="body-xs" style="line-height:1.75;">供应链稳定 · 关键基础设施审查 · 关键技术开发支援 · <span class="em">专利不公开制度</span></div>
+<div class="hl" style="font-size:12px;">"法治化的国家安全保障"已是各主要大国的<span class="em">标配</span>，不是中国独有的。</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 基层执法四条边界（必须心中有数）</div>
+<div class="lesson">
+<div class="lesson-num">①</div>
+<div><div class="lesson-title">不直接执法国家安全案件</div>
+<div class="lesson-body">国安案件由国安机关·公安机关负责。基层责任：<span class="em">发现线索·及时上报·配合调查·做好安抚</span>。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">②</div>
+<div><div class="lesson-title">反间谍人人有责</div>
+<div class="lesson-body">《反间谍法》修订后，公民举报权利义务更明确。基层宣传好<span class="em">12339</span>举报电话。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">③</div>
+<div><div class="lesson-title">反诈法是基层最直接工具</div>
+<div class="lesson-body">《反电信网络诈骗法》明确平台·金融机构·基层的责任，基层有预警劝阻的<span class="em">法定权力</span>。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">④</div>
+<div><div class="lesson-title">涉外涉稳案件依法处置</div>
+<div class="lesson-body">境外NGO·外国人在华活动·涉外婚姻——看似民事，往往有"涉外国家安全维度"。<span class="em">及时请示·依法处置</span>。</div></div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,89 L147,45 L267,81 L427,25 L559,67 L699,17 L839,57 L979,27 L1119,54 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">38 / 58</div>
+</div>
+
+<div class="slide" id="s39">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 方法论五：法治的力量</span></div>
+<h2>每一个普通人，都是国家安全的守护者</h2>
+<div class="divider"></div>
+<div class="profile-grid" style="flex:1;gap:14px;margin-bottom:12px;">
+<div class="profile-card">
+<div class="profile-name" style="font-size:15px;">陈师傅（网约车司机）</div>
+<div class="profile-act" style="font-size:14px;line-height:1.65;">发现外籍乘客在军事管理区拍照，拨打12339，守在原地再次接单，协助当场控制嫌疑人。</div>
+</div>
+<div class="profile-card">
+<div class="profile-name" style="font-size:15px;">老张（钓鱼爱好者）</div>
+<div class="profile-act" style="font-size:14px;line-height:1.65;">发现外籍人员以"捕蝴蝶"为名，用专业设备对军事敏感区域反复测绘，当即举报。</div>
+</div>
+<div class="profile-card">
+<div class="profile-name" style="font-size:15px;">老谢（田间村民）</div>
+<div class="profile-act" style="font-size:14px;line-height:1.65;">发现非法偷越国境可疑人员，帮助国安部门拦截，守住了边境安全线。</div>
+</div>
+<div class="profile-card">
+<div class="profile-name" style="font-size:15px;">朱女士（旅游博主）</div>
+<div class="profile-act" style="font-size:14px;line-height:1.65;">境外旅游时发现专门针对中国游客的反华宣传团伙，保留证据、回国举报。</div>
+</div>
+<div class="profile-card">
+<div class="profile-name" style="font-size:15px;">董先生（媒体工作者）</div>
+<div class="profile-act" style="font-size:14px;line-height:1.65;">接到境外"高价咨询"邀约——对方要敏感信息。没动心，直接上报国安机关。</div>
+</div>
+<div class="profile-card">
+<div class="profile-name" style="font-size:15px;">吴先生（科研专家）</div>
+<div class="profile-act" style="font-size:14px;line-height:1.65;">野外考察时观测到境外军机向我国境内投放窃密设备，拍照取证，第一时间举报。</div>
+</div>
+</div>
+<div class="quote" style="font-size:18px;padding:16px 20px;line-height:1.7;">《反间谍法》明文规定：国家对为维护国家安全和利益作出重大贡献的<strong style="color:#FFD700;">个人和组织</strong>给予表彰和奖励——有法可依，有奖励可期，有保护可靠。</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,91 L153,48 L279,83 L439,26 L569,70 L709,19 L849,59 L989,29 L1129,56 L1280,40 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">39 / 58</div>
+</div>
+
+<div class="slide" id="s40">
+<div class="pill"><span class="arrow">▶</span><span class="label">2 · 小结</span></div>
+<h2>怎么建——3＋5＋2</h2>
+<div class="divider"></div>
+<div style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;margin-bottom:14px;">
+<div style="background:rgba(255,215,0,.12);border:2px solid rgba(255,215,0,.45);border-radius:11px;padding:10px 18px;text-align:center;">
+<div style="color:#FFD700;font-size:13px;font-weight:700;letter-spacing:1px;margin-bottom:5px;">3个定盘星</div>
+<div style="color:#fff;font-size:22px;font-weight:900;letter-spacing:4px;font-family:'SimSun','宋体',serif;">轴·轨·标</div>
+</div>
+<div style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.15);border-radius:11px;padding:10px 16px;display:flex;gap:10px;flex-wrap:wrap;">
+<span class="tag">大安全观·拓展疆域</span>
+<span class="tag">系统思维·把握规律</span>
+<span class="tag">主动塑造·赢得先机</span>
+<span class="tag">总体战·凝聚合力</span>
+<span class="tag">法治化·规范运行</span>
+</div>
+</div>
+<div class="five-method" style="margin-bottom:14px;">
+<div class="method-card">
+<div class="method-title" style="font-size:14px;">大安全观</div>
+<div class="method-key">网·生·食·应·诈<br/>基层五条线</div>
+</div>
+<div class="method-card">
+<div class="method-title" style="font-size:14px;">系统思维</div>
+<div class="method-key">早·小·实<br/>海恩1:29:300:1000</div>
+</div>
+<div class="method-card">
+<div class="method-title" style="font-size:14px;">主动塑造</div>
+<div class="method-key">预案·台账·演练<br/>救火队→防火员</div>
+</div>
+<div class="method-card">
+<div class="method-title" style="font-size:14px;">总体战</div>
+<div class="method-key">三峡·反制样本<br/>三张嘴·三只手</div>
+</div>
+<div class="method-card">
+<div class="method-title" style="font-size:14px;">法治化</div>
+<div class="method-key">工具箱·四边界<br/>12339举报</div>
+</div>
+</div>
+<div class="quote" style="font-size:17px;text-align:center;">
+    安全是<strong style="color:#FFD700;">干</strong>出来的，不是<span style="color:rgba(255,255,255,.5);">喊</span>出来的；<br/>
+    能力是<strong style="color:#FFD700;">练</strong>出来的，不是<span style="color:rgba(255,255,255,.5);">挂</span>出来的。
+  </div>
+<div style="text-align:center;margin-top:12px;">
+<span class="tag">完</span>
+<span style="color:rgba(255,255,255,.45);font-size:14px;margin-left:12px;">下一讲：丽水基层国家安全工作的实践路径</span>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,94 L158,52 L284,86 L444,28 L574,72 L714,21 L854,61 L994,32 L1134,59 L1280,42 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">40 / 58</div>
+</div>
+
+<div class="slide" id="s41">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 建设高水平安全——从战略视野到日常行动</span></div>
+<h2>从战略视野到日常行动</h2>
+<div class="divider"></div>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:0;max-width:1040px;margin:0 auto;width:100%;">
+<div style="background:rgba(255,215,0,.12);border:2px solid rgba(255,215,0,.5);border-radius:10px;padding:10px 20px;display:flex;align-items:center;gap:14px;">
+<span style="color:#FFD700;font-size:20px;font-weight:900;min-width:24px;">①</span>
+<div style="flex:1;"><div style="color:#FFD700;font-size:16px;font-weight:700;">方法论基础</div><div style="color:rgba(255,255,255,.85);font-size:13px;">弹钢琴·扭住不放·牵牛鼻子——三位领袖一条红线</div></div>
+<span style="color:rgba(255,215,0,.45);font-size:11px;white-space:nowrap;">战略方法</span>
+</div>
+<div style="text-align:center;color:rgba(255,215,0,.4);font-size:15px;line-height:1.4;">↓</div>
+<div style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.15);border-radius:10px;padding:10px 20px;display:flex;align-items:center;gap:14px;">
+<span style="color:#FFD700;font-size:20px;font-weight:900;min-width:24px;">②</span>
+<div style="flex:1;"><div style="color:#fff;font-size:16px;font-weight:700;">历史镜鉴</div><div style="color:rgba(255,255,255,.85);font-size:13px;">汉·宋·明清——三段教训，一个规律</div></div>
+<span style="color:rgba(255,255,255,.28);font-size:11px;white-space:nowrap;">历史视野</span>
+</div>
+<div style="text-align:center;color:rgba(255,215,0,.4);font-size:15px;line-height:1.4;">↓</div>
+<div style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.15);border-radius:10px;padding:10px 20px;display:flex;align-items:center;gap:14px;">
+<span style="color:#FFD700;font-size:20px;font-weight:900;min-width:24px;">③</span>
+<div style="flex:1;"><div style="color:#fff;font-size:16px;font-weight:700;">外部视野</div><div style="color:rgba(255,255,255,.85);font-size:13px;">百年变局·领土主权·大国博弈·海外利益</div></div>
+<span style="color:rgba(255,255,255,.28);font-size:11px;white-space:nowrap;">全球视野</span>
+</div>
+<div style="text-align:center;color:rgba(255,215,0,.4);font-size:15px;line-height:1.4;">↓</div>
+<div style="background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.15);border-radius:10px;padding:10px 20px;display:flex;align-items:center;gap:14px;">
+<span style="color:#FFD700;font-size:20px;font-weight:900;min-width:24px;">④</span>
+<div style="flex:1;"><div style="color:#fff;font-size:16px;font-weight:700;">时代视野</div><div style="color:rgba(255,255,255,.85);font-size:13px;">数字国力三要素·信息生态重构·算法双刃剑·基层数字治理</div></div>
+<span style="color:rgba(255,255,255,.28);font-size:11px;white-space:nowrap;">时代视野</span>
+</div>
+<div style="text-align:center;color:rgba(255,100,100,.55);font-size:15px;line-height:1.4;">↓</div>
+<div style="background:rgba(255,100,100,.12);border:2px solid rgba(255,120,120,.5);border-radius:10px;padding:12px 20px;display:flex;align-items:center;gap:14px;">
+<span style="color:#FF9090;font-size:20px;font-weight:900;min-width:24px;">⑤</span>
+<div style="flex:1;"><div style="color:#FF9090;font-size:16px;font-weight:700;">行动视野</div><div style="color:rgba(255,255,255,.88);font-size:13px;"><span class="em">排·化·宣</span></div></div>
+<span style="color:rgba(255,120,120,.8);font-size:11px;font-weight:700;white-space:nowrap;">落脚点 ★</span>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,90 L150,45 L270,80 L430,22 L560,68 L700,18 L840,58 L980,28 L1120,55 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">41 / 58</div>
+</div>
+
+<div class="slide" id="s42">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 方法论引领</span></div>
+<h2>三位领袖·一条红线</h2>
+<div class="divider"></div>
+<div class="three-col" style="flex:1;">
+<div class="leader-card">
+<div class="leader-name">毛泽东</div>
+<div class="leader-key">弹钢琴</div>
+<div class="leader-quote">"十个指头同时按下去，那也不成调子。要产生好的音乐，十个指头的动作要有节奏，要互相配合。党委要抓紧中心工作，又要围绕中心工作同时开展其他方面的工作。"</div>
+<div class="leader-sum">1949年3月七届二中全会《党委会的工作方法》</div>
+<div style="background:rgba(255,215,0,.1);border-radius:7px;padding:6px 10px;margin-top:4px;">
+<span style="color:#FFD700;font-size:13px;font-weight:700;">核心：统筹协调——十指齐动、一指领奏</span>
+</div>
+</div>
+<div class="leader-card">
+<div class="leader-name">邓小平</div>
+<div class="leader-key">扭住不放</div>
+<div class="leader-quote">"抓，要有具体政策、具体措施，解决具体的思想问题和实际问题……我的抓法就是抓头头，抓方针。"</div>
+<div class="leader-sum">邓小平文选·第二卷</div>
+<div style="background:rgba(255,215,0,.1);border-radius:7px;padding:6px 10px;margin-top:4px;">
+<span style="color:#FFD700;font-size:13px;font-weight:700;">核心：抓主要矛盾——钉钉是钉、铁铁是铁</span>
+</div>
+</div>
+<div class="leader-card">
+<div class="leader-name">习近平</div>
+<div class="leader-key">牵牛鼻子</div>
+<div class="leader-quote">"做工作、抓改革要抓住牛鼻子，不能眉毛胡子一把抓。"<br/><br/>"全面依法治国必须抓住领导干部这个'关键少数'。"（2015年2月）</div>
+<div class="leader-sum">习近平治国理政系列重要讲话</div>
+<div style="background:rgba(255,215,0,.1);border-radius:7px;padding:6px 10px;margin-top:4px;">
+<span style="color:#FFD700;font-size:13px;font-weight:700;">核心：抓关键少数——在主要矛盾中找关键人</span>
+</div>
+</div>
+</div>
+<div style="background:rgba(0,0,0,.22);border-radius:10px;padding:10px 18px;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:14px;">
+<span style="color:rgba(255,255,255,.65);font-size:14px;">统筹协调</span>
+<span style="color:rgba(255,215,0,.5);font-size:18px;">→</span>
+<span style="color:rgba(255,255,255,.65);font-size:14px;">抓主要矛盾</span>
+<span style="color:rgba(255,215,0,.5);font-size:18px;">→</span>
+<span style="color:#FFD700;font-size:14px;font-weight:700;">抓主要矛盾中的主要方面（关键少数）</span>
+<span style="color:rgba(255,215,0,.5);font-size:18px;">—</span>
+<span style="color:rgba(255,255,255,.65);font-size:14px;">党治国理政的方法论精髓</span>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,95 L160,50 L285,84 L445,28 L575,72 L718,20 L858,60 L998,30 L1138,57 L1280,40 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">42 / 58</div>
+</div>
+
+<div class="slide" id="s43">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 历史镜鉴</span></div>
+<h2>以史为鉴——汉·宋·明清三段教训</h2>
+<div class="divider"></div>
+<div class="three-col" style="flex:1;">
+<div class="dynasty-card">
+<div class="dynasty-name">汉</div>
+<div style="color:rgba(255,255,255,.6);font-size:12px;margin-bottom:4px;">汉武帝·在位54年·打仗50年</div>
+<div class="dynasty-error">错在：发展与安全失衡</div>
+<div class="dynasty-body">征匈奴·通西域·开西南夷·征朝鲜·伐南越——雄才大略，但代价惨烈。<br/><br/>"海内虚耗、户口减半"——人口从5000万降到2500万。<br/><br/>汉武帝晚年颁布中国历史上第一道帝王<span class="em">罪己诏《轮台诏》</span>，公开承认"朕之不明"。</div>
+<div class="dynasty-lesson">教训：穷兵黩武摧毁经济基础。发展的根基垮了，安全就是空中楼阁。</div>
+</div>
+<div class="dynasty-card">
+<div class="dynasty-name">宋</div>
+<div style="color:rgba(255,255,255,.6);font-size:12px;margin-bottom:4px;">赵匡胤·杯酒释兵权·更戍法</div>
+<div class="dynasty-error">错在：软实力与硬实力失配</div>
+<div class="dynasty-body">军不识将、将不识兵——武备废弛。<br/><br/><span class="red">1004年澶渊之盟</span>——每年向辽国交岁币银10万两+绢20万匹·花钱买和平。<br/><br/><span class="red">1127年靖康之耻</span>——徽钦二帝被金兵掳走·北宋亡国。</div>
+<div class="dynasty-lesson">教训：经济繁荣、文化灿烂挡不住铁蹄。没有硬实力，一切软实力都是浮萍。</div>
+</div>
+<div class="dynasty-card">
+<div class="dynasty-name">明清</div>
+<div style="color:rgba(255,255,255,.6);font-size:12px;margin-bottom:4px;">海禁闭关·一口通商·文字狱</div>
+<div class="dynasty-error">错在：开放与自立的错误取舍</div>
+<div class="dynasty-body">主动切断中国与世界联系——<br/><br/><span class="red">1840年鸦片战争</span>——几十门炮打开四亿人口大国的国门。<br/><br/><span class="red">《辛丑条约》</span>——赔款4.5亿两白银·平均每个中国人赔一两。<br/><br/>今天的"坚船利炮"——芯片卡脖子·数据截流·算力锁死。</div>
+<div class="dynasty-lesson">教训：开放不是风险，自闭才是最大风险。主动切断与世界的联系，就是主动走向衰亡。</div>
+</div>
+</div>
+<div class="hl" style="font-size:14px;margin-top:3px;text-align:center;">三段历史，一个规律：安全从来不是孤立的——<span class="em">与发展·开放·军事·科技始终是一盘棋</span>，任何一颗子走错，满盘皆输。</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,88 L145,44 L265,80 L425,26 L558,66 L698,16 L838,56 L978,26 L1118,53 L1280,37 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">43 / 58</div>
+</div>
+
+<div class="slide" id="s44">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 外部视野 · 领土主权安全</span></div>
+<h2>敢于破局——战略边境向外延伸</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 案例一：东海防空识别区（2013.11.23）</div>
+<div class="body-xs" style="line-height:1.75;">新中国成立以来<span class="em">第一次</span>，将我国周边空域纳入识别管控。<br/><br/>意义：不划，永远被动；划了，就<strong>主动塑造</strong>。<br/><br/>对进入识别区的外国军机——有<span class="em">识别·跟踪·警告·必要时驱离</span>的权利。</div>
+<div class="sec-lbl" style="margin-top:4px;">▌ 案例二：南海岛礁建设（2014年至今）</div>
+<div class="body-xs" style="line-height:1.75;">永暑礁·美济礁·渚碧礁·华阳礁——从几块礁石变成有<span class="em">机场·港口·雷达·驻守</span>的岛礁。<br/><br/>从明代郑和路过——到近代被列强蚕食——到今天这些<span class="em">"永不沉没的航母"</span>——中国实际战略边境向外延伸数千公里。</div>
+<div class="hl" style="font-size:13px;">战略边境不等于地理边境——是国家利益延伸到哪里，战略防卫就覆盖到哪里。</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 战略边境的四个维度</div>
+<div class="cards col2" style="gap:8px;">
+<div class="card"><div class="card-title">海外港口</div><div class="card-body">斯里兰卡汉班托塔·巴基斯坦瓜达尔·吉布提保障基地</div></div>
+<div class="card"><div class="card-title">跨境管道</div><div class="card-body">中缅油气管道·中哈石油管道·中亚天然气管道</div></div>
+<div class="card"><div class="card-title">海底电缆</div><div class="card-body">全球信息传输90%靠海底电缆，关键节点争夺战</div></div>
+<div class="card"><div class="card-title">近地轨道</div><div class="card-body">北斗全球导航·天宫空间站·侦察·通信·预警卫星群</div></div>
+</div>
+<div style="background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.25);border-radius:10px;padding:11px 14px;margin-top:4px;">
+<div style="color:#FFD700;font-size:13px;font-weight:700;margin-bottom:4px;">▌ 总判断</div>
+<div style="color:rgba(255,215,0,.65);font-size:11px;line-height:1.55;margin-bottom:6px;">党的二十届四中全会《中共中央关于制定国民经济和社会发展第十五个五年规划的建议》</div>
+<div class="quote" style="font-size:14px;padding:8px 12px;margin:0;">大国关系牵动国际形势，国际形势演变深刻影响国内发展，我国发展处于<span style="color:#FFD700;font-weight:700;">战略机遇和风险挑战并存</span>、不确定难预料因素增多的时期。</div>
+<div class="body-xs" style="margin-top:5px;">卡尼达沃斯："怀旧不是策略"。</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,92 L155,48 L278,82 L438,24 L568,68 L708,18 L848,58 L988,26 L1128,54 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">44 / 58</div>
+</div>
+
+<div class="slide" id="s45">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 外部视野 · 23年的力量对比</span></div>
+<h2>两个时间巧合·一条历史定律</h2>
+<div class="divider"></div>
+<div class="mirror" style="flex:1;align-items:stretch;">
+<div class="mirror-neg">
+<div class="mirror-title" style="font-size:17px;">1999年5月8日——只能抗议</div>
+<div class="mirror-body" style="line-height:1.8;">
+        北约绕开安理会悍然轰炸南联盟——美军B-2轰炸机从美国本土起飞——对我国驻南斯拉夫<span class="red">大使馆投下五枚JDAM精确制导炸弹</span>。<br/><br/>
+<span class="red">邵云环·许杏虎·朱颖——三人遇难</span>，二十多人重伤。<br/><br/>
+<strong style="color:#FF9090;">时间巧合：</strong>炸馆距"欧洲反法西斯胜利日"（5月9日）仅36小时。就在庆祝和平的前夜——用炸弹向中国说话。<br/><br/>
+        中国的回应：抗议·游行·记住仇恨——<span class="red">没有更多能做的</span>。
+      </div>
+</div>
+<div class="mirror-pos">
+<div class="mirror-title" style="font-size:17px;">2022年8月2日——可以锁岛</div>
+<div class="mirror-body" style="line-height:1.8;">
+        佩洛西窜台——美国三号人物踏上台湾。<br/><br/>
+<strong style="color:#6DC86D;">时间巧合：</strong>2022年8月1日是<span class="grn">解放军建军95周年</span>——次日即遭最直接挑衅。<br/><br/>
+        中国的回应：<br/>
+        ▸ 解放军台岛周边<span class="grn">6个海域空域</span>军事演训<br/>
+        ▸ 首次突破"海峡中线"，在台岛东部展开演练<br/>
+        ▸ 岛内媒体：<span class="grn">"形同海空锁台"</span>
+</div>
+</div>
+</div>
+<div style="background:rgba(0,0,0,.3);border-radius:12px;padding:14px 20px;margin-top:12px;">
+<div style="color:#FFD700;font-size:14px;font-weight:700;margin-bottom:8px;text-align:center;">▌ 综合国力公式</div>
+<div style="text-align:center;font-size:19px;font-weight:900;color:#fff;letter-spacing:1px;">
+      综合国力 ＝ （资源力 ＋ 经济力 ＋ 军事力）<span style="color:#FFD700;">×</span>（战略意图 ＋ 战略意志）
+    </div>
+<div style="color:rgba(255,255,255,.6);font-size:13px;text-align:center;margin-top:6px;">战略意志为零 → 硬实力再强 → 综合国力归零  |  <span class="em">弱国无外交，实力才是话语权</span></div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,89 L148,46 L268,81 L428,23 L560,67 L700,17 L840,57 L980,27 L1120,54 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">45 / 58</div>
+</div>
+
+<div class="slide" id="s46">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 外部视野 · 大国博弈与海外利益</span></div>
+<h2>战略相持·立德立功立言·基层四反射</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 战略相持阶段打法（双轨并进）</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+<div class="card"><div class="card-title">第一轨：自身发展</div><div class="card-body">苦练内功，把自己的事情做好</div></div>
+<div class="card"><div class="card-title">第二轨：精准反制</div><div class="card-body">全体系·全链条·全手段反制</div></div>
+</div>
+<div class="sec-lbl" style="margin-top:4px;">▌ 海外利益——世界乱局中的中国担当</div>
+<div class="body-xs" style="line-height:1.8;">2025年：<span class="em">全球59起活跃武装冲突</span>——二战结束以来最多。<br/>全球军费突破<span class="em">2.7万亿美元</span>·流离失所人口<span class="em">1.17亿</span></div>
+<div class="three-col" style="gap:8px;">
+<div style="background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.25);border-radius:9px;padding:10px 12px;text-align:center;">
+<div style="color:#FFD700;font-size:18px;font-weight:900;font-family:'SimSun','宋体',serif;margin-bottom:4px;">立德</div>
+<div class="body-xs">以德立信<br/>2023年沙伊北京和解</div>
+</div>
+<div style="background:rgba(109,200,109,.1);border:1px solid rgba(109,200,109,.25);border-radius:9px;padding:10px 12px;text-align:center;">
+<div style="color:#6DC86D;font-size:18px;font-weight:900;font-family:'SimSun','宋体',serif;margin-bottom:4px;">立功</div>
+<div class="body-xs">以行立功<br/>2011利比亚撤侨3.5万<br/>2015也门撤侨613人<br/>2025缅北大规模解救</div>
+</div>
+<div style="background:rgba(126,220,255,.1);border:1px solid rgba(126,220,255,.25);border-radius:9px;padding:10px 12px;text-align:center;">
+<div style="color:#7EDCFF;font-size:18px;font-weight:900;font-family:'SimSun','宋体',serif;margin-bottom:4px;">立言</div>
+<div class="body-xs">以言立位<br/>全球安全倡议<br/>全球发展倡议<br/>全球文明倡议</div>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 外部视野的基层四反射</div>
+<div class="lesson">
+<div class="lesson-num">①</div>
+<div><div class="lesson-title">涉外信息管控</div>
+<div class="lesson-body">辖区涉外活动、涉外敏感话题——要敏锐、要稳妥、及时请示。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">②</div>
+<div><div class="lesson-title">出境人员管理</div>
+<div class="lesson-body">对高校毕业生·农民工·涉外务工人员，<span class="em">出境前宣教</span>——防被骗到缅北·柬埔寨·迪拜等电诈园区。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">③</div>
+<div><div class="lesson-title">境外渗透防范</div>
+<div class="lesson-body">境外NGO·宗教渗透·网络攻势——发现线索立即上报<span class="em">国家安全机关</span>。</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">④</div>
+<div><div class="lesson-title">涉外舆情引导</div>
+<div class="lesson-body">中美博弈·台海·涉港涉疆话题——基层党员干部<span class="em">网上亮剑、群众中引导</span>。</div></div>
+</div>
+<div class="hl" style="font-size:13px;">大国博弈看似远在天边，实则近在眼前。辖区一户一人一事，都可能是国家安全的"最后一公里"。</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,91 L152,47 L275,83 L435,26 L565,69 L705,19 L845,59 L985,29 L1125,56 L1280,39 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">46 / 58</div>
+</div>
+
+<div class="slide" id="s47">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 时代视野 · 数字国力</span></div>
+<h2>数字时代国力竞争——三要素·三个不等于</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 数字国力三要素</div>
+<div class="card">
+<div class="card-title">① 人才——谁掌握人才谁掌握未来</div>
+<div class="card-body">中国STEM本科毕业生<span class="em">超500万/年</span>——是美国的5倍以上。AI人才·芯片人才·关键核心技术人才——每一位顶级人才可能改变国家战略命运。</div>
+</div>
+<div class="card">
+<div class="card-title">② 数据——新时代的"石油"</div>
+<div class="card-body">2024年《促进和规范数据跨境流动规定》实施。<br/>2025年9月1日《AI生成合成内容标识办法》施行——AI内容必须标识。</div>
+</div>
+<div class="card">
+<div class="card-title">③ 算力——数字时代的"电网"</div>
+<div class="card-body">2024年中国算力总规模<span class="em">246 EFLOPS——全球第二</span>。<br/>东数西算：宁夏·甘肃·贵州·内蒙古等八大枢纽节点——国家级算力战略布局。</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 技术政治化·武器化——三个"不等于"</div>
+<div style="background:rgba(255,215,0,.08);border:1px solid rgba(255,215,0,.25);border-radius:10px;padding:14px 16px;">
+<div class="tl-item" style="margin-bottom:12px;">
+<div class="tl-dot" style="margin-top:6px;"></div>
+<div>
+<div style="color:#FFD700;font-size:15px;font-weight:700;margin-bottom:4px;">芯片卡脖子</div>
+<div class="body-xs">≠ 单纯的技术问题   ＝ <span class="em">政治问题</span></div>
+</div>
+</div>
+<div class="tl-item" style="margin-bottom:12px;">
+<div class="tl-dot" style="margin-top:6px;"></div>
+<div>
+<div style="color:#FFD700;font-size:15px;font-weight:700;margin-bottom:4px;">出口管制</div>
+<div class="body-xs">≠ 贸易问题   ＝ <span class="em">战略问题</span></div>
+</div>
+</div>
+<div class="tl-item">
+<div class="tl-dot" style="margin-top:6px;"></div>
+<div>
+<div style="color:#FFD700;font-size:15px;font-weight:700;margin-bottom:4px;">TikTok在美被强制出售</div>
+<div class="body-xs">≠ 企业问题   ＝ <span class="em">国家安全问题</span></div>
+</div>
+</div>
+</div>
+<div class="hl" style="font-size:13px;">数字时代的国力竞争——<span class="em">三要素（人才·数据·算力）</span>决定胜负。技术不再是纯粹的商业问题——它被政治化、武器化。</div>
+
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,87 L144,43 L264,79 L424,25 L557,65 L697,15 L837,55 L977,25 L1117,52 L1280,36 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">47 / 58</div>
+</div>
+
+<div class="slide" id="s48">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 时代视野 · 信息生态根本重构</span></div>
+<h2>信息生态——过去三十年最深刻的社会变革</h2>
+<div class="divider"></div>
+<div class="three-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div style="background:rgba(255,215,0,.13);border:2px solid rgba(255,215,0,.4);border-radius:10px;padding:10px 14px;text-align:center;"><div style="color:#FFD700;font-size:16px;font-weight:700;">变化一：信息枢纽转移</div></div>
+<div class="card" style="border-top-color:rgba(255,138,138,.5);">
+<div class="card-title" style="color:#FF9090;">过去</div>
+<div class="card-body">报社·电视台·广播·书店<br/>信息枢纽是"机构"<br/>信息由"持证的少数"把关</div>
+</div>
+<div class="card" style="border-top-color:rgba(109,200,109,.5);">
+<div class="card-title" style="color:#6DC86D;">今天</div>
+<div class="card-body">抖音·微信·微博·小红书·B站·快手<br/>信息枢纽是<span class="em">"平台"</span><br/>每个人都是传播节点</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div style="background:rgba(255,215,0,.13);border:2px solid rgba(255,215,0,.4);border-radius:10px;padding:10px 14px;text-align:center;"><div style="color:#FFD700;font-size:16px;font-weight:700;">变化二：内容生产中心转移</div></div>
+<div class="card" style="border-top-color:rgba(255,138,138,.5);">
+<div class="card-title" style="color:#FF9090;">过去</div>
+<div class="card-body">记者·编辑·作家生产内容<br/>生产者是<span class="red">"持证的少数"</span></div>
+</div>
+<div class="card" style="border-top-color:rgba(109,200,109,.5);">
+<div class="card-title" style="color:#6DC86D;">今天</div>
+<div class="card-body">每一个拿手机的人都是内容生产者<br/>生产者是<span class="grn">"亿万的多数"</span><br/>人人都能发声·人人都有影响力</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div style="background:rgba(255,215,0,.13);border:2px solid rgba(255,215,0,.4);border-radius:10px;padding:10px 14px;text-align:center;"><div style="color:#FFD700;font-size:16px;font-weight:700;">变化三：类政府性质平台崛起</div></div>
+<div class="card">
+<div class="card-title">超级平台承担公共服务</div>
+<div class="card-body">出行靠滴滴·吃饭靠美团·支付靠支付宝·社交靠微信·购物靠淘宝·信息靠抖音</div>
+</div>
+<div class="card" style="border-top-color:rgba(255,138,138,.5);">
+<div class="card-title" style="color:#FF9090;">新治理挑战</div>
+<div class="card-body">一个平台出问题——影响的不是一家企业，是整个社会的正常运转。这就是"超级平台"带来的新安全风险。</div>
+</div>
+</div>
+</div>
+<div class="hl" style="font-size:14px;margin-top:10px;text-align:center;">牛津大学路透新闻研究院发现：社交媒体用户反而比不使用者接触到<span class="em">更多样化</span>的信息——但"固化偏见"的成因比我们想象的更复杂。</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,96 L164,53 L290,87 L450,30 L580,73 L720,21 L860,61 L1000,32 L1140,59 L1280,42 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">48 / 58</div>
+</div>
+
+<div class="slide" id="s49">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 时代视野 · 算法双刃剑</span></div>
+<h2>算法固化偏见——挑战·更是机遇</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div class="sec-lbl">▌ 敌对势力的四种利用方式</div>
+<div class="card" style="border-top-color:rgba(255,138,138,.6);">
+<div class="card-title" style="color:#FF9090;">① 精准投送</div>
+<div class="card-body">根据用户画像，向"爱看反华内容"的用户专项推送——把他们"固化"成反华分子</div>
+</div>
+<div class="card" style="border-top-color:rgba(255,138,138,.6);">
+<div class="card-title" style="color:#FF9090;">② 意见集群</div>
+<div class="card-body">把精日·恨国党·历史虚无主义账号聚成群组——形成"回音室"，互相强化极端观点</div>
+</div>
+<div class="card" style="border-top-color:rgba(255,138,138,.6);">
+<div class="card-title" style="color:#FF9090;">③ 极化煽动</div>
+<div class="card-body">深度伪造·AI换脸·剪辑误读·碎片化传播——淹没温和声音·放大极端声音</div>
+</div>
+<div class="card" style="border-top-color:rgba(255,138,138,.6);">
+<div class="card-title" style="color:#FF9090;">④ 双标操作</div>
+<div class="card-body">美国TikTok被要求"政治正确"；中国TikTok在美被指控"国家安全威胁"——同一平台，两套标准，本身就是意识形态战</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;">
+<div class="sec-lbl">▌ 我们的三条反向利用思路</div>
+<div class="card" style="border-top-color:rgba(109,200,109,.6);">
+<div class="card-title" style="color:#6DC86D;">思路一：正面内容的"精准滴灌"</div>
+<div class="card-body">对党员干部推送党代会精神；对青少年推送英雄模范·中华文化；对农民推送惠农政策；对企业家推送营商环境——让算法把正面内容固化成各群体的日常信息流。</div>
+</div>
+<div class="card" style="border-top-color:rgba(109,200,109,.6);">
+<div class="card-title" style="color:#6DC86D;">思路二：群众参与的"千里眼顺风耳"</div>
+<div class="card-body">陈师傅→司机群体的"身边榜样"；老张→户外爱好者的"身边榜样"；吴先生→科研人员的"身边榜样"。<br/>2026年"全民守护官"系列短视频——抖音·视频号·B站联合投放——榜样效应在同群体中循环放大。</div>
+</div>
+<div class="card" style="border-top-color:rgba(109,200,109,.6);">
+<div class="card-title" style="color:#6DC86D;">思路三：主流媒体的"算法改造"</div>
+<div class="card-body">《人民日报》抖音粉丝已突破<span class="grn">2亿</span>，单条短视频最高播放<span class="grn">超20亿次</span>。主流媒体必须懂推荐量·完播率·互动率——用算法的语言·传播党的声音。</div>
+</div>
+<div class="hl" style="font-size:13px;">谁先把算法用好，谁就赢得数字时代意识形态战。</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,88 L146,44 L266,80 L426,26 L558,66 L698,16 L838,56 L978,26 L1118,53 L1280,37 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">49 / 58</div>
+</div>
+
+<div class="slide" id="s50">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 时代视野 · 数字治理</span></div>
+<h2>数字治理——今天的任务</h2>
+<div class="divider"></div>
+<div class="cards col2" style="flex:1;align-items:stretch;">
+<div class="task-card">
+<div class="task-num">任务一</div>
+<div class="task-title">建好基层文化新阵地</div>
+<div class="task-body">
+        过去阵地：村广播·黑板报·文化礼堂·农家书屋<br/>今天新增：<span class="em">村短视频账号·社区公众号·新时代文明实践中心直播间</span><br/><br/>
+        ▸ 每个乡镇：至少一个稳定粉丝的官方短视频号<br/>
+        ▸ 每个村/社区：有自己的公众号或视频号<br/>
+        ▸ 每个实践中心：线下活动同步线上直播
+      </div>
+</div>
+<div class="task-card">
+<div class="task-num">任务二</div>
+<div class="task-title">网络舆情闭环处置</div>
+<div class="task-body">
+<span class="em">"黄金4小时"规律</span>——重大舆情发生后的前4小时是关键窗口期<br/><br/>
+        四步法：<br/>
+        ▸ <span class="em">1小时内</span>——上报县委·公安·网信<br/>
+        ▸ <span class="em">4小时内</span>——派人核实真相<br/>
+        ▸ <span class="em">12小时内</span>——官方渠道发布权威信息<br/>
+        ▸ <span class="em">24小时内</span>——组织正面发声<br/><br/>
+        关键：真相快·态度真·处置实
+      </div>
+</div>
+<div class="task-card">
+<div class="task-num">任务三</div>
+<div class="task-title">抓好"小哥·主播·网红"三支新力量</div>
+<div class="task-body">
+        ▸ <span class="em">外卖/快递小哥</span>——走街串巷的"移动眼睛"：成立小哥驿站，换他们主动举报社区隐患<br/>
+        ▸ <span class="em">网络/带货主播</span>——有粉丝有传播力的"话筒"：开展主播党建，让他们直播党课<br/>
+        ▸ <span class="em">本土网红/乡村博主</span>——扎根本地的"代言人"：培育乡村振兴网红，带货农产品、讲家乡故事<br/><br/>
+        从"管理对象"→变成<span class="em">"数字治理新力量"</span>
+</div>
+</div>
+<div class="task-card">
+<div class="task-num">任务四</div>
+<div class="task-title">防范非法平台基层渗透</div>
+<div class="task-body">
+        四大威胁：<br/>
+        ▸ 境外赌博App（朋友圈/QQ群诱导）<br/>
+        ▸ 虚拟货币骗局（"高收益投资"广告）<br/>
+        ▸ 非法放贷套路贷App<br/>
+        ▸ 境外电诈招聘（缅甸/柬埔寨/迪拜）<br/><br/>
+        四件事：<span class="em">宣传预警·发现举报·重点帮扶高危人群·联合打击</span>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,93 L158,49 L282,84 L442,26 L572,70 L712,19 L852,59 L992,28 L1132,56 L1280,39 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">50 / 58</div>
+</div>
+
+<div class="slide" id="s51">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 行动视野</span></div>
+<h2>三个动作——排·化·宣</h2>
+<div class="divider"></div>
+<div class="three-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div style="background:rgba(255,138,138,.15);border:2px solid rgba(255,138,138,.45);border-radius:13px;padding:14px 16px;text-align:center;">
+<div style="color:#FF9090;font-size:42px;font-weight:900;font-family:'SimSun','宋体',serif;margin-bottom:6px;">排</div>
+<div style="color:rgba(255,255,255,.8);font-size:15px;font-weight:700;">风险排查</div>
+</div>
+<div class="body-xs" style="line-height:1.8;">国家安全最末端的<br/>"毛细血管工程"<br/><br/>三问：<br/>▸ 隐患在哪里？<br/>▸ 谁来排？<br/>▸ 怎么报？<br/><br/>五大领域清单·三色预警·台账闭环</div>
+<div class="hl" style="font-size:13px;color:#FF9090;border-left-color:#FF9090;">排，是<strong>发现</strong>——把隐患找出来</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div style="background:rgba(255,215,0,.13);border:2px solid rgba(255,215,0,.45);border-radius:13px;padding:14px 16px;text-align:center;">
+<div style="color:#FFD700;font-size:42px;font-weight:900;font-family:'SimSun','宋体',serif;margin-bottom:6px;">化</div>
+<div style="color:rgba(255,255,255,.8);font-size:15px;font-weight:700;">矛盾化解</div>
+</div>
+<div class="body-xs" style="line-height:1.8;">共产党人的金字招牌——<br/><strong style="color:#FFD700;">枫桥经验</strong><br/><br/>1963毛主席批示→新时代创新发展<br/><br/>"矛盾不上交·平安不出事·服务不缺位"<br/><br/>三治融合：自治+法治+德治</div>
+<div class="hl" style="font-size:13px;">化，是<strong>处置</strong>——把矛盾解决掉</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div style="background:rgba(126,220,255,.1);border:2px solid rgba(126,220,255,.35);border-radius:13px;padding:14px 16px;text-align:center;">
+<div style="color:#7EDCFF;font-size:42px;font-weight:900;font-family:'SimSun','宋体',serif;margin-bottom:6px;">宣</div>
+<div style="color:rgba(255,255,255,.8);font-size:15px;font-weight:700;">宣传教育</div>
+</div>
+<div class="body-xs" style="line-height:1.8;">"久久为功"的事<br/><br/>两个关键节点：<br/>▸ 4月15日全民国家安全教育日<br/>▸ 国家安全宣传周<br/><br/>六类群体精准宣传：残疾人·留守老人·留守儿童·退伍军人·毕业大学生·司机和小哥</div>
+<div class="hl" style="font-size:13px;border-left-color:#7EDCFF;color:#7EDCFF;">宣，是<strong>预防</strong>——让隐患不发生</div>
+</div>
+</div>
+<div style="background:rgba(0,0,0,.22);border-radius:10px;padding:10px 20px;margin-top:12px;text-align:center;">
+<span style="color:rgba(255,255,255,.65);font-size:15px;">排是发现 · 化是处置 · 宣是预防 ——</span>
+<span style="color:#FFD700;font-size:15px;font-weight:700;"> 三位一体，循环往复</span>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,89 L147,45 L267,81 L427,25 L559,67 L699,17 L839,57 L979,27 L1119,54 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">51 / 58</div>
+</div>
+
+<div class="slide" id="s52">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 行动视野 · 排：风险排查</span></div>
+<h2>国家安全风险排查清单——五大领域</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:8px;">
+<div class="sec-lbl">▌ 按五大领域梳理辖区风险点</div>
+<div class="lesson" style="margin-bottom:6px;">
+<div class="lesson-num" style="background:rgba(255,70,70,.2);border-color:rgba(255,70,70,.5);color:#FF9090;">政</div>
+<div><div class="lesson-title">政治安全领域</div>
+<div class="lesson-body">意识形态阵地·党员队伍·重点人员·涉稳隐患</div></div>
+</div>
+<div class="lesson" style="margin-bottom:6px;">
+<div class="lesson-num" style="background:rgba(255,215,0,.15);border-color:rgba(255,215,0,.4);color:#FFD700;">经</div>
+<div><div class="lesson-title">经济/社会安全领域</div>
+<div class="lesson-body">企业安全隐患·金融风险·信访积案·社会矛盾</div></div>
+</div>
+<div class="lesson" style="margin-bottom:6px;">
+<div class="lesson-num" style="background:rgba(126,220,255,.15);border-color:rgba(126,220,255,.4);color:#7EDCFF;">网</div>
+<div><div class="lesson-title">网络安全领域</div>
+<div class="lesson-body">政务平台漏洞·舆情异常账号·涉诈涉赌线索</div></div>
+</div>
+<div class="lesson" style="margin-bottom:6px;">
+<div class="lesson-num" style="background:rgba(109,200,109,.15);border-color:rgba(109,200,109,.4);color:#6DC86D;">生</div>
+<div><div class="lesson-title">生态/食药安全领域</div>
+<div class="lesson-body">河湖山林偷排·小作坊违规·养老食堂·校园食品</div></div>
+</div>
+<div class="lesson" style="margin-bottom:0;">
+<div class="lesson-num" style="background:rgba(180,120,255,.15);border-color:rgba(180,120,255,.4);color:#C890FF;">应</div>
+<div><div class="lesson-title">应急管理领域</div>
+<div class="lesson-body">地质灾害点·防汛防台重点区域·消防隐患·危化品</div></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="sec-lbl">▌ 三色预警机制</div>
+<div style="display:flex;flex-direction:column;gap:7px;">
+<div style="background:rgba(220,50,50,.2);border:1.5px solid rgba(255,80,80,.4);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:12px;">
+<div style="width:20px;height:20px;border-radius:50%;background:#FF4040;flex-shrink:0;"></div>
+<div><div style="color:#FF9090;font-size:14px;font-weight:700;">红色</div><div class="body-xs">必须挂牌督办·限期整改·主要领导负责</div></div>
+</div>
+<div style="background:rgba(255,180,0,.15);border:1.5px solid rgba(255,200,0,.35);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:12px;">
+<div style="width:20px;height:20px;border-radius:50%;background:#FFB800;flex-shrink:0;"></div>
+<div><div style="color:#FFD700;font-size:14px;font-weight:700;">黄色</div><div class="body-xs">限期整改·专人盯办·定期复查</div></div>
+</div>
+<div style="background:rgba(40,160,80,.15);border:1.5px solid rgba(60,180,80,.3);border-radius:9px;padding:10px 14px;display:flex;align-items:center;gap:12px;">
+<div style="width:20px;height:20px;border-radius:50%;background:#3CB85C;flex-shrink:0;"></div>
+<div><div style="color:#6DC86D;font-size:14px;font-weight:700;">绿色</div><div class="body-xs">定期巡查·常态管理·及时更新</div></div>
+</div>
+</div>
+<div class="hl" style="font-size:13px;margin-top:4px;">四环节闭环：<span class="em">台账 → 整改 → 复查 → 销号</span><br/>不能只排查不整改，不能只整改不销号</div>
+<div class="stat-box" style="margin-top:4px;">
+<div style="color:#6DC86D;font-size:22px;font-weight:900;">9起</div>
+<div class="big-label">2024年全国重特大事故——首次降至个位数</div>
+<div style="color:rgba(255,255,255,.5);font-size:12px;margin-top:3px;">全国基层排查工作的共同成果，这套打法管用</div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,91 L153,48 L279,83 L439,26 L569,70 L709,19 L849,59 L989,29 L1129,56 L1280,40 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">52 / 58</div>
+</div>
+
+<div class="slide" id="s53">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 行动视野 · 化：矛盾化解</span></div>
+<h2>枫桥经验现代版——共产党人的金字招牌</h2>
+<div class="divider"></div>
+<div class="two-col" style="flex:1;">
+<div style="display:flex;flex-direction:column;gap:10px;">
+<div class="tl-item"><div class="tl-date">2003年起</div><div class="tl-dot"></div><div class="tl-text"><strong>习近平在浙江</strong>：高度重视枫桥经验，推动创新发展</div></div>
+<div class="tl-item"><div class="tl-date">新时代</div><div class="tl-dot gn"></div><div class="tl-text">"党建引领、人民主体、三治融合、共建共享"</div></div>
+<div class="quote" style="font-size:15px;padding:10px 14px;">矛盾不上交·平安不出事·服务不缺位</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+<div class="stat-box" style="border:1.5px solid rgba(255,215,0,.3);"><div style="color:#FFD700;font-size:17px;font-weight:800;">自治</div><div class="big-label">群众自我管理</div></div>
+<div class="stat-box" style="border:1.5px solid rgba(255,215,0,.3);"><div style="color:#FFD700;font-size:17px;font-weight:800;">法治</div><div class="big-label">依法化解矛盾</div></div>
+<div class="stat-box" style="border:1.5px solid rgba(255,215,0,.3);"><div style="color:#FFD700;font-size:17px;font-weight:800;">德治</div><div class="big-label">以德引领风尚</div></div>
+</div>
+<div style="background:rgba(255,215,0,.1);border-radius:9px;padding:10px 14px;text-align:center;">
+<span style="color:#FFD700;font-size:26px;font-weight:900;">0.44</span>
+<span style="color:rgba(255,215,0,.7);font-size:14px;">起/每十万人命案（2024年）</span>
+<div class="big-label" style="margin-top:4px;">世界上命案发案率最低的国家之一</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;">
+<div class="sec-lbl">▌ 枫桥经验</div>
+<div class="lesson">
+<div class="lesson-num">一</div>
+<div><div class="lesson-title">建好综治中心</div>
+<div class="lesson-body">浦江经验（领导下访）·漳州110（快速响应）·上海一网统管（智慧赋能）——学先进、用先进</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">二</div>
+<div><div class="lesson-title">抓好网格化管理</div>
+<div class="lesson-body">一格一人·一人多岗·一岗多责·<span class="em">一事闭环</span></div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">三</div>
+<div><div class="lesson-title">用好"四下基层"</div>
+<div class="lesson-body">信访接待·现场办公·调查研究·宣传政策——习近平同志在宁德时期亲自推动的制度</div></div>
+</div>
+<div class="lesson">
+<div class="lesson-num">四</div>
+<div><div class="lesson-title">用好"小哥驿站·党群服务中心·退役军人服务站"</div>
+<div class="lesson-body">这些都是矛盾发现和化解的前哨站</div></div>
+</div>
+<div class="lesson" style="margin-bottom:0;">
+<div class="lesson-num">五</div>
+<div><div class="lesson-title">抓好"一村一辅警·一社区一律师"</div>
+<div class="lesson-body">把专业力量下沉到基层</div></div>
+</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,90 L150,46 L271,81 L431,23 L561,67 L701,17 L841,57 L981,27 L1121,54 L1280,38 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">53 / 58</div>
+</div>
+
+<div class="slide" id="s54">
+<div class="pill"><span class="arrow">▶</span><span class="label">3 · 行动视野 · 宣：宣传教育</span></div>
+<h2>六类群体——精准宣传·千人千面</h2>
+<div class="divider"></div>
+<div class="body-xs" style="margin-bottom:12px;">每年<span class="em">4月15日全民国家安全教育日</span>（2026年为第11个）· 国家安全宣传周 · 2025年《新时代的中国国家安全》白皮书——最好的宣讲教材</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:0;">
+<div style="display:grid;grid-template-columns:110px 1fr 160px;gap:0;background:rgba(255,215,0,.15);border-radius:9px 9px 0 0;overflow:hidden;">
+<div style="padding:7px 12px;color:#FFD700;font-size:15px;font-weight:700;">群体</div>
+<div style="padding:7px 12px;color:#FFD700;font-size:15px;font-weight:700;">宣传重点</div>
+<div style="padding:7px 12px;color:#FFD700;font-size:15px;font-weight:700;">依托平台/渠道</div>
+</div>
+<div style="border:1px solid rgba(255,255,255,.08);border-top:none;border-radius:0 0 9px 9px;overflow:hidden;">
+<div class="group-row" style="display:grid;grid-template-columns:110px 1fr 160px;gap:0;padding:0;">
+<div style="padding:8px 12px;color:#FFD700;font-size:13px;font-weight:700;border-right:1px solid rgba(255,255,255,.06);">残疾人</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.82);font-size:13px;border-right:1px solid rgba(255,255,255,.06);">反诈·防骗·应急避险；材料要<span class="em">大字版·有声版·手语版</span></div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.5);font-size:12px;">残联·社区服务站</div>
+</div>
+<div class="group-row" style="display:grid;grid-template-columns:110px 1fr 160px;gap:0;padding:0;background:rgba(255,255,255,.03);">
+<div style="padding:8px 12px;color:#FFD700;font-size:13px;font-weight:700;border-right:1px solid rgba(255,255,255,.06);">留守老人</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.82);font-size:13px;border-right:1px solid rgba(255,255,255,.06);">防养老诈骗·防保健品骗局·防"孙子"冒充电话</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.5);font-size:12px;">老年协会·卫生室</div>
+</div>
+<div class="group-row" style="display:grid;grid-template-columns:110px 1fr 160px;gap:0;padding:0;">
+<div style="padding:8px 12px;color:#FFD700;font-size:13px;font-weight:700;border-right:1px solid rgba(255,255,255,.06);">留守儿童</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.82);font-size:13px;border-right:1px solid rgba(255,255,255,.06);">网络安全·防溺水·防性侵·防校园欺凌</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.5);font-size:12px;">学校·代理家长·村广播</div>
+</div>
+<div class="group-row" style="display:grid;grid-template-columns:110px 1fr 160px;gap:0;padding:0;background:rgba(255,255,255,.03);">
+<div style="padding:8px 12px;color:#FFD700;font-size:13px;font-weight:700;border-right:1px solid rgba(255,255,255,.06);">退伍军人</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.82);font-size:13px;border-right:1px solid rgba(255,255,255,.06);"><span class="em">反间谍法</span>·涉军信息保密·境外拉拢防范</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.5);font-size:12px;">退役军人服务站</div>
+</div>
+<div class="group-row" style="display:grid;grid-template-columns:110px 1fr 160px;gap:0;padding:0;">
+<div style="padding:8px 12px;color:#FFD700;font-size:13px;font-weight:700;border-right:1px solid rgba(255,255,255,.06);">毕业大学生</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.82);font-size:13px;border-right:1px solid rgba(255,255,255,.06);">反境外招聘陷阱（王星案）·防渗透·正确人生观</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.5);font-size:12px;">社区服务站·青年之家</div>
+</div>
+<div class="group-row" style="display:grid;grid-template-columns:110px 1fr 160px;gap:0;padding:0;background:rgba(255,255,255,.03);">
+<div style="padding:8px 12px;color:#FFD700;font-size:13px;font-weight:700;border-right:1px solid rgba(255,255,255,.06);">司机和小哥</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.82);font-size:13px;border-right:1px solid rgba(255,255,255,.06);">反诈·快速发现异常举报·<span class="em">12339</span>国家安全举报电话</div>
+<div style="padding:8px 12px;color:rgba(255,255,255,.5);font-size:12px;">工会·行业协会·暖新驿站</div>
+</div>
+</div>
+</div>
+<div class="hl" style="font-size:14px;margin-top:10px;">宣传不能"千人一面"——要针对不同群体，用<span class="em">他们熟悉的语言·他们信任的渠道·他们身边的榜样</span>来讲。</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,94 L162,51 L288,86 L448,28 L578,72 L718,20 L858,60 L998,30 L1138,59 L1280,42 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">54 / 58</div>
+</div>
+
+<div class="slide" id="s55">
+<div class="pill"><span class="arrow">▶</span><span class="label">收尾·三讲汇总</span></div>
+<h2>两小时·三件大事</h2>
+<div class="divider"></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;">
+<div style="background:rgba(255,215,0,.12);border:2px solid rgba(255,215,0,.45);border-radius:12px;padding:14px 22px;display:flex;align-items:flex-start;gap:16px;">
+<div style="min-width:60px;text-align:center;">
+<div style="color:#FFD700;font-size:24px;font-weight:900;font-family:'SimSun','宋体',serif;">1</div>
+<div style="color:rgba(255,215,0,.6);font-size:12px;">是什么</div>
+</div>
+<div>
+<div style="color:#FFD700;font-size:16px;font-weight:700;margin-bottom:5px;">总体国家安全观——五大要素·五个统筹·三大属性</div>
+<div class="body-xs">人民性是底色，政治性是根本，统筹性是方法。民心是最大的政治，苏共前车之鉴不可忘，发展与安全是两只手。</div>
+</div>
+</div>
+<div style="background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.18);border-radius:12px;padding:14px 22px;display:flex;align-items:flex-start;gap:16px;">
+<div style="min-width:60px;text-align:center;">
+<div style="color:#fff;font-size:24px;font-weight:900;font-family:'SimSun','宋体',serif;">2</div>
+<div style="color:rgba(255,255,255,.5);font-size:12px;">怎么建</div>
+</div>
+<div>
+<div style="color:#fff;font-size:16px;font-weight:700;margin-bottom:5px;">现代化国家安全体系——3+5+2框架</div>
+<div class="body-xs">大安全拓疆域·系统思维把规律·主动塑造赢先机·总体战凝合力·法治化规范运行——五把钥匙开五扇门。</div>
+</div>
+</div>
+<div style="background:rgba(255,100,100,.08);border:1.5px solid rgba(255,120,120,.25);border-radius:12px;padding:14px 22px;display:flex;align-items:flex-start;gap:16px;">
+<div style="min-width:60px;text-align:center;">
+<div style="color:#FF9090;font-size:24px;font-weight:900;font-family:'SimSun','宋体',serif;">3</div>
+<div style="color:rgba(255,138,138,.6);font-size:12px;">怎么干</div>
+</div>
+<div>
+<div style="color:#FF9090;font-size:16px;font-weight:700;margin-bottom:5px;">基层干部的行动方案——三层反射·三个必做动作</div>
+<div class="body-xs">大国博弈在基层的四反射·数字时代的新战场四任务·排化宣三个闭环。</div>
+</div>
+</div>
+<div class="hl" style="font-size:15px;text-align:center;margin-top:4px;">
+      总体国家安全观，不是北京的课题——是<span class="em">我们每一天的工作底色</span>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,92 L154,49 L280,84 L440,27 L570,71 L710,20 L850,60 L990,30 L1130,57 L1280,40 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">55 / 58</div>
+</div>
+
+<div class="slide" id="s56">
+<div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(160deg,#8B0000 0%,#4a0010 55%,#1a000a 100%);"></div>
+<div style="position:relative;z-index:1;flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+<div class="golden-card">
+<div class="golden-num">第一句话</div>
+<div class="golden-text">国家安全无远近，<br/>民族复兴无旁人。</div>
+</div>
+<div class="golden-card">
+<div class="golden-num">第二句话</div>
+<div class="golden-text">民心是最大的政治，<br/>基层是最硬的底盘。</div>
+</div>
+<div class="golden-card">
+<div class="golden-num">第三句话</div>
+<div class="golden-text">做好当下每一件小事，<br/>就是在守护祖国的每一寸山河。</div>
+</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" style="opacity:.07;" viewbox="0 0 1280 140">
+<path d="M0,140 L0,88 L146,44 L266,80 L426,26 L558,66 L698,16 L838,56 L978,26 L1118,53 L1280,37 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">56 / 58</div>
+</div>
+
+
+<div class="slide" id="s58">
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+<div style="color:#FFD700;font-size:108px;font-weight:900;font-family:\'SimSun\',\'宋体\',\'STSong\',serif;text-shadow:0 4px 40px rgba(0,0,0,.6);letter-spacing:10px;">请批评指正</div>
+</div>
+<svg class="mtn" preserveaspectratio="none" viewbox="0 0 1280 140">
+<path d="M0,140 L0,94 L158,52 L284,86 L444,28 L574,72 L714,21 L854,61 L994,32 L1134,59 L1280,42 L1280,140 Z" fill="#fff"></path>
+</svg>
+<div class="snum">58 / 58</div>
+</div>
+
+</div><!-- /deck -->
+
+<div class="nav">
+  <button onclick="go(-1)">← 上一页</button>
+  <span class="progress" id="prog">1 / 58</span>
+  <button onclick="go(1)">下一页 →</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+let cur = 0;
+
+function fitDeck() {
+  const nav = document.querySelector('.nav');
+  const controlsHeight = nav ? nav.getBoundingClientRect().height : 0;
+  const availableHeight = Math.max(320, window.innerHeight - controlsHeight - 10);
+  const scale = Math.min(window.innerWidth / 1280, availableHeight / 720);
+  document.documentElement.style.setProperty('--deck-scale', String(scale));
+}
+
+function go(dir) {
+  slides[cur].classList.remove('active');
+  cur = Math.max(0, Math.min(slides.length - 1, cur + dir));
+  slides[cur].classList.add('active');
+  updateProgress();
+}
+
+function updateProgress() {
+  const num = slides[cur].querySelector('.snum');
+  document.getElementById('prog').textContent = num ? num.textContent.trim() : (cur + 1) + ' / ' + slides.length;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();go(1);}
+  if (e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();go(-1);}
+});
+
+window.addEventListener('resize', fitDeck);
+fitDeck();
+updateProgress();
+</script>
+</body>
+</html>
